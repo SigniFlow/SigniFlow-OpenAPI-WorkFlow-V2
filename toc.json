@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "type": "divider",
+      "title": "WELCOME"
+    },
+    {
+    "type": "item",
+    "title": "Introduction",
+    "uri": "docs/introduction.md"
+    },
+    {
+      "type": "divider",
+      "title": "GETTING STARTED"
+    },
+    {
+      "type": "item",
+      "title": "Obtaining Credentials",
+      "uri": "docs/obtaining-credentials.md"
+    },
+    {
+      "type": "item",
+      "title": "GitHub SDK Repo",
+      "uri": "https://signiflow.github.io/"
+    },
+    {
+      "type": "item",
+      "title": "Website",
+      "uri": "https://www.signiflow.com/"
+    },
+    {
+      "type": "item",
+      "title": "Academy",
+      "uri": "https://www.signiflow.com/academy"
+    },
+    {
+      "type": "item",
+      "title": "SigniFlow OpenAPI v1",
+      "uri": "reference/SigniFlow-OpenAPI-v1.yaml"
+    }
+  ]
+}
