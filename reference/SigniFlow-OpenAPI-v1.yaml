@@ -19,6 +19,18 @@ paths:
       responses:
         '200':
           description: Success
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Business'
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
         '400':
           description: Bad Request
           content:
@@ -39,6 +51,14 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
       operationId: ''
       description: Returns List of all Business Objects API Key has been granted access to.
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+      security:
+        - x-api-key: []
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
   '/Business/{id}':
     get:
       tags:
@@ -53,6 +73,17 @@ paths:
       responses:
         '200':
           description: Success
+<<<<<<< Updated upstream
+        '400':
+          description: Bad Request
+=======
+<<<<<<< HEAD
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Business'
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
         '400':
           description: Bad Request
           content:
@@ -61,10 +92,15 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '401':
           description: Unauthorized
+>>>>>>> Stashed changes
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '401':
+          description: Unauthorized
+=======
         '404':
           description: Not Found
           content:
@@ -72,6 +108,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       description: Returns details for a specific Business ID
+<<<<<<< HEAD
+      security:
+        - x-api-key: []
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
   /Document/List:
     get:
       tags:
@@ -81,16 +122,30 @@ paths:
           description: Success
         '400':
           description: Bad Request
+>>>>>>> Stashed changes
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '404':
+          description: Not Found
+=======
         '401':
           description: Unauthorized
+<<<<<<< HEAD
+>>>>>>> Stashed changes
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+      description: Returns details for a specific Business ID
+  /Document/List:
+    get:
+      tags:
+        - Document
+=======
         '404':
           description: Not Found
           content:
@@ -102,12 +157,140 @@ paths:
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
+      security:
+        - x-api-key: []
   '/Document/GetByUser/{ownerId}':
     get:
       tags:
         - Document
       parameters:
         - name: ownerId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+>>>>>>> Stashed changes
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '401':
+          description: Unauthorized
+=======
+<<<<<<< HEAD
+        '401':
+          description: Unauthorized
+=======
+        '404':
+          description: Not Found
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< HEAD
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      description: |-
+        Returns List of all Document Objects owned by specified User
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+      security:
+        - x-api-key: []
+  '/Document/GetByBusiness/{businessId}':
+=======
+      description: |-
+        Returns List of all Document Objects API Key has been granted access to.
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+  '/Document/GetByUser/{ownerId}':
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+    get:
+      tags:
+        - Document
+      parameters:
+<<<<<<< HEAD
+        - name: businessId
+=======
+        - name: ownerId
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '404':
+          description: Not Found
+=======
+        '401':
+          description: Unauthorized
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+      description: |-
+        Returns List of all Document Objects API Key has been granted access to.
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+  '/Document/GetByUser/{ownerId}':
+=======
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      description: |-
+        Returns List of all Document Objects owned by specified Business
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+      security:
+        - x-api-key: []
+  '/Document/{id}':
+>>>>>>> Stashed changes
+    get:
+      tags:
+        - Document
+      parameters:
+<<<<<<< Updated upstream
+        - name: ownerId
+=======
+        - name: id
+>>>>>>> Stashed changes
           in: path
           required: true
           schema:
@@ -124,6 +307,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '401':
           description: Unauthorized
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
           content:
             application/json:
               schema:
@@ -134,6 +321,56 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< HEAD
+      description: Returns details information of a Document
+      security:
+        - x-api-key: []
+  '/Document/Download/{id}':
+=======
+      description: |-
+        Returns List of all Document Objects owned by specified User
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+  '/Document/GetByBusiness/{businessId}':
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+    get:
+      tags:
+        - Document
+      parameters:
+<<<<<<< HEAD
+        - name: id
+=======
+        - name: businessId
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '404':
+          description: Not Found
+=======
+        '401':
+          description: Unauthorized
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
       description: |-
         Returns List of all Document Objects owned by specified User
         Limited to 1000 per request
@@ -150,27 +387,80 @@ paths:
           schema:
             type: integer
             format: int32
-      responses:
-        '200':
-          description: Success
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
+=======
         '404':
           description: Not Found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+      description: 'Download a document '
+      security:
+        - x-api-key: []
+  /Document:
+    post:
+      tags:
+        - Document
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentCreateModel'
+>>>>>>> Stashed changes
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '401':
+          description: Unauthorized
+=======
+<<<<<<< HEAD
+        '401':
+          description: Unauthorized
+=======
+        '404':
+          description: Not Found
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< HEAD
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      description: Create new Document Workflow
+      security:
+        - x-api-key: []
+  /Healthz:
+    get:
+      tags:
+        - Healthz
+      responses:
+        '200':
+          description: Success
+      description: Health test endpoint
+      security:
+        - x-api-key: []
+  /Portfolio/List:
+    get:
+      tags:
+        - Portfolio
+=======
       description: |-
         Returns List of all Document Objects owned by specified Business
         Limited to 1000 per request
@@ -187,27 +477,76 @@ paths:
           schema:
             type: integer
             format: int32
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
       responses:
         '200':
           description: Success
         '400':
           description: Bad Request
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '404':
+          description: Not Found
+=======
         '401':
           description: Unauthorized
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+      description: |-
+        Returns List of all Document Objects owned by specified Business
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+  '/Document/{id}':
+    get:
+      tags:
+        - Document
+      parameters:
+        - name: id
+=======
+<<<<<<< HEAD
+        '401':
+          description: Unauthorized
+=======
+        '404':
+          description: Not Found
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< HEAD
         '404':
           description: Not Found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+      description: |-
+        Returns List of all Portfolio Objects API key has access to
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+      security:
+        - x-api-key: []
+  '/Portfolio/GetByUser/{ownerId}':
+    get:
+      tags:
+        - Portfolio
+      parameters:
+        - name: ownerId
+=======
       description: Returns details information of a Document
   '/Document/Download/{id}':
     get:
@@ -215,6 +554,8 @@ paths:
         - Document
       parameters:
         - name: id
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
           in: path
           required: true
           schema:
@@ -225,22 +566,124 @@ paths:
           description: Success
         '400':
           description: Bad Request
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
         '401':
           description: Unauthorized
+<<<<<<< Updated upstream
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '404':
+          description: Not Found
+=======
+<<<<<<< HEAD
+        '401':
+          description: Unauthorized
+=======
+        '404':
+          description: Not Found
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+      description: Returns details information of a Document
+  '/Document/Download/{id}':
+    get:
+      tags:
+        - Document
+      parameters:
+        - name: id
+=======
+<<<<<<< HEAD
         '404':
           description: Not Found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+      description: |-
+        Returns List of all Portfolio Objects owned by specified user
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+      security:
+        - x-api-key: []
+  '/Portfolio/GetByBusiness/{businessId}':
+    get:
+      tags:
+        - Portfolio
+      parameters:
+        - name: businessId
+>>>>>>> Stashed changes
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+<<<<<<< Updated upstream
+=======
+=======
+      description: 'Download a document '
+  /Document:
+    post:
+      tags:
+        - Document
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentCreateModel'
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+<<<<<<< Updated upstream
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '401':
+          description: Unauthorized
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '404':
+          description: Not Found
+=======
+        '401':
+          description: Unauthorized
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
       description: 'Download a document '
   /Document:
     post:
@@ -262,16 +705,77 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
+=======
+<<<<<<< HEAD
+        '401':
+          description: Unauthorized
+=======
         '404':
           description: Not Found
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< HEAD
+      description: |-
+        Returns List of all Portfolio Objects owned by specified Business
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+      security:
+        - x-api-key: []
+  '/Portfolio/{id}':
+    get:
+      tags:
+        - Portfolio
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+=======
+      description: Create new Document Workflow
+  /Healthz:
+    get:
+      tags:
+        - Healthz
+      responses:
+        '200':
+          description: Success
+      description: Health test endpoint
+  /Portfolio/List:
+    get:
+      tags:
+        - Portfolio
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '404':
+          description: Not Found
+=======
+        '401':
+          description: Unauthorized
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
       description: Create new Document Workflow
   /Healthz:
     get:
@@ -296,27 +800,40 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
+=======
+<<<<<<< HEAD
+        '401':
+          description: Unauthorized
+=======
         '404':
           description: Not Found
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< HEAD
+      description: Return Portfolio details
+      security:
+        - x-api-key: []
+  '/Portfolio/Download/{id}':
+=======
       description: |-
         Returns List of all Portfolio Objects API key has access to
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
   '/Portfolio/GetByUser/{ownerId}':
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
     get:
       tags:
         - Portfolio
       parameters:
+<<<<<<< HEAD
+        - name: id
+=======
         - name: ownerId
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
           in: path
           required: true
           schema:
@@ -325,18 +842,56 @@ paths:
       responses:
         '200':
           description: Success
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< HEAD
         '401':
           description: Unauthorized
+=======
+        '400':
+          description: Bad Request
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '404':
+          description: Not Found
+=======
+<<<<<<< HEAD
+        '404':
+          description: Not Found
+=======
+        '401':
+          description: Unauthorized
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+      description: |-
+        Returns List of all Portfolio Objects API key has access to
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+  '/Portfolio/GetByUser/{ownerId}':
+=======
+<<<<<<< HEAD
+      description: Download Portfolio
+      security:
+        - x-api-key: []
+  /Portfolio:
+    post:
+      tags:
+        - Portfolio
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PortfolioCreateModel'
+=======
         '404':
           description: Not Found
           content:
@@ -349,16 +904,25 @@ paths:
         Supports ODATA Filters
         $filter=column eq 'value'
   '/Portfolio/GetByBusiness/{businessId}':
+>>>>>>> Stashed changes
     get:
       tags:
         - Portfolio
       parameters:
+<<<<<<< Updated upstream
+        - name: ownerId
+=======
         - name: businessId
+>>>>>>> Stashed changes
           in: path
           required: true
           schema:
             type: integer
             format: int32
+<<<<<<< Updated upstream
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
       responses:
         '200':
           description: Success
@@ -374,6 +938,74 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      description: |-
+        Returns List of all Portfolio Objects owned by specified user
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+  '/Portfolio/GetByBusiness/{businessId}':
+=======
+<<<<<<< HEAD
+      description: Create documents to Portfolio Workflow
+      security:
+        - x-api-key: []
+    put:
+      tags:
+        - Portfolio
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PortfolioAddModel'
+=======
+      description: |-
+        Returns List of all Portfolio Objects owned by specified Business
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+  '/Portfolio/{id}':
+>>>>>>> Stashed changes
+    get:
+      tags:
+        - Portfolio
+      parameters:
+<<<<<<< Updated upstream
+        - name: businessId
+=======
+        - name: id
+>>>>>>> Stashed changes
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+<<<<<<< Updated upstream
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
       description: |-
         Returns List of all Portfolio Objects owned by specified Business
         Limited to 1000 per request
@@ -390,6 +1022,14 @@ paths:
           schema:
             type: integer
             format: int32
+=======
+<<<<<<< HEAD
+      description: Add documents to Portfolio Workflow
+  /User/List:
+    get:
+      tags:
+        - User
+>>>>>>> Stashed changes
       responses:
         '200':
           description: Success
@@ -399,12 +1039,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
         '401':
           description: Unauthorized
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+=======
+=======
+>>>>>>> Stashed changes
       description: Return Portfolio details
   '/Portfolio/Download/{id}':
     get:
@@ -420,6 +1064,10 @@ paths:
       responses:
         '200':
           description: Success
+<<<<<<< Updated upstream
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
         '401':
           description: Unauthorized
           content:
@@ -432,6 +1080,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+      description: Returns List of all User Objects API Key has been granted access to.
+      security:
+        - x-api-key: []
+  '/User/{id}':
+    get:
+      tags:
+        - User
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+=======
+>>>>>>> Stashed changes
       description: Download Portfolio
   /Portfolio:
     post:
@@ -442,6 +1109,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PortfolioCreateModel'
+<<<<<<< Updated upstream
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
       responses:
         '200':
           description: Success
@@ -457,6 +1128,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
       description: Create documents to Portfolio Workflow
     put:
       tags:
@@ -471,10 +1143,16 @@ paths:
           description: Success
         '400':
           description: Bad Request
+=======
+<<<<<<< HEAD
+        '404':
+          description: Not Found
+>>>>>>> Stashed changes
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
         '401':
           description: Unauthorized
           content:
@@ -503,6 +1181,180 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '404':
           description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      description: Returns List of all User Objects API Key has been granted access to.
+  '/User/{id}':
+    get:
+      tags:
+        - User
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+=======
+      description: Returns Details of specified User
+      security:
+        - x-api-key: []
+  '/User/GetByEmail/{email}':
+    get:
+      tags:
+        - User
+      parameters:
+        - name: email
+          in: path
+          required: true
+          schema:
+            type: string
+=======
+      description: Create documents to Portfolio Workflow
+    put:
+      tags:
+        - Portfolio
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PortfolioAddModel'
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+<<<<<<< Updated upstream
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '401':
+          description: Unauthorized
+=======
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      description: Returns Details of specified User
+  '/User/GetByEmail/{email}':
+    get:
+      tags:
+        - User
+      parameters:
+        - name: email
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+=======
+        '401':
+          description: Unauthorized
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      description: Returns Details of specified User from email
+  '/User/GetByBusiness/{businessId}':
+    get:
+      tags:
+        - User
+      parameters:
+        - name: businessId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+=======
+<<<<<<< HEAD
+        '404':
+          description: Not Found
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+        '401':
+          description: Unauthorized
+=======
+      description: Returns Details of specified User from email
+      security:
+        - x-api-key: []
+  '/User/GetByBusiness/{businessId}':
+    get:
+      tags:
+        - User
+      parameters:
+        - name: businessId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+=======
+      description: Add documents to Portfolio Workflow
+  /User/List:
+    get:
+      tags:
+        - User
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+<<<<<<< HEAD
+=======
           content:
             application/json:
               schema:
@@ -589,23 +1441,39 @@ paths:
           description: Success
         '400':
           description: Bad Request
+>>>>>>> Stashed changes
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
         '404':
           description: Not Found
+=======
+        '401':
+          description: Unauthorized
+>>>>>>> Stashed changes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+<<<<<<< Updated upstream
+      description: Returns List of all User Objects by Business ID
+=======
+        '404':
+          description: Not Found
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       description: Returns List of all User Objects by Business ID
+<<<<<<< HEAD
+      security:
+        - x-api-key: []
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
 components:
   schemas:
     ActionField:
@@ -725,6 +1593,10 @@ components:
         - participants
         - portfolioId
         - sendPortfolioNotifications
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
       type: object
       properties:
         portfolioId:
@@ -752,6 +1624,49 @@ components:
       properties:
         portfolioOwnerEmail:
           maxLength: 250
+<<<<<<< Updated upstream
+          type: string
+          format: email
+        portfolioName:
+          maxLength: 250
+          type: string
+        sendPortfolioNotifications:
+          type: boolean
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/PortfolioDocumentCreateModel'
+        participants:
+          type: array
+          items:
+            $ref: '#/components/schemas/PortfolioParticipantModel'
+      additionalProperties: false
+    PortfolioDocumentCreateModel:
+      required:
+        - autoExpire
+        - autoRemind
+        - document
+        - documentName
+        - documentOwnerEmail
+        - extension
+        - participantReference
+        - priority
+        - sendEmail
+      type: object
+      properties:
+        documentOwnerEmail:
+          maxLength: 250
+          type: string
+          format: email
+        documentName:
+          maxLength: 250
+          type: string
+        document:
+          type: string
+        message:
+          maxLength: 3000
+          type: string
+=======
           type: string
           format: email
         portfolioName:
@@ -875,14 +1790,312 @@ components:
         - 1
       type: integer
       format: int32
+    Business:
+      description: ''
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+          minLength: 1
+        registrationNumber:
+          type: string
+          minLength: 1
+        taxNumber:
+          type: string
+          minLength: 1
+        addressLine1:
+          type: string
+          minLength: 1
+        addressLine2:
+          type: string
+          minLength: 1
+        addressLine3:
+          type: string
+          minLength: 1
+        addressLine4:
+          type: string
+          minLength: 1
+        country:
+          type: string
+          minLength: 1
+        industry:
+          type: string
+          minLength: 1
+      required:
+        - id
+        - name
+        - registrationNumber
+        - taxNumber
+        - addressLine1
+        - addressLine2
+        - addressLine3
+        - addressLine4
+        - country
+        - industry
+      x-examples:
+        example-1:
+          id: 2
+          name: PBSA (Pty) Limited
+          registrationNumber: 1998/008782/07
+          taxNumber: '4080190525'
+          addressLine1: 'Unit 9. Kayalami Crescent, Kayalami Boulevard'
+          addressLine2: Kayalami Business Park
+          addressLine3: Johannesburg
+          addressLine4: '1684'
+          country: South Africa
+          industry: Technology
+=======
+      type: object
+      properties:
+        portfolioId:
+          type: integer
+          format: int32
+        sendPortfolioNotifications:
+          type: boolean
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/PortfolioDocumentCreateModel'
+        participants:
+          type: array
+          items:
+            $ref: '#/components/schemas/PortfolioParticipantModel'
+      additionalProperties: false
+    PortfolioCreateModel:
+      required:
+        - documents
+        - participants
+        - portfolioName
+        - portfolioOwnerEmail
+        - sendPortfolioNotifications
+      type: object
+      properties:
+        portfolioOwnerEmail:
+          maxLength: 250
+          type: string
+          format: email
+        portfolioName:
+          maxLength: 250
+          type: string
+        sendPortfolioNotifications:
+          type: boolean
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/PortfolioDocumentCreateModel'
+        participants:
+          type: array
+          items:
+            $ref: '#/components/schemas/PortfolioParticipantModel'
+      additionalProperties: false
+    PortfolioDocumentCreateModel:
+      required:
+        - autoExpire
+        - autoRemind
+        - document
+        - documentName
+        - documentOwnerEmail
+        - extension
+        - participantReference
+        - priority
+        - sendEmail
+      type: object
+      properties:
+        documentOwnerEmail:
+          maxLength: 250
+          type: string
+          format: email
+        documentName:
+          maxLength: 250
+          type: string
+        document:
+          type: string
+        message:
+          maxLength: 3000
+          type: string
+>>>>>>> Stashed changes
+          nullable: true
+        extension:
+          $ref: '#/components/schemas/DocExtension'
+        dueDate:
+          type: string
+          format: date-time
+          nullable: true
+        autoExpire:
+          $ref: '#/components/schemas/AutoExpire'
+        autoRemind:
+          $ref: '#/components/schemas/AutoRemind'
+        priority:
+          $ref: '#/components/schemas/Priority'
+        sendEmail:
+          type: boolean
+        participantReference:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    PortfolioParticipantModel:
+      required:
+        - action
+        - email
+        - firstName
+        - languageCode
+        - lastName
+        - mobile
+        - participantReference
+        - proxyAllowed
+      type: object
+      properties:
+        participantReference:
+          type: string
+        action:
+          $ref: '#/components/schemas/ActionField'
+        mobile:
+          type: string
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        languageCode:
+          type: string
+        proxyAllowed:
+          $ref: '#/components/schemas/ProxyAllowedField'
+      additionalProperties: false
+    Priority:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
+      additionalProperties: {}
+    ProxyAllowedField:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+<<<<<<< Updated upstream
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
   securitySchemes:
     x-api-key:
       name: API Key
       type: apiKey
       in: header
       description: SigniFlow API Key
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+  responses:
+    Business:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            description: ''
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+                minLength: 1
+              registrationNumber:
+                type: string
+                minLength: 1
+              taxNumber:
+                type: string
+                minLength: 1
+              addressLine1:
+                type: string
+                minLength: 1
+              addressLine2:
+                type: string
+                minLength: 1
+              addressLine3:
+                type: string
+                minLength: 1
+              addressLine4:
+                type: string
+                minLength: 1
+              country:
+                type: string
+                minLength: 1
+              industry:
+                type: string
+                minLength: 1
+            required:
+              - id
+              - name
+              - registrationNumber
+              - taxNumber
+              - addressLine1
+              - addressLine2
+              - addressLine3
+              - addressLine4
+              - country
+              - industry
+            x-examples:
+              example-1:
+                id: 2
+                name: PBSA (Pty) Limited
+                registrationNumber: 1998/008782/07
+                taxNumber: '4080190525'
+                addressLine1: 'Unit 9. Kayalami Crescent, Kayalami Boulevard'
+                addressLine2: Kayalami Business Park
+                addressLine3: Johannesburg
+                addressLine4: '1684'
+                country: South Africa
+                industry: Technology
+          examples:
+            example-1:
+              value:
+                id: 0
+                name: string
+                registrationNumber: string
+                taxNumber: string
+                addressLine1: string
+                addressLine2: string
+                addressLine3: string
+                addressLine4: string
+                country: string
+                industry: string
+servers:
+  - url: 'https://preprod.signiflow.com/OpenApi'
+    description: Pre-Production
+=======
+>>>>>>> Stashed changes
 servers:
   - url: 'https://preprod.signiflow.com/OpenApi'
     description: Pre-Production
 security:
   - API Key - 1: []
+<<<<<<< Updated upstream
+=======
+>>>>>>> 7e10377edbe1f0cc39361f3fc1bc2b2de4decea1
+>>>>>>> Stashed changes
