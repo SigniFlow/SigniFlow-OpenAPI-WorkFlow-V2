@@ -981,7 +981,7 @@ components:
           industry: Technology
   securitySchemes:
     x-api-key:
-      name: API Key
+      name: X-API-Key
       type: apiKey
       in: header
       description: SigniFlow API Key
