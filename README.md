@@ -9,14 +9,14 @@ SigniFlow uses the OpenAPI (OAI) Specification - formerly known as "Swagger" - t
 
 ## The Swagger file
 
-![](https://validator.swagger.io/validator?url=https://raw.githubusercontent.com/SigniFlow/OpenAPI-Spec-V1/main/reference/SigniFlow-OpenAPI-v1.yaml) 
+![](https://validator.swagger.io/validator?url=https://raw.githubusercontent.com/SigniFlow/OpenAPI-Spec-V2/main/reference/SigniFlow-OpenAPI-V2.yaml) 
 
-`SigniFlow-OpenAPI-v1.yaml` - the full swagger file for SigniFlow's eSignature REST API v1
+`SigniFlow-OpenAPI-V2.yaml` - the full swagger file for SigniFlow's eSignature REST API V2
 
 
 ## What can I do with a Swagger file? 
 
-We use OpenAPI/Swagger files to build many of our developer tools including our [client SDKs](https://signiflow.github.io) using `swagger-codegen`. We also use the OAI specification to build our [API Docs](https://developers.signiflow.com/docs/signiflow-openapi-v1/docs/introduction.md). 
+We use OpenAPI/Swagger files to build many of our developer tools including our [client SDKs](https://signiflow.github.io) using `swagger-codegen`. We also use the OAI specification to build our [API Docs](https://developers.signiflow.com/docs/signiflow-openapi-V2/docs/introduction.md). 
 
 
 ## Support

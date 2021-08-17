@@ -25,14 +25,9 @@ Alternativly please reach out to our support desk for assistance with an API Acc
 * Academy : [Online Help](https://www.signiflow.com/academy/)
 * Videos : [YouTube](https://www.youtube.com/c/SigniFlow)
 
-## 🎟️ Token
+## 🎟️ API Key
 
-All API Methods require a [Token](../../reference/SigniFlow-OpenAPI-v1.yaml/components/schemas/TokenField), the Token is retrieved by making a request to the [/Login](../../reference/SigniFlow-OpenAPI-v1.yaml/paths/~1Login/post) Method.
-
-<!-- theme: warning -->
-
-> 
-[Token](../../reference/SigniFlow-OpenAPI-v1.yaml/components/schemas/TokenField) is set to expire 15 minutes after the last API call has been made, you can test the validity of a token with the [/TokenValidate](../../reference/SigniFlow-OpenAPI-v1.yaml/paths/~1TokenValidate) Method, and Extend the token using [/TokenExtend](../../reference/SigniFlow-OpenAPI-v1.yaml/paths/~1TokenExtend)
+All API Methods require a API Key, passed as Header: x-api-key
 
 ---
 
