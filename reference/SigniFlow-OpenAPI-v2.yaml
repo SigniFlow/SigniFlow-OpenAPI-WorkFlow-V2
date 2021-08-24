@@ -734,25 +734,25 @@ components:
           maxLength: 250
           type: string
           format: email
-          description: New document owner's domain name.
+          description: '#### New document owner''s domain name.'
         documentName:
           maxLength: 250
           type: string
-          description: Document name.
+          description: '#### Document name.'
         document:
           type: string
-          description: New document in string format.
+          description: '#### New document in string format.'
         message:
           maxLength: 3000
           type: string
-          description: Message
+          description: '#### Message'
           nullable: true
         extension:
           $ref: '#/components/schemas/DocExtension'
         dueDate:
           type: string
           format: date-time
-          description: Document completion date.
+          description: '#### Document completion date.'
           nullable: true
         autoExpire:
           $ref: '#/components/schemas/AutoExpire'
@@ -762,7 +762,7 @@ components:
           $ref: '#/components/schemas/Priority'
         sendEmail:
           type: boolean
-          description: Whether or not an email will be sent on document creation. True/false.
+          description: '#### Whether or not an email will be sent on document creation. True/false.'
         participants:
           type: array
           items:
@@ -788,25 +788,25 @@ components:
           maxLength: 15
           minLength: 0
           type: string
-          description: Participant mobile number.
+          description: '#### Participant mobile number.'
           nullable: true
         email:
           maxLength: 250
           type: string
           format: email
-          description: Participant email address.
+          description: '#### Participant email address.'
         firstName:
           maxLength: 350
           type: string
-          description: Participant first name.
+          description: '#### Participant first name.'
         lastName:
           maxLength: 250
           type: string
-          description: Participant last name.
+          description: '#### Participant last name.'
         languageCode:
           maxLength: 2
           type: string
-          description: Participant language code.
+          description: '#### Participant language code.'
         proxyAllowed:
           $ref: '#/components/schemas/ProxyAllowedField'
       required:
@@ -824,10 +824,10 @@ components:
         portfolioId:
           type: integer
           format: int32
-          description: Portfolio ID.
+          description: '#### Portfolio ID.'
         sendPortfolioNotifications:
           type: boolean
-          description: Whether or not to send a notification regarding the portfolio. True/false.
+          description: '#### Whether or not to send a notification regarding the portfolio. True/false.'
           default: true
         documents:
           type: array
@@ -851,15 +851,15 @@ components:
           maxLength: 250
           type: string
           format: email
-          description: Email address of the portfolio's owner.
+          description: '#### Email address of the portfolio''s owner.'
         portfolioName:
           maxLength: 250
           type: string
-          description: Portfolio name.
+          description: '#### Portfolio name.'
         sendPortfolioNotifications:
           type: boolean
           default: true
-          description: Whether or not to send a notification regarding the portfolio. True/false.
+          description: '#### Whether or not to send a notification regarding the portfolio. True/false.'
         documents:
           type: array
           items:
