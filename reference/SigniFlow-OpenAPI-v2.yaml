@@ -728,12 +728,13 @@ components:
       type: object
       additionalProperties: false
       title: Document Create Model
+      description: ''
       properties:
         documentOwnerEmail:
           maxLength: 250
           type: string
           format: email
-          description: New document owner.
+          description: New document owner's domain name.
         documentName:
           maxLength: 250
           type: string
@@ -761,7 +762,7 @@ components:
           $ref: '#/components/schemas/Priority'
         sendEmail:
           type: boolean
-          description: Whether or not an email will be sent on document creation.
+          description: Whether or not an email will be sent on document creation. True/false.
         participants:
           type: array
           items:
