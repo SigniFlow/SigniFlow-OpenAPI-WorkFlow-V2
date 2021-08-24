@@ -1041,47 +1041,6 @@ components:
           schema:
             description: ''
             type: object
-            properties:
-              id:
-                type: number
-              name:
-                type: string
-                minLength: 1
-              registrationNumber:
-                type: string
-                minLength: 1
-              taxNumber:
-                type: string
-                minLength: 1
-              addressLine1:
-                type: string
-                minLength: 1
-              addressLine2:
-                type: string
-                minLength: 1
-              addressLine3:
-                type: string
-                minLength: 1
-              addressLine4:
-                type: string
-                minLength: 1
-              country:
-                type: string
-                minLength: 1
-              industry:
-                type: string
-                minLength: 1
-            required:
-              - id
-              - name
-              - registrationNumber
-              - taxNumber
-              - addressLine1
-              - addressLine2
-              - addressLine3
-              - addressLine4
-              - country
-              - industry
             x-examples:
               example-1:
                 id: 2
@@ -1094,6 +1053,56 @@ components:
                 addressLine4: '1684'
                 country: South Africa
                 industry: Technology
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+                minLength: 1
+                description: Business name.
+              registrationNumber:
+                type: string
+                minLength: 1
+                description: Business registration number.
+              taxNumber:
+                type: string
+                minLength: 1
+                description: Business tax number.
+              addressLine1:
+                type: string
+                minLength: 1
+                description: Business address 1st line.
+              addressLine2:
+                type: string
+                minLength: 1
+                description: Business address 2nd line.
+              addressLine3:
+                type: string
+                minLength: 1
+                description: Business address 3de line.
+              addressLine4:
+                type: string
+                minLength: 1
+                description: Business address 4th line.
+              country:
+                type: string
+                minLength: 1
+                description: Country where the business is located.
+              industry:
+                type: string
+                minLength: 1
+                description: Industry that the business is in.
+            required:
+              - id
+              - name
+              - registrationNumber
+              - taxNumber
+              - addressLine1
+              - addressLine2
+              - addressLine3
+              - addressLine4
+              - country
+              - industry
           examples:
             example-1:
               value:
