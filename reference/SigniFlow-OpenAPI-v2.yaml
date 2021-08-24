@@ -663,18 +663,37 @@ components:
         - 2
       type: integer
       format: int32
+      description: |-
+        #### Is the action taken by a user in a workflow on this step.
+
+        `0 = SignDocument
+        1 = ViewDocument
+        2 = ApproveDocument`
+      title: ActionField
     AutoExpire:
       enum:
         - 0
         - 1
       type: integer
       format: int32
+      description: |-
+        #### Sets an Auto Expire that will expire the document if not completed by the Due Date</p>
+
+        `0 = No
+        1 = Yes`
+      title: AutoExpire
     AutoRemind:
       enum:
         - 0
         - 1
       type: integer
       format: int32
+      description: |-
+        #### Sets an Auto Reminder email to go out daily to workflow participants that have not signed the document
+
+        `0 = No
+        1 = Yes`
+      title: AutoRemind
     DocExtension:
       enum:
         - 0
@@ -689,6 +708,22 @@ components:
         - 9
       type: integer
       format: int32
+      title: DocExtension
+      description: |
+        #### Document Extension 
+
+        `
+        0 = pdf
+        1 = xls
+        2 = txt
+        3 = xlsx
+        4 = docx
+        5 = doc
+        6 = xml
+        7 = png
+        8 = jpg
+        9 = gif
+        `
     DocumentCreateModel:
       required:
         - autoExpire
@@ -897,6 +932,13 @@ components:
         - 2
       type: integer
       format: int32
+      description: |-
+        #### Priority of the workflow. 
+
+        `0 = Low
+        1 = Normal
+        2 = High`
+      title: Priority
     ProblemDetails:
       type: object
       properties:
@@ -923,6 +965,12 @@ components:
         - 1
       type: integer
       format: int32
+      title: ProxyAllowedField
+      description: |-
+        #### Determines whether or not a proxy is allowed.
+
+        `0 = No
+        1 = Yes`
     Business:
       description: ''
       type: object
