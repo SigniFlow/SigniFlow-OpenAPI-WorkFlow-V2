@@ -669,7 +669,7 @@ components:
         `0 = SignDocument
         1 = ViewDocument
         2 = ApproveDocument`
-      title: ActionField
+      title: Action Field
     AutoExpire:
       enum:
         - 0
@@ -681,7 +681,7 @@ components:
 
         `0 = No
         1 = Yes`
-      title: AutoExpire
+      title: Auto Expire
     AutoRemind:
       enum:
         - 0
@@ -693,7 +693,7 @@ components:
 
         `0 = No
         1 = Yes`
-      title: AutoRemind
+      title: Auto Remind
     DocExtension:
       enum:
         - 0
@@ -708,7 +708,7 @@ components:
         - 9
       type: integer
       format: int32
-      title: DocExtension
+      title: Document Extension
       description: |
         #### Document Extension 
 
@@ -769,6 +769,7 @@ components:
           items:
             $ref: '#/components/schemas/DocumentParticipantModel'
       additionalProperties: false
+      title: Document Create Model
     DocumentParticipantModel:
       required:
         - action
@@ -802,6 +803,7 @@ components:
         proxyAllowed:
           $ref: '#/components/schemas/ProxyAllowedField'
       additionalProperties: false
+      title: Document Participant Model
     PortfolioAddModel:
       required:
         - documents
@@ -824,6 +826,7 @@ components:
           items:
             $ref: '#/components/schemas/PortfolioParticipantModel'
       additionalProperties: false
+      title: Portfolio Add Model
     PortfolioCreateModel:
       required:
         - documents
@@ -851,6 +854,7 @@ components:
           items:
             $ref: '#/components/schemas/PortfolioParticipantModel'
       additionalProperties: false
+      title: Portfolio Create Model
     PortfolioDocumentCreateModel:
       required:
         - autoExpire
@@ -896,6 +900,8 @@ components:
           items:
             type: string
       additionalProperties: false
+      title: Portfolio Document Create Model
+      description: ''
     PortfolioParticipantModel:
       required:
         - action
@@ -925,6 +931,7 @@ components:
         proxyAllowed:
           $ref: '#/components/schemas/ProxyAllowedField'
       additionalProperties: false
+      title: Portfolio Participant Model
     Priority:
       enum:
         - 0
@@ -959,20 +966,21 @@ components:
           type: string
           nullable: true
       additionalProperties: {}
+      title: Problem Details
     ProxyAllowedField:
       enum:
         - 0
         - 1
       type: integer
       format: int32
-      title: ProxyAllowedField
+      title: Proxy Allowed Field
       description: |-
         #### Determines whether or not a proxy is allowed.
 
         `0 = No
         1 = Yes`
     Business:
-      description: ''
+      description: '#### Business Model'
       type: object
       x-examples:
         example-1:
@@ -1036,6 +1044,7 @@ components:
         - addressLine4
         - country
         - industry
+      title: Business
   securitySchemes:
     x-api-key:
       name: X-API-Key
