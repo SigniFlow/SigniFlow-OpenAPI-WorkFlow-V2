@@ -18,7 +18,7 @@ Making API calls to the SigniFlow system requires a user account.
 
 ## 🙋 Support Contact
 
-Alternativly please reach out to our support desk for assistance with an API Account.
+Alternatively please reach out to our support desk for assistance with an API Account.
 
 * Email : [support@signiflow.com](mailto:support@signiflow.com?subject=API%20Assistance)
 * Support Portal : [Helpdesk](https://helpdesk.signiflow.com/en/support/home)
@@ -27,7 +27,7 @@ Alternativly please reach out to our support desk for assistance with an API Acc
 
 ## 🎟️ API Key
 
-All API Methods require a API Key, passed as Header: x-api-key
+All API Methods require an API Key, passed as Header: x-api-key
 
 ---
 
