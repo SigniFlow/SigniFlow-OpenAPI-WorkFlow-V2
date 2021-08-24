@@ -778,14 +778,9 @@ components:
         - sendEmail
         - participants
     DocumentParticipantModel:
-      required:
-        - action
-        - email
-        - firstName
-        - languageCode
-        - lastName
-        - proxyAllowed
       type: object
+      additionalProperties: false
+      title: Document Participant Model
       properties:
         action:
           $ref: '#/components/schemas/ActionField'
@@ -793,37 +788,47 @@ components:
           maxLength: 15
           minLength: 0
           type: string
+          description: Participant mobile number.
           nullable: true
         email:
           maxLength: 250
           type: string
           format: email
+          description: Participant email address.
         firstName:
           maxLength: 350
           type: string
+          description: Participant first name.
         lastName:
           maxLength: 250
           type: string
+          description: Participant last name.
         languageCode:
           maxLength: 2
           type: string
+          description: Participant language code.
         proxyAllowed:
           $ref: '#/components/schemas/ProxyAllowedField'
-      additionalProperties: false
-      title: Document Participant Model
-    PortfolioAddModel:
       required:
-        - documents
-        - participants
-        - portfolioId
-        - sendPortfolioNotifications
+        - action
+        - email
+        - firstName
+        - lastName
+        - languageCode
+        - proxyAllowed
+    PortfolioAddModel:
       type: object
+      additionalProperties: false
+      title: Portfolio Add Model
       properties:
         portfolioId:
           type: integer
           format: int32
+          description: Portfolio ID.
         sendPortfolioNotifications:
           type: boolean
+          description: Whether or not to send a notification regarding the portfolio. True/false.
+          default: true
         documents:
           type: array
           items:
@@ -832,26 +837,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PortfolioParticipantModel'
-      additionalProperties: false
-      title: Portfolio Add Model
-    PortfolioCreateModel:
       required:
+        - portfolioId
+        - sendPortfolioNotifications
         - documents
         - participants
-        - portfolioName
-        - portfolioOwnerEmail
-        - sendPortfolioNotifications
+    PortfolioCreateModel:
       type: object
+      additionalProperties: false
+      title: Portfolio Create Model
       properties:
         portfolioOwnerEmail:
           maxLength: 250
           type: string
           format: email
+          description: Email address of the portfolio's owner.
         portfolioName:
           maxLength: 250
           type: string
+          description: Portfolio name.
         sendPortfolioNotifications:
           type: boolean
+          default: true
+          description: Whether or not to send a notification regarding the portfolio. True/false.
         documents:
           type: array
           items:
@@ -860,8 +868,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PortfolioParticipantModel'
-      additionalProperties: false
-      title: Portfolio Create Model
+      required:
+        - portfolioOwnerEmail
+        - portfolioName
+        - sendPortfolioNotifications
+        - documents
+        - participants
     PortfolioDocumentCreateModel:
       required:
         - autoExpire
