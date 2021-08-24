@@ -725,36 +725,33 @@ components:
         9 = gif
         `
     DocumentCreateModel:
-      required:
-        - autoExpire
-        - autoRemind
-        - document
-        - documentName
-        - documentOwnerEmail
-        - extension
-        - participants
-        - priority
-        - sendEmail
       type: object
+      additionalProperties: false
+      title: Document Create Model
       properties:
         documentOwnerEmail:
           maxLength: 250
           type: string
           format: email
+          description: New document owner.
         documentName:
           maxLength: 250
           type: string
+          description: Document name.
         document:
           type: string
+          description: New document in string format.
         message:
           maxLength: 3000
           type: string
+          description: Message
           nullable: true
         extension:
           $ref: '#/components/schemas/DocExtension'
         dueDate:
           type: string
           format: date-time
+          description: Document completion date.
           nullable: true
         autoExpire:
           $ref: '#/components/schemas/AutoExpire'
@@ -764,12 +761,21 @@ components:
           $ref: '#/components/schemas/Priority'
         sendEmail:
           type: boolean
+          description: Whether or not an email will be sent on document creation.
         participants:
           type: array
           items:
             $ref: '#/components/schemas/DocumentParticipantModel'
-      additionalProperties: false
-      title: Document Create Model
+      required:
+        - documentOwnerEmail
+        - documentName
+        - document
+        - extension
+        - autoExpire
+        - autoRemind
+        - priority
+        - sendEmail
+        - participants
     DocumentParticipantModel:
       required:
         - action
