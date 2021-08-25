@@ -47,6 +47,7 @@ paths:
       description: Returns List of all Business Objects API Key has been granted access to.
       security:
         - x-api-key: []
+      summary: Business List
   '/Business/{id}':
     get:
       tags:
@@ -86,6 +87,7 @@ paths:
       description: Returns details for a specific Business ID
       security:
         - x-api-key: []
+      summary: Business (ID)
   /Document/List:
     get:
       tags:
@@ -118,6 +120,7 @@ paths:
         $filter=column eq 'value'
       security:
         - x-api-key: []
+      summary: Document List
   '/Document/GetByUser/{ownerId}':
     get:
       tags:
@@ -157,6 +160,7 @@ paths:
         $filter=column eq 'value'
       security:
         - x-api-key: []
+      summary: Document GetByUser (OwenrID)
   '/Document/GetByBusiness/{businessId}':
     get:
       tags:
@@ -196,6 +200,7 @@ paths:
         $filter=column eq 'value'
       security:
         - x-api-key: []
+      summary: Document GetbyBusiness (BusinessID)
   '/Document/{id}':
     get:
       tags:
@@ -231,6 +236,7 @@ paths:
       description: Returns details information of a Document
       security:
         - x-api-key: []
+      summary: Document (ID)
   '/Document/Download/{id}':
     get:
       tags:
@@ -266,6 +272,7 @@ paths:
       description: 'Download a document '
       security:
         - x-api-key: []
+      summary: Document Download (ID)
   /Document:
     post:
       tags:
@@ -299,6 +306,7 @@ paths:
       description: Create new Document Workflow
       security:
         - x-api-key: []
+      summary: Document
   /Healthz:
     get:
       tags:
@@ -309,6 +317,7 @@ paths:
       description: Health test endpoint
       security:
         - x-api-key: []
+      summary: Healthz
   /Portfolio/List:
     get:
       tags:
@@ -341,6 +350,7 @@ paths:
         $filter=column eq 'value'
       security:
         - x-api-key: []
+      summary: Portfolio List
   '/Portfolio/GetByUser/{ownerId}':
     get:
       tags:
@@ -380,6 +390,7 @@ paths:
         $filter=column eq 'value'
       security:
         - x-api-key: []
+      summary: Portfolio GetByUser (OwenrID)
   '/Portfolio/GetByBusiness/{businessId}':
     get:
       tags:
@@ -413,6 +424,7 @@ paths:
         $filter=column eq 'value'
       security:
         - x-api-key: []
+      summary: Portfolio GetByBusiness (BusinessID)
   '/Portfolio/{id}':
     get:
       tags:
@@ -442,6 +454,7 @@ paths:
       description: Return Portfolio details
       security:
         - x-api-key: []
+      summary: Portfolio (ID)
   '/Portfolio/Download/{id}':
     get:
       tags:
@@ -471,6 +484,7 @@ paths:
       description: Download Portfolio
       security:
         - x-api-key: []
+      summary: Portfolio Download (ID)
   /Portfolio:
     post:
       tags:
@@ -498,6 +512,7 @@ paths:
       description: Create documents to Portfolio Workflow
       security:
         - x-api-key: []
+      summary: Portfolio
     put:
       tags:
         - Portfolio
@@ -550,6 +565,7 @@ paths:
       description: Returns List of all User Objects API Key has been granted access to.
       security:
         - x-api-key: []
+      summary: User List
   '/User/{id}':
     get:
       tags:
@@ -585,6 +601,7 @@ paths:
       description: Returns Details of specified User
       security:
         - x-api-key: []
+      summary: User (ID)
   '/User/GetByEmail/{email}':
     get:
       tags:
@@ -619,6 +636,7 @@ paths:
       description: Returns Details of specified User from email
       security:
         - x-api-key: []
+      summary: User GetByEmail (Email)
   '/User/GetByBusiness/{businessId}':
     get:
       tags:
@@ -654,6 +672,7 @@ paths:
       description: Returns List of all User Objects by Business ID
       security:
         - x-api-key: []
+      summary: User GetByBusiness (BusinessID)
 components:
   schemas:
     ActionField:
