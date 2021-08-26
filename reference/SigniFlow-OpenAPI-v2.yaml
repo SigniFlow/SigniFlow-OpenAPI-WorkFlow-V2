@@ -816,7 +816,7 @@ components:
         Document Create Model Example:
           value:
             documentOwnerEmail: user@example.com
-            documentName: string
+            documentName: Leave Application
             document: string
             message: string
             extension: 0
@@ -919,7 +919,7 @@ components:
             sendPortfolioNotifications: true
             documents:
               - documentOwnerEmail: user@example.com
-                documentName: string
+                documentName: Leave Application
                 document: string
                 message: string
                 extension: 0
@@ -982,7 +982,7 @@ components:
             sendPortfolioNotifications: true
             documents:
               - documentOwnerEmail: user@example.com
-                documentName: string
+                documentName: Leave Application
                 document: string
                 message: string
                 extension: 0
@@ -1060,7 +1060,7 @@ components:
         Portfolio Document Create Model Example:
           value:
             documentOwnerEmail: user@example.com
-            documentName: string
+            documentName: Leave Application
             document: string
             message: string
             extension: 0
