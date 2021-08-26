@@ -827,7 +827,7 @@ components:
             sendEmail: true
             participants:
               - action: 0
-                mobile: string
+                mobile: 078 000 0000
                 email: user@example.com
                 firstName: John
                 lastName: Doe
