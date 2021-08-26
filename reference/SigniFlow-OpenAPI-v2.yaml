@@ -692,6 +692,9 @@ components:
         1 = ViewDocument
         2 = ApproveDocument`
       title: Action Field
+      x-examples:
+        Action Field Example:
+          value: 0
     AutoExpire:
       enum:
         - 0
@@ -704,6 +707,9 @@ components:
         `0 = No
         1 = Yes`
       title: Auto Expire
+      x-examples:
+        Auto Expire Example:
+          value: 0
     AutoRemind:
       enum:
         - 0
@@ -716,6 +722,9 @@ components:
         `0 = No
         1 = Yes`
       title: Auto Remind
+      x-examples:
+        Auto Remind Example:
+          value: 0
     DocExtension:
       enum:
         - 0
@@ -746,6 +755,9 @@ components:
         8 = jpg
         9 = gif
         `
+      x-examples:
+        Document Extension Example:
+          value: 0
     DocumentCreateModel:
       type: object
       additionalProperties: false
@@ -800,6 +812,27 @@ components:
         - priority
         - sendEmail
         - participants
+      x-examples:
+        Document Create Model Example:
+          value:
+            documentOwnerEmail: user@example.com
+            documentName: string
+            document: string
+            message: string
+            extension: 0
+            dueDate: '2019-08-24T14:15:22Z'
+            autoExpire: 0
+            autoRemind: 0
+            priority: 0
+            sendEmail: true
+            participants:
+              - action: 0
+                mobile: string
+                email: user@example.com
+                firstName: John
+                lastName: Doe
+                languageCode: st
+                proxyAllowed: 0
     DocumentParticipantModel:
       type: object
       additionalProperties: false
@@ -840,6 +873,16 @@ components:
         - languageCode
         - proxyAllowed
       description: '#### Add document participants '
+      x-examples:
+        Document Participant Model Example:
+          value:
+            action: 0
+            mobile: 078 000 0000
+            email: user@example.com
+            firstName: John
+            lastName: Doe
+            languageCode: st
+            proxyAllowed: 0
     PortfolioAddModel:
       type: object
       additionalProperties: false
@@ -869,6 +912,33 @@ components:
         - sendPortfolioNotifications
         - documents
         - participants
+      x-examples:
+        Portfolio Add Model Example:
+          value:
+            portfolioId: -2147483648
+            sendPortfolioNotifications: true
+            documents:
+              - documentOwnerEmail: user@example.com
+                documentName: string
+                document: string
+                message: string
+                extension: 0
+                dueDate: '2019-08-24T14:15:22Z'
+                autoExpire: 0
+                autoRemind: 0
+                priority: 0
+                sendEmail: true
+                participantReference:
+                  - string
+            participants:
+              - participantReference: string
+                action: 0
+                mobile: 078 000 0000
+                email: user@example.com
+                firstName: John
+                lastName: Doe
+                languageCode: st
+                proxyAllowed: 0
     PortfolioCreateModel:
       type: object
       additionalProperties: false
@@ -904,6 +974,7 @@ components:
         - sendPortfolioNotifications
         - documents
         - participants
+      x-examples: {}
     PortfolioDocumentCreateModel:
       type: object
       additionalProperties: false
@@ -958,6 +1029,21 @@ components:
         - priority
         - sendEmail
         - participantReference
+      x-examples:
+        Portfolio Document Create Model Example:
+          value:
+            documentOwnerEmail: user@example.com
+            documentName: string
+            document: string
+            message: string
+            extension: 0
+            dueDate: '2019-08-24T14:15:22Z'
+            autoExpire: 0
+            autoRemind: 0
+            priority: 0
+            sendEmail: true
+            participantReference:
+              - string
     PortfolioParticipantModel:
       type: object
       additionalProperties: false
@@ -1009,6 +1095,9 @@ components:
         1 = Normal
         2 = High`
       title: Priority
+      x-examples:
+        Priority Example:
+          value: 1
     ProblemDetails:
       type: object
       additionalProperties: {}
@@ -1048,21 +1137,13 @@ components:
 
         `0 = No
         1 = Yes`
+      x-examples:
+        Proxy Allowed Field Example:
+          value: 1
     Business:
       description: '#### Business Model'
       type: object
-      x-examples:
-        example-1:
-          id: 2
-          name: PBSA (Pty) Limited
-          registrationNumber: 1998/008782/07
-          taxNumber: '4080190525'
-          addressLine1: 'Unit 9. Kayalami Crescent, Kayalami Boulevard'
-          addressLine2: Kayalami Business Park
-          addressLine3: Johannesburg
-          addressLine4: '1684'
-          country: South Africa
-          industry: Technology
+      x-examples: {}
       properties:
         id:
           type: number
