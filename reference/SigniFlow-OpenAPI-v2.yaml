@@ -1008,26 +1008,31 @@ components:
       title: Priority
     ProblemDetails:
       type: object
+      additionalProperties: {}
+      title: Problem Details
+      description: '#### Details of a problem that was experienced '
       properties:
         type:
           type: string
+          description: '#### The type of problem that has been experienced.'
           nullable: true
         title:
           type: string
+          description: '#### The title of the problem.'
           nullable: true
         status:
           type: integer
           format: int32
+          description: '#### The status of the problem.'
           nullable: true
         detail:
           type: string
+          description: '#### The details of the problem that was/is being experienced.'
           nullable: true
         instance:
           type: string
+          description: '#### The instance of the problem (?).'
           nullable: true
-      additionalProperties: {}
-      title: Problem Details
-      description: '#### Details of a problem that was experienced '
     ProxyAllowedField:
       enum:
         - 0
