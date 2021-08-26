@@ -974,7 +974,34 @@ components:
         - sendPortfolioNotifications
         - documents
         - participants
-      x-examples: {}
+      x-examples:
+        Portfolio Create Model Example:
+          value:
+            portfolioOwnerEmail: user@example.com
+            portfolioName: string
+            sendPortfolioNotifications: true
+            documents:
+              - documentOwnerEmail: user@example.com
+                documentName: string
+                document: string
+                message: string
+                extension: 0
+                dueDate: '2019-08-24T14:15:22Z'
+                autoExpire: 0
+                autoRemind: 0
+                priority: 0
+                sendEmail: true
+                participantReference:
+                  - string
+            participants:
+              - participantReference: string
+                action: 0
+                mobile: 078 000 0000
+                email: user@example.com
+                firstName: John
+                lastName: Doe
+                languageCode: st
+                proxyAllowed: 0
     PortfolioDocumentCreateModel:
       type: object
       additionalProperties: false
@@ -1081,6 +1108,17 @@ components:
         - lastName
         - languageCode
         - proxyAllowed
+      x-examples:
+        Portfolio Participant Model Example:
+          value:
+            participantReference: string
+            action: 0
+            mobile: 078 000 0000
+            email: user@example.com
+            firstName: John
+            lastName: Doe
+            languageCode: st
+            proxyAllowed: 0
     Priority:
       enum:
         - 0
@@ -1125,6 +1163,16 @@ components:
           type: string
           description: '#### The instance of the problem (?).'
           nullable: true
+      x-examples:
+        Problem Details Example:
+          value:
+            type: string
+            title: string
+            status: -2147483648
+            detail: string
+            instance: string
+            property1: null
+            property2: null
     ProxyAllowedField:
       enum:
         - 0
