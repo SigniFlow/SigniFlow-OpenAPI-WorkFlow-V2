@@ -233,7 +233,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Returns details information of a Document
+      description: Returns details information of a Document.
       security:
         - x-api-key: []
       summary: Document (ID)
@@ -282,6 +282,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/DocumentCreateModel'
+        description: ''
       responses:
         '200':
           description: Success
@@ -303,7 +304,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Create new Document Workflow
+      description: Create new Document Workflow.
       security:
         - x-api-key: []
       summary: Document
@@ -351,6 +352,7 @@ paths:
       security:
         - x-api-key: []
       summary: Portfolio List
+      operationId: ''
   '/Portfolio/GetByUser/{ownerId}':
     get:
       tags:
@@ -451,7 +453,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Return Portfolio details
+      description: Return Portfolio details.
       security:
         - x-api-key: []
       summary: Portfolio (ID)
@@ -481,7 +483,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Download Portfolio
+      description: Download Portfolio.
       security:
         - x-api-key: []
       summary: Portfolio Download (ID)
@@ -509,7 +511,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Create documents to Portfolio Workflow
+      description: Create documents to Portfolio Workflow.
       security:
         - x-api-key: []
       summary: Portfolio
@@ -536,7 +538,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Add documents to Portfolio Workflow
+      description: Add documents to Portfolio Workflow.
+      summary: Portfolio
   /User/List:
     get:
       tags:
@@ -598,7 +601,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Returns Details of specified User
+      description: Returns Details of specified User.
       security:
         - x-api-key: []
       summary: User (ID)
@@ -633,7 +636,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Returns Details of specified User from email
+      description: Returns Details of specified User from email.
       security:
         - x-api-key: []
       summary: User GetByEmail (Email)
@@ -669,7 +672,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Returns List of all User Objects by Business ID
+      description: Returns List of all User Objects by Business ID.
       security:
         - x-api-key: []
       summary: User GetByBusiness (BusinessID)
