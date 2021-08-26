@@ -282,7 +282,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/DocumentCreateModel'
-        description: ''
+        description: Create new Document Workflow request.
       responses:
         '200':
           description: Success
@@ -496,6 +496,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PortfolioCreateModel'
+        description: Create documents to Portfolio Workflow request.
       responses:
         '200':
           description: Success
@@ -523,6 +524,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PortfolioAddModel'
+        description: Create documents to Portfolio Workflow request.
       responses:
         '200':
           description: Success
