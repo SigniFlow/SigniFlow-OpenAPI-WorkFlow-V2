@@ -1166,10 +1166,10 @@ components:
       x-examples:
         Problem Details Example:
           value:
-            type: string
-            title: string
+            type: Login Issue
+            title: Unable to Login
             status: -2147483648
-            detail: string
+            detail: The user is unable to login even after resetting their password
             instance: string
             property1: null
             property2: null
