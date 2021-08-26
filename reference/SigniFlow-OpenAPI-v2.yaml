@@ -956,36 +956,42 @@ components:
         - sendEmail
         - participantReference
     PortfolioParticipantModel:
-      required:
-        - action
-        - email
-        - firstName
-        - languageCode
-        - lastName
-        - mobile
-        - participantReference
-        - proxyAllowed
       type: object
+      additionalProperties: false
+      title: Portfolio Participant Model
+      description: '#### Participants in a portfolio'
       properties:
         participantReference:
           type: string
+          description: '#### The refrence to each participant.'
         action:
           $ref: '#/components/schemas/ActionField'
         mobile:
           type: string
+          description: '#### Participant mobile number.'
         email:
           type: string
+          description: '#### Participant email address.'
         firstName:
           type: string
+          description: '#### Participant first name.'
         lastName:
           type: string
+          description: '#### Participant last name.'
         languageCode:
           type: string
+          description: '#### Participant language code.'
         proxyAllowed:
           $ref: '#/components/schemas/ProxyAllowedField'
-      additionalProperties: false
-      title: Portfolio Participant Model
-      description: '#### Participants in a portfolio'
+      required:
+        - participantReference
+        - action
+        - mobile
+        - email
+        - firstName
+        - lastName
+        - languageCode
+        - proxyAllowed
     Priority:
       enum:
         - 0
