@@ -765,6 +765,27 @@ components:
       additionalProperties: false
       title: Document Create Model
       description: '#### Create a document '
+      x-examples:
+        Document Create Model Example:
+          value:
+            documentOwnerEmail: user@example.com
+            documentName: Leave Application
+            document: string
+            message: This is a leave application
+            extension: 0
+            dueDate: '2019-08-24T14:15:22Z'
+            autoExpire: 0
+            autoRemind: 0
+            priority: 0
+            sendEmail: true
+            participants:
+              - action: 0
+                mobile: 078 000 0000
+                email: user@example.com
+                firstName: John
+                lastName: Doe
+                languageCode: st
+                proxyAllowed: 0
       properties:
         documentOwnerEmail:
           maxLength: 250
@@ -777,7 +798,7 @@ components:
           description: '#### Document name.'
         document:
           type: string
-          description: '#### New document in string format.'
+          description: '#### Document in a base64 string format.'
         message:
           maxLength: 3000
           type: string
@@ -814,27 +835,6 @@ components:
         - priority
         - sendEmail
         - participants
-      x-examples:
-        Document Create Model Example:
-          value:
-            documentOwnerEmail: user@example.com
-            documentName: Leave Application
-            document: string
-            message: This is a leave application
-            extension: 0
-            dueDate: '2019-08-24T14:15:22Z'
-            autoExpire: 0
-            autoRemind: 0
-            priority: 0
-            sendEmail: true
-            participants:
-              - action: 0
-                mobile: 078 000 0000
-                email: user@example.com
-                firstName: John
-                lastName: Doe
-                languageCode: st
-                proxyAllowed: 0
     DocumentParticipantModel:
       type: object
       additionalProperties: false
@@ -1009,6 +1009,21 @@ components:
       additionalProperties: false
       title: Portfolio Document Create Model
       description: '#### Create a document in a portfolio'
+      x-examples:
+        Portfolio Document Create Model Example:
+          value:
+            documentOwnerEmail: user@example.com
+            documentName: Leave Application
+            document: string
+            message: This is a leave application
+            extension: 0
+            dueDate: '2019-08-24T14:15:22Z'
+            autoExpire: 0
+            autoRemind: 0
+            priority: 0
+            sendEmail: true
+            participantReference:
+              - string
       properties:
         documentOwnerEmail:
           maxLength: 250
@@ -1021,7 +1036,7 @@ components:
           description: '#### The name of the document'
         document:
           type: string
-          description: '#### Document as a base64 string'
+          description: '#### Document in a base64 string format.'
         message:
           maxLength: 3000
           type: string
@@ -1058,21 +1073,6 @@ components:
         - priority
         - sendEmail
         - participantReference
-      x-examples:
-        Portfolio Document Create Model Example:
-          value:
-            documentOwnerEmail: user@example.com
-            documentName: Leave Application
-            document: string
-            message: This is a leave application
-            extension: 0
-            dueDate: '2019-08-24T14:15:22Z'
-            autoExpire: 0
-            autoRemind: 0
-            priority: 0
-            sendEmail: true
-            participantReference:
-              - string
     PortfolioParticipantModel:
       type: object
       additionalProperties: false
