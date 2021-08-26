@@ -818,7 +818,7 @@ components:
             documentOwnerEmail: user@example.com
             documentName: Leave Application
             document: string
-            message: string
+            message: This is a leave application
             extension: 0
             dueDate: '2019-08-24T14:15:22Z'
             autoExpire: 0
@@ -921,7 +921,7 @@ components:
               - documentOwnerEmail: user@example.com
                 documentName: Leave Application
                 document: string
-                message: string
+                message: This is a leave application
                 extension: 0
                 dueDate: '2019-08-24T14:15:22Z'
                 autoExpire: 0
@@ -984,7 +984,7 @@ components:
               - documentOwnerEmail: user@example.com
                 documentName: Leave Application
                 document: string
-                message: string
+                message: This is a leave application
                 extension: 0
                 dueDate: '2019-08-24T14:15:22Z'
                 autoExpire: 0
@@ -1062,7 +1062,7 @@ components:
             documentOwnerEmail: user@example.com
             documentName: Leave Application
             document: string
-            message: string
+            message: This is a leave application
             extension: 0
             dueDate: '2019-08-24T14:15:22Z'
             autoExpire: 0
@@ -1170,7 +1170,7 @@ components:
             title: Unable to Login
             status: -2147483648
             detail: The user is unable to login even after resetting their password
-            instance: string
+            instance: Error
             property1: null
             property2: null
     ProxyAllowedField:
@@ -1191,7 +1191,19 @@ components:
     Business:
       description: '#### Business Model'
       type: object
-      x-examples: {}
+      x-examples:
+        Business Example:
+          value:
+            id: 0
+            name: John
+            registrationNumber: '983747376298276387182'
+            taxNumber: '1872617631'
+            addressLine1: Johannesburg
+            addressLine2: Kyalami
+            addressLine3: Dove Drive
+            addressLine4: 27 Hare street
+            country: South Africa
+            industry: Manufacturing
       properties:
         id:
           type: number
