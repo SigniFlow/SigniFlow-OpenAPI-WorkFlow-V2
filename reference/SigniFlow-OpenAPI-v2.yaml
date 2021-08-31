@@ -923,7 +923,7 @@ components:
               - documentOwnerEmail: user@example.com
                 documentName: Leave Application
                 document: base64 string
-                message: This is a leave application
+                message: This is a leave application (This message is displayed when a signed opens the document).
                 extension: 0
                 dueDate: '2019-08-24T14:15:22Z'
                 autoExpire: 0
@@ -986,7 +986,7 @@ components:
               - documentOwnerEmail: user@example.com
                 documentName: Leave Application
                 document: base64 string
-                message: This is a leave application
+                message: This is a leave application (This message is displayed when a signed opens the document).
                 extension: 0
                 dueDate: '2019-08-24T14:15:22Z'
                 autoExpire: 0
@@ -1015,7 +1015,7 @@ components:
             documentOwnerEmail: user@example.com
             documentName: Leave Application
             document: base64 string
-            message: This is a leave application ()
+            message: This is a leave application (This message is displayed when a signed opens the document).
             extension: 0
             dueDate: '2019-08-24T14:15:22Z'
             autoExpire: 0
@@ -1334,18 +1334,18 @@ components:
               - country
               - industry
           examples:
-            example-1:
+            Business Example Response:
               value:
                 id: 0
-                name: string
-                registrationNumber: string
-                taxNumber: string
-                addressLine1: string
-                addressLine2: string
-                addressLine3: string
-                addressLine4: string
-                country: string
-                industry: string
+                name: John
+                registrationNumber: '983747376298276387182'
+                taxNumber: '1872617631'
+                addressLine1: Johannesburg
+                addressLine2: Kyalami
+                addressLine3: Dove Drive
+                addressLine4: 27 Hare street
+                country: '137'
+                industry: Manufacturing
 servers:
   - url: 'https://preprod.signiflow.com/OpenApi'
     description: Pre-Production
