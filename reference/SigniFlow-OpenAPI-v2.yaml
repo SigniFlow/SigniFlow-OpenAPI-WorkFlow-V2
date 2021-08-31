@@ -44,7 +44,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       operationId: ''
-      description: Returns List of all Business Objects API Key has been granted access to.
+      description: Returns List of all Business Objects that the API Key has been granted access to.
       security:
         - x-api-key: []
       summary: Business List
@@ -84,7 +84,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Returns details for a specific Business ID
+      description: Returns details for a specific Business ID.
       security:
         - x-api-key: []
       summary: Business (ID)
@@ -114,7 +114,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       description: |-
-        Returns List of all Document Objects API Key has been granted access to.
+        Returns List of all Document Objects that the API Key has been granted access to.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -154,7 +154,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       description: |-
-        Returns List of all Document Objects owned by specified User
+        Returns List of all Document Objects owned by the specified User.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -194,7 +194,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       description: |-
-        Returns List of all Document Objects owned by specified Business
+        Returns List of all Document Objects owned by the specified Business.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -233,7 +233,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Returns details information of a Document.
+      description: Returns detailed information of a Document.
       security:
         - x-api-key: []
       summary: Document (ID)
@@ -269,7 +269,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: 'Download a document '
+      description: Download a document (returns the base64 of the document).
       security:
         - x-api-key: []
       summary: Document Download (ID)
@@ -282,7 +282,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/DocumentCreateModel'
-        description: Create new Document Workflow request.
+        description: Create a new Document Workflow request.
       responses:
         '200':
           description: Success
@@ -304,7 +304,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Create new Document Workflow.
+      description: Create a new Document Workflow.
       security:
         - x-api-key: []
       summary: Document
@@ -315,7 +315,7 @@ paths:
       responses:
         '200':
           description: Success
-      description: Health test endpoint
+      description: Health test endpoint.
       security:
         - x-api-key: []
       summary: Healthz
@@ -345,7 +345,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       description: |-
-        Returns List of all Portfolio Objects API key has access to
+        Returns a List of all Portfolio Objects that the API key has access to.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -386,7 +386,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       description: |-
-        Returns List of all Portfolio Objects owned by specified user
+        Returns a List of all Portfolio Objects owned by the specified user.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -420,7 +420,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       description: |-
-        Returns List of all Portfolio Objects owned by specified Business
+        Returns a List of all Portfolio Objects owned by the specified Business.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -453,7 +453,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Return Portfolio details.
+      description: Returns Portfolio details.
       security:
         - x-api-key: []
       summary: Portfolio (ID)
@@ -483,7 +483,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Download Portfolio.
+      description: Download the Portfolio.
       security:
         - x-api-key: []
       summary: Portfolio Download (ID)
@@ -496,7 +496,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PortfolioCreateModel'
-        description: Create documents to Portfolio Workflow request.
+        description: Create Portfolio request.
       responses:
         '200':
           description: Success
@@ -512,7 +512,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Create documents to Portfolio Workflow.
+      description: Create a Portfolio.
       security:
         - x-api-key: []
       summary: Portfolio
@@ -524,7 +524,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PortfolioAddModel'
-        description: Create documents to Portfolio Workflow request.
+        description: Add documents to the Portfolio request.
       responses:
         '200':
           description: Success
@@ -540,7 +540,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Add documents to Portfolio Workflow.
+      description: Add documents to the Portfolio.
       summary: Portfolio
   /User/List:
     get:
@@ -567,7 +567,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Returns List of all User Objects API Key has been granted access to.
+      description: Returns a List of all User Objects that the API Key has been granted access to.
       security:
         - x-api-key: []
       summary: User List
@@ -603,7 +603,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Returns Details of specified User.
+      description: Returns the Details of a specified User.
       security:
         - x-api-key: []
       summary: User (ID)
@@ -638,7 +638,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Returns Details of specified User from email.
+      description: Returns the Details of a specified User using the user's email.
       security:
         - x-api-key: []
       summary: User GetByEmail (Email)
@@ -674,7 +674,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Returns List of all User Objects by Business ID.
+      description: Returns a List of all the User in a business with the specified Business ID.
       security:
         - x-api-key: []
       summary: User GetByBusiness (BusinessID)
@@ -688,7 +688,7 @@ components:
       type: integer
       format: int32
       description: |-
-        #### This is the action taken by a user in a workflow on this step.
+        #### An action taken by a user.
 
         `0 = SignDocument
         1 = ViewDocument
@@ -704,7 +704,7 @@ components:
       type: integer
       format: int32
       description: |-
-        #### Sets an Auto Expire that will expire the document if not completed by the Due Date</p>
+        #### Sets an Auto Expire that will expire the document if not completed by the Due Date.
 
         `0 = No
         1 = Yes`
@@ -719,7 +719,7 @@ components:
       type: integer
       format: int32
       description: |-
-        #### Sets an Auto Reminder email to go out daily to workflow participants that have not signed the document
+        #### Sets an Auto Reminder email to go out daily to workflow participants that have not actioned the document.
 
         `0 = No
         1 = Yes`
@@ -770,8 +770,8 @@ components:
           value:
             documentOwnerEmail: user@example.com
             documentName: Leave Application
-            document: string
-            message: This is a leave application
+            document: base64 string
+            message: This is a leave application (This message is displayed when a signed opens the document).
             extension: 0
             dueDate: '2019-08-24T14:15:22Z'
             autoExpire: 0
@@ -780,11 +780,11 @@ components:
             sendEmail: true
             participants:
               - action: 0
-                mobile: 078 000 0000
+                mobile: +27 78 000 0000
                 email: user@example.com
                 firstName: John
                 lastName: Doe
-                languageCode: st
+                languageCode: en
                 proxyAllowed: 0
       properties:
         documentOwnerEmail:
@@ -879,11 +879,11 @@ components:
         Document Participant Model Example:
           value:
             action: 0
-            mobile: 078 000 0000
+            mobile: +27 78 000 0000
             email: user@example.com
             firstName: John
             lastName: Doe
-            languageCode: st
+            languageCode: en
             proxyAllowed: 0
     PortfolioAddModel:
       type: object
@@ -917,12 +917,12 @@ components:
       x-examples:
         Portfolio Add Model Example:
           value:
-            portfolioId: -2147483648
+            portfolioId: 2147483648
             sendPortfolioNotifications: true
             documents:
               - documentOwnerEmail: user@example.com
                 documentName: Leave Application
-                document: string
+                document: base64 string
                 message: This is a leave application
                 extension: 0
                 dueDate: '2019-08-24T14:15:22Z'
@@ -935,11 +935,11 @@ components:
             participants:
               - participantReference: string
                 action: 0
-                mobile: 078 000 0000
+                mobile: +27 78 000 0000
                 email: user@example.com
                 firstName: John
                 lastName: Doe
-                languageCode: st
+                languageCode: en
                 proxyAllowed: 0
     PortfolioCreateModel:
       type: object
@@ -985,7 +985,7 @@ components:
             documents:
               - documentOwnerEmail: user@example.com
                 documentName: Leave Application
-                document: string
+                document: base64 string
                 message: This is a leave application
                 extension: 0
                 dueDate: '2019-08-24T14:15:22Z'
@@ -998,11 +998,11 @@ components:
             participants:
               - participantReference: string
                 action: 0
-                mobile: 078 000 0000
+                mobile: +27 78 000 0000
                 email: user@example.com
                 firstName: John
                 lastName: Doe
-                languageCode: st
+                languageCode: en
                 proxyAllowed: 0
     PortfolioDocumentCreateModel:
       type: object
@@ -1014,8 +1014,8 @@ components:
           value:
             documentOwnerEmail: user@example.com
             documentName: Leave Application
-            document: string
-            message: This is a leave application
+            document: base64 string
+            message: This is a leave application ()
             extension: 0
             dueDate: '2019-08-24T14:15:22Z'
             autoExpire: 0
@@ -1077,7 +1077,7 @@ components:
       type: object
       additionalProperties: false
       title: Portfolio Participant Model
-      description: '#### Participants in a portfolio'
+      description: '#### Participants in a portfolio.'
       properties:
         participantReference:
           type: string
@@ -1115,11 +1115,11 @@ components:
           value:
             participantReference: string
             action: 0
-            mobile: 078 000 0000
+            mobile: +27 78 000 0000
             email: user@example.com
             firstName: John
             lastName: Doe
-            languageCode: st
+            languageCode: en
             proxyAllowed: 0
     Priority:
       enum:
@@ -1170,8 +1170,8 @@ components:
           value:
             type: Login Issue
             title: Unable to Login
-            status: -2147483648
-            detail: The user is unable to login even after resetting their password
+            status: 2147483648
+            detail: The user's detials were incorrect.
             instance: Error
             property1: null
             property2: null
@@ -1204,8 +1204,9 @@ components:
             addressLine2: Kyalami
             addressLine3: Dove Drive
             addressLine4: 27 Hare street
-            country: South Africa
+            country: '137'
             industry: Manufacturing
+      title: Business
       properties:
         id:
           type: number
@@ -1256,7 +1257,6 @@ components:
         - addressLine4
         - country
         - industry
-      title: Business
   securitySchemes:
     x-api-key:
       name: X-API-Key
