@@ -768,9 +768,9 @@ components:
       x-examples:
         Document Create Model Example:
           value:
-            documentOwnerEmail: user@example.com
+            documentOwnerEmail: email@domain.com
             documentName: Leave Application
-            document: base64 string
+            document: Base64 Encoded Document
             message: This is a leave application (This message is displayed when a signed opens the document).
             extension: 0
             dueDate: '2019-08-24T14:15:22Z'
@@ -781,7 +781,7 @@ components:
             participants:
               - action: 0
                 mobile: +27 78 000 0000
-                email: user@example.com
+                email: email@domain.com
                 firstName: John
                 lastName: Doe
                 languageCode: en
@@ -830,9 +830,6 @@ components:
         - documentName
         - document
         - extension
-        - autoExpire
-        - autoRemind
-        - priority
         - sendEmail
         - participants
     DocumentParticipantModel:
@@ -880,7 +877,7 @@ components:
           value:
             action: 0
             mobile: +27 78 000 0000
-            email: user@example.com
+            email: email@domain.com
             firstName: John
             lastName: Doe
             languageCode: en
@@ -920,9 +917,9 @@ components:
             portfolioId: 2147483648
             sendPortfolioNotifications: true
             documents:
-              - documentOwnerEmail: user@example.com
+              - documentOwnerEmail: email@domain.com
                 documentName: Leave Application
-                document: base64 string
+                document: Base64 Encoded Document
                 message: This is a leave application (This message is displayed when a signed opens the document).
                 extension: 0
                 dueDate: '2019-08-24T14:15:22Z'
@@ -936,7 +933,7 @@ components:
               - participantReference: string
                 action: 0
                 mobile: +27 78 000 0000
-                email: user@example.com
+                email: email@domain.com
                 firstName: John
                 lastName: Doe
                 languageCode: en
@@ -979,13 +976,13 @@ components:
       x-examples:
         Portfolio Create Model Example:
           value:
-            portfolioOwnerEmail: user@example.com
-            portfolioName: string
+            portfolioOwnerEmail: email@domain.com
+            portfolioName: Portfolio 1
             sendPortfolioNotifications: true
             documents:
-              - documentOwnerEmail: user@example.com
+              - documentOwnerEmail: email@domain.com
                 documentName: Leave Application
-                document: base64 string
+                document: Base64 Encoded Document
                 message: This is a leave application (This message is displayed when a signed opens the document).
                 extension: 0
                 dueDate: '2019-08-24T14:15:22Z'
@@ -999,7 +996,7 @@ components:
               - participantReference: string
                 action: 0
                 mobile: +27 78 000 0000
-                email: user@example.com
+                email: email@domain.com
                 firstName: John
                 lastName: Doe
                 languageCode: en
@@ -1012,9 +1009,9 @@ components:
       x-examples:
         Portfolio Document Create Model Example:
           value:
-            documentOwnerEmail: user@example.com
+            documentOwnerEmail: email@domain.com
             documentName: Leave Application
-            document: base64 string
+            document: Base64 Encoded Document
             message: This is a leave application (This message is displayed when a signed opens the document).
             extension: 0
             dueDate: '2019-08-24T14:15:22Z'
@@ -1068,9 +1065,6 @@ components:
         - documentName
         - document
         - extension
-        - autoExpire
-        - autoRemind
-        - priority
         - sendEmail
         - participantReference
     PortfolioParticipantModel:
@@ -1078,6 +1072,17 @@ components:
       additionalProperties: false
       title: Portfolio Participant Model
       description: '#### Participants in a portfolio.'
+      x-examples:
+        Portfolio Participant Model Example:
+          value:
+            participantReference: string
+            action: 0
+            mobile: +27 78 000 0000
+            email: email@domain.com
+            firstName: John
+            lastName: Doe
+            languageCode: en
+            proxyAllowed: 0
       properties:
         participantReference:
           type: string
@@ -1104,23 +1109,11 @@ components:
       required:
         - participantReference
         - action
-        - mobile
         - email
         - firstName
         - lastName
         - languageCode
         - proxyAllowed
-      x-examples:
-        Portfolio Participant Model Example:
-          value:
-            participantReference: string
-            action: 0
-            mobile: +27 78 000 0000
-            email: user@example.com
-            firstName: John
-            lastName: Doe
-            languageCode: en
-            proxyAllowed: 0
     Priority:
       enum:
         - 0
