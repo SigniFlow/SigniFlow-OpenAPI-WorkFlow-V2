@@ -25,6 +25,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Business'
+              examples:
+                Example:
+                  value:
+                    - id: 0
+                      name: John
+                      registrationNumber: '983747376298276387182'
+                      taxNumber: '1872617631'
+                      addressLine1: Johannesburg
+                      addressLine2: Kyalami
+                      addressLine3: Dove Drive
+                      addressLine4: 27 Hare street
+                      country: '137'
+                      industry: Manufacturing
         '400':
           description: Bad Request
           content:
@@ -66,6 +79,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Business'
+              examples:
+                Example:
+                  value:
+                    id: 0
+                    name: John
+                    registrationNumber: '983747376298276387182'
+                    taxNumber: '1872617631'
+                    addressLine1: Johannesburg
+                    addressLine2: Kyalami
+                    addressLine3: Dove Drive
+                    addressLine4: 27 Hare street
+                    country: '137'
+                    industry: Manufacturing
         '400':
           description: Bad Request
           content:
@@ -282,6 +308,27 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/DocumentCreateModel'
+            examples:
+              Example:
+                value:
+                  documentOwnerEmail: email@domain.com
+                  documentName: Leave Application
+                  document: Base64 Encoded Document
+                  message: This is a leave application (This message is displayed when a signed opens the document).
+                  extension: 0
+                  dueDate: '2019-08-24T14:15:22Z'
+                  autoExpire: 0
+                  autoRemind: 0
+                  priority: 0
+                  sendEmail: true
+                  participants:
+                    - action: 0
+                      mobile: +27 78 000 0000
+                      email: email@domain.com
+                      firstName: John
+                      lastName: Doe
+                      languageCode: en
+                      proxyAllowed: 0
         description: Create a new Document Workflow request.
       responses:
         '200':
@@ -496,6 +543,34 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PortfolioCreateModel'
+            examples:
+              Example:
+                value:
+                  portfolioOwnerEmail: email@domain.com
+                  portfolioName: Portfolio 1
+                  sendPortfolioNotifications: true
+                  documents:
+                    - documentOwnerEmail: email@domain.com
+                      documentName: Leave Application
+                      document: Base64 Encoded Document
+                      message: This is a leave application (This message is displayed when a signed opens the document).
+                      extension: 0
+                      dueDate: '2019-08-24T14:15:22Z'
+                      autoExpire: 0
+                      autoRemind: 0
+                      priority: 0
+                      sendEmail: true
+                      participantReference:
+                        - string
+                  participants:
+                    - participantReference: string
+                      action: 0
+                      mobile: +27 78 000 0000
+                      email: email@domain.com
+                      firstName: John
+                      lastName: Doe
+                      languageCode: en
+                      proxyAllowed: 0
         description: Create Portfolio request.
       responses:
         '200':
