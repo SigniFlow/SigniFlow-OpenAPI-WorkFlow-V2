@@ -358,17 +358,17 @@ paths:
                 Example:
                   value:
                     participants:
-                      - id: 463385
-                        email: reniers@pbsa.co.za
-                        firstName: Renier
-                        lastName: Swanepoel
+                      - id: 100011
+                        email: user@domain.co.za
+                        firstName: John
+                        lastName: Smith
                         actionTaken: null
                         actionRequired: Sign Document
                         actionDate: null
                         viewUrl: 'https://preprod.signiflow.com/EasiSign/Home/Index?enc=GGKfqjzJ04khCFnBTm1bCVTnbTnQLks6nQPTsXkiZEpaubUk9Dc8wQ30TWvAX7xQoNr667Se8XgMSPewp+zwu27HWHO6y/vH7WqD0KluejVgjI/G7Y2PvBNeqCtnUx2WXduo713UKuzSjTu9cPdpbtNbATRlW+CetWYiffO+j3tSGYq28EBzf'
-                    id: 257238
+                    id: 257221
                     name: Sample Agreement
-                    ownerId: 28225
+                    ownerId: 20025
                     status: In Progress
                     currentStep: '1'
                     totalSteps: '1'
@@ -382,7 +382,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
               examples:
-                example-1:
+                Example:
                   value:
                     type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
                     title: Bad Request
@@ -638,18 +638,18 @@ paths:
               examples:
                 Example:
                   value:
-                    - id: 13757
+                    - id: 12257
                       name: '!CurrentDocPlaceholder!'
-                      ownerId: 28225
+                      ownerId: 28233
                       status: null
                       totalDocuments: '0'
                       createdDate: '2019-09-15T21:46:03.78'
                       lastModifiedDate: '2019-09-15T21:46:03.78'
                       lockStatus: Unlocked
                       lockDescription: null
-                    - id: 13758
+                    - id: 13733
                       name: Portfolio Test
-                      ownerId: 28225
+                      ownerId: 28211
                       status: Delete
                       totalDocuments: '0'
                       createdDate: '2019-09-15T21:47:36.633'
@@ -718,18 +718,18 @@ paths:
               examples:
                 Example:
                   value:
-                    - id: 13757
+                    - id: 13000
                       name: '!CurrentDocPlaceholder!'
-                      ownerId: 28225
+                      ownerId: 20005
                       status: null
                       totalDocuments: '0'
                       createdDate: '2019-09-15T21:46:03.78'
                       lastModifiedDate: '2019-09-15T21:46:03.78'
                       lockStatus: Unlocked
                       lockDescription: null
-                    - id: 13758
+                    - id: 12222
                       name: Portfolio Test
-                      ownerId: 28225
+                      ownerId: 21111
                       status: Delete
                       totalDocuments: '0'
                       createdDate: '2019-09-15T21:47:36.633'
@@ -783,11 +783,11 @@ paths:
                 type: object
                 properties: {}
               examples:
-                example-1:
+                Example:
                   value:
-                    id: 13758
+                    id: 13000
                     name: Portfolio Test
-                    ownerId: 28225
+                    ownerId: 20005
                     status: Delete
                     totalDocuments: '0'
                     createdDate: '2019-09-15T21:47:36.633'
@@ -836,7 +836,8 @@ paths:
               schema:
                 type: string
               examples:
-                Example: {}
+                Example:
+                  value: []
           headers:
             Content Disposition:
               schema:
@@ -951,6 +952,34 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PortfolioAddModel'
+            examples:
+              Example:
+                value:
+                  value:
+                    portfolioId: 2147483648
+                    sendPortfolioNotifications: true
+                    documents:
+                      - documentOwnerEmail: email@domain.com
+                        documentName: Leave Application
+                        document: Base64 Encoded Document
+                        message: This is a leave application (This message is displayed when a signed opens the document).
+                        extension: 0
+                        dueDate: '2019-08-24T14:15:22Z'
+                        autoExpire: 0
+                        autoRemind: 0
+                        priority: 0
+                        sendEmail: true
+                        participantReference:
+                          - string
+                    participants:
+                      - participantReference: string
+                        action: 0
+                        mobile: +27 78 000 0000
+                        email: email@domain.com
+                        firstName: John
+                        lastName: Doe
+                        languageCode: en
+                        proxyAllowed: 0
         description: Add documents to the Portfolio request.
       responses:
         '200':
@@ -1006,6 +1035,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
         '401':
           description: Unauthorized
           content:
@@ -1018,6 +1054,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: Returns a List of all User Objects that the API Key has been granted access to.
       security:
         - x-api-key: []
@@ -1062,6 +1105,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
         '401':
           description: Unauthorized
           content:
@@ -1074,6 +1124,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: Returns the Details of a specified User.
       security:
         - x-api-key: []
@@ -1117,6 +1174,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
         '401':
           description: Unauthorized
           content:
@@ -1129,6 +1193,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: Returns the Details of a specified User using the user's email.
       security:
         - x-api-key: []
@@ -1175,6 +1246,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
         '401':
           description: Unauthorized
           content:
@@ -1187,6 +1265,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: Returns a List of all the User in a business with the specified Business ID.
       security:
         - x-api-key: []
