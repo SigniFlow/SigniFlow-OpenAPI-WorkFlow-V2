@@ -71,7 +71,7 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       operationId: ''
-      description: '#### Returns a list of all the business objects that the API Key has been granted access to.'
+      description: '#### Returns a list of all the business that the API Key has been granted access to.'
       security:
         - x-api-key: []
       summary: Business List
@@ -92,7 +92,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Business'
+                $ref: '#/components/schemas/Business-Detail'
               examples:
                 Example:
                   value:
@@ -138,7 +138,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Returns the details for a specific Business ID.'
+      description: '#### Returns the details for a specific business for the ID passed in.'
       security:
         - x-api-key: []
       summary: Business (ID)
@@ -152,8 +152,7 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-                description: A JSON response.
+                $ref: '#/components/schemas/DocumentModel'
               examples:
                 Example 1:
                   value: []
@@ -202,7 +201,7 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
-        #### Returns a list of all the document objects that the API Key has been granted access to.
+        #### Returns a list of all the documents that the API Key has been granted access to.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -227,7 +226,7 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/DocumentModel'
               examples:
                 Example:
                   value: []
@@ -264,13 +263,13 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
-        #### Returns a list of all the document objects owned by the specified User.
+        #### Returns a list of all the documents created by the specified user.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
       security:
         - x-api-key: []
-      summary: Document GetByUser (OwenrID)
+      summary: Document GetByUser (OwnerID)
   '/Document/GetByBusiness/{businessId}':
     get:
       tags:
@@ -288,8 +287,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties: {}
+                $ref: '#/components/schemas/DocumentModel'
               examples:
                 Example:
                   value:
@@ -328,7 +326,7 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
-        #### Returns a list of all the document objects owned by the specified business.
+        #### Returns a list of all the documents owned by the specified business.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -352,8 +350,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties: {}
+                $ref: '#/components/schemas/DocumentDetailModel'
               examples:
                 Example:
                   value:
@@ -407,7 +404,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Returns detailed information of a document.'
+      description: '#### Returns detailed information of a SigniFlow document.'
       security:
         - x-api-key: []
       summary: Document (ID)
@@ -466,7 +463,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Download a document (returns the binary file for a PDF document).'
+      description: '#### Returns the document data with the content type set as "application/pdf".'
       security:
         - x-api-key: []
       summary: Document Download (ID)
@@ -536,7 +533,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Create a new document workflow.'
+      description: '#### Initiates a new document workflow with the document information and participant list passed in.'
       security:
         - x-api-key: []
       summary: Document
@@ -547,7 +544,7 @@ paths:
       responses:
         '200':
           description: Alive
-      description: '#### Health test endpoint.'
+      description: '#### Determines whether the API service is up and running.'
       security:
         - x-api-key: []
       summary: Healthz
@@ -561,8 +558,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties: {}
+                $ref: '#/components/schemas/PortfolioModel'
               examples:
                 Example:
                   value:
@@ -608,7 +604,7 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
-        #### Returns a list of all the portfolio objects that the API Key has access to.
+        #### Returns a list of all the portfolios that the API Key has access to.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -633,8 +629,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties: {}
+                $ref: '#/components/schemas/PortfolioModel'
               examples:
                 Example:
                   value:
@@ -689,7 +684,7 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
-        #### Returns a list of all the portfolio objects owned by the specified user.
+        #### Returns a list of all the portfolios owned by the specified user.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -713,8 +708,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties: {}
+                $ref: '#/components/schemas/PortfolioModel'
               examples:
                 Example:
                   value:
@@ -756,7 +750,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       description: |-
-        #### Returns a list of all the portfolio objects owned by the specified business.
+        #### Returns a list of all the portfolios owned by the specified business.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -780,8 +774,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties: {}
+                $ref: '#/components/schemas/PortfolioDetailedModel'
               examples:
                 Example:
                   value:
@@ -813,7 +806,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: '#### Returns all portfolio details.'
+      description: '#### Returns the detailed information of a portfolio.'
       security:
         - x-api-key: []
       summary: Portfolio (ID)
@@ -862,7 +855,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Download a portfolio using the Portfolio ID (returns the binary file for a PDF document).'
+      description: '#### Returns the portfolio pdf file data with the content type set as "application/pdf".'
       security:
         - x-api-key: []
       summary: Portfolio Download (ID)
@@ -1061,7 +1054,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Returns a list of all the user objects that the API Key has been granted access to.'
+      description: '#### Returns a list of all the users that the API Key has been granted access to.'
       security:
         - x-api-key: []
       summary: User List
@@ -1131,7 +1124,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Returns the details of a specified user.'
+      description: '#### Returns the detailed information of the specified user.'
       security:
         - x-api-key: []
       summary: User (ID)
@@ -1200,7 +1193,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Returns the details of a specified user using the user''s email address.'
+      description: '#### Returns the detailed information of the specified user by using the user''s email address.'
       security:
         - x-api-key: []
       summary: User GetByEmail (Email)
@@ -1272,7 +1265,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Returns a list of all the users in a business with the specified Business ID.'
+      description: '#### Returns a list of all the users associated to the specified business.'
       security:
         - x-api-key: []
       summary: User GetByBusiness (BusinessID)
@@ -1286,7 +1279,7 @@ components:
       type: integer
       format: int32
       description: |-
-        #### An action taken by a user.
+        #### The action required by the user.
 
         `0 = SignDocument
         1 = ViewDocument
@@ -1317,7 +1310,7 @@ components:
       type: integer
       format: int32
       description: |-
-        #### Sets an Auto Reminder email to go out daily to workflow participants that have not actioned the document.
+        #### Sets an Auto Reminder email to go out daily to workflow participants that are currently required to action a document.
 
         `0 = No
         1 = Yes`
@@ -1389,7 +1382,7 @@ components:
           maxLength: 250
           type: string
           format: email
-          description: '#### New document owner''s domain name.'
+          description: '#### The email of the user who is releasing the document.'
         documentName:
           maxLength: 250
           type: string
@@ -1400,7 +1393,7 @@ components:
         message:
           maxLength: 3000
           type: string
-          description: '#### Message'
+          description: '#### Custom message the user would like to display to the participants.'
         extension:
           $ref: '#/components/schemas/DocExtension'
         dueDate:
@@ -1416,10 +1409,10 @@ components:
           $ref: '#/components/schemas/Priority'
         sendEmail:
           type: boolean
-          description: '#### Whether or not an email will be sent on documentcreation. True/false.'
+          description: '#### Whether or not an email will be sent out to all the participants on document release. True/false '
         participants:
           type: array
-          description: '#### All refrences to the participants that will be linked to this document'
+          description: '#### Information of the participants that will be partaking in this workflow.'
           items:
             $ref: '#/components/schemas/DocumentParticipantModel'
       required:
@@ -1472,7 +1465,7 @@ components:
         languageCode:
           maxLength: 2
           type: string
-          description: '#### Participant language code.'
+          description: '#### The language that the user nust receive their emails in if they have not set a language yet.'
         proxyAllowed:
           $ref: '#/components/schemas/ProxyAllowedField'
       required:
@@ -1487,7 +1480,7 @@ components:
       type: object
       additionalProperties: false
       title: Portfolio Add Model
-      description: '#### Add a portfolio'
+      description: '#### Add a portfolio (CHECK DESC)'
       properties:
         portfolioId:
           type: integer
@@ -1544,36 +1537,6 @@ components:
       additionalProperties: false
       title: Portfolio Create Model
       description: '#### Create a portfolio'
-      properties:
-        portfolioOwnerEmail:
-          maxLength: 250
-          type: string
-          format: email
-          description: '#### Email address of the portfolio''s owner.'
-        portfolioName:
-          maxLength: 250
-          type: string
-          description: '#### Portfolio name.'
-        sendPortfolioNotifications:
-          type: boolean
-          default: true
-          description: '#### Whether or not to send a notification regarding the portfolio. True/false.'
-        documents:
-          type: array
-          description: '#### Documents that will be linked to this portfolio'
-          items:
-            $ref: '#/components/schemas/PortfolioDocumentCreateModel'
-        participants:
-          type: array
-          description: '#### All refrences to the participants that will be linked to this document'
-          items:
-            $ref: '#/components/schemas/PortfolioParticipantModel'
-      required:
-        - portfolioOwnerEmail
-        - portfolioName
-        - sendPortfolioNotifications
-        - documents
-        - participants
       x-examples:
         Portfolio Create Model Example:
           value:
@@ -1602,11 +1565,41 @@ components:
                 lastName: Doe
                 languageCode: en
                 proxyAllowed: 0
+      properties:
+        portfolioOwnerEmail:
+          maxLength: 250
+          type: string
+          format: email
+          description: '#### Email address of the portfolio''s owner.'
+        portfolioName:
+          maxLength: 250
+          type: string
+          description: '#### Portfolio name.'
+        sendPortfolioNotifications:
+          type: boolean
+          default: true
+          description: '#### Whether or not to send a notification to the participants and owner regarding any portfolio actions. True/false.'
+        documents:
+          type: array
+          description: '#### These will be new documents initiated with the portfolio creation and linked to the portfolio. '
+          items:
+            $ref: '#/components/schemas/PortfolioDocumentCreateModel'
+        participants:
+          type: array
+          description: '#### A unique list of all the participants that will be partaking in this portfolio.'
+          items:
+            $ref: '#/components/schemas/PortfolioParticipantModel'
+      required:
+        - portfolioOwnerEmail
+        - portfolioName
+        - sendPortfolioNotifications
+        - documents
+        - participants
     PortfolioDocumentCreateModel:
       type: object
       additionalProperties: false
       title: Portfolio Document Create Model
-      description: '#### Create a document in a portfolio'
+      description: '#### Create a document in a portfolio (CHECK)'
       x-examples:
         Portfolio Document Create Model Example:
           value:
@@ -1657,7 +1650,7 @@ components:
           description: '#### Whether or not an email will be sent on documentcreation. True/false.'
         participantReference:
           type: array
-          description: '#### All refrences to the participants that will be linked to this document'
+          description: '#### A list of all the participants required for this workflow that has been specified in the participants list.'
           items:
             type: string
       required:
@@ -1782,7 +1775,7 @@ components:
       format: int32
       title: Proxy Allowed Field
       description: |-
-        #### Determines whether or not a proxy is allowed.
+        #### Determines whether a user can delegate their action to another user.
 
         `0 = No
         1 = Yes`
@@ -1790,63 +1783,30 @@ components:
         Proxy Allowed Field Example:
           value: 1
     Business:
-      description: '#### Business Information Model'
+      description: '#### Returns an object with basic business information.'
       type: object
       x-examples:
-        Business Example:
+        Example:
           value:
             id: 0
             name: John
-            registrationNumber: '983747376298276387182'
-            taxNumber: '1872617631'
-            addressLine1: Johannesburg
-            addressLine2: Kyalami
-            addressLine3: Dove Drive
-            addressLine4: 27 Hare street
-            country: '137'
-            industry: Manufacturing
       title: Business
       properties:
-        id:
-          type: number
-        name:
-          type: string
-          minLength: 1
-          description: Business name.
-        registrationNumber:
-          type: string
-          minLength: 1
-          description: Business registration number.
-        taxNumber:
-          type: string
-          minLength: 1
-          description: Business tax number.
-        addressLine1:
-          type: string
-          minLength: 1
-          description: Business address 1st line.
-        addressLine2:
-          type: string
-          minLength: 1
-          description: Business address 2nd line.
-        addressLine3:
-          type: string
-          minLength: 1
-          description: Business address 3de line.
-        addressLine4:
-          type: string
-          minLength: 1
-          description: Business address 4th line.
-        country:
-          type: string
-          minLength: 1
-          description: The country where the business is located.
-        industry:
-          type: string
-          minLength: 1
-          description: The industry that the business is in.
+        value:
+          type: object
+          required:
+            - id
+            - name
+          properties:
+            id:
+              type: number
+              description: Unique identifier of the business.
+            name:
+              type: string
+              minLength: 1
+              description: The name of the business.
       required:
-        - id
+        - value
     PortfolioCreateModelResponse:
       description: '### The response received when a portfolio is created.'
       type: object
@@ -1862,10 +1822,10 @@ components:
       properties:
         portfolioId:
           type: number
-          description: '#### Portfolio ID.'
+          description: '#### The unique identifier of the portfolio.'
         documents:
           type: array
-          description: '#### An array of document ID''s that were added to the portfolio.'
+          description: '#### A list of the document IDs for the documents passed through in the request. The order of the ids are the same as how the documents were passed in.'
           items:
             type: integer
         message:
@@ -1875,16 +1835,16 @@ components:
         messageDetail:
           type: string
           minLength: 1
-          description: '#### Additional information.'
+          description: '#### Additional information regarding the portfolio creation status.'
         success:
           type: boolean
-          description: '#### Whether or not the portfolio was successfully created.'
+          description: '#### Whether or not the portfolio with its documents was successfully created.'
       required:
         - portfolioId
         - message
         - success
     UserModelResponse:
-      description: '### Basic user information relating to a particular business.'
+      description: '### Basic user information with the business ID that the user is related to, if any.'
       type: object
       x-examples:
         Example:
@@ -1907,7 +1867,7 @@ components:
         - email
         - businessId
     UserDetailModel:
-      description: '### Detailed user information.'
+      description: '### Detailed user information. (CHECK DESC)'
       type: object
       x-examples:
         Example:
@@ -1927,7 +1887,7 @@ components:
       properties:
         id:
           type: number
-          description: '#### User ID'
+          description: '#### The unique identifier for the user.'
         userFullName:
           type: string
           minLength: 1
@@ -1947,14 +1907,17 @@ components:
         accountType:
           type: string
           minLength: 1
-          description: '### User SigniFlow account type.'
+          description: |-
+            #### The account type associated with the user.
+            Options:
+            Personal and Business.
         businessId:
           type: number
-          description: '#### User business ID.'
+          description: '#### The unique identifier of the business that the user is associated with.'
         license:
           type: string
           minLength: 1
-          description: '#### User''s SigniFlow license.'
+          description: '#### Unique identifier of the license assigned to the user.'
         mobileNumber:
           type: string
           minLength: 1
@@ -1964,10 +1927,8 @@ components:
           description: '#### User''s role ID. 1 = Personal User, 2 =  Business User, 3 = Business Administrator.'
         departmentId:
           type: number
-          description: '#### User''s department ID.'
         teamId:
           type: number
-          description: '#### User''s team ID.'
         status:
           type: number
           description: '#### User''s status. 1 = Active, 2 = Registration.'
@@ -1985,6 +1946,348 @@ components:
         - departmentId
         - teamId
         - status
+      title: User Detail Model
+    Business-Detail:
+      description: '#### An object containing the detailed information of a business.'
+      type: object
+      x-examples:
+        Example:
+          id: 0
+          name: John
+          registrationNumber: '0000000'
+          taxNumber: string
+          addressLine1: string
+          addressLine2: string
+          addressLine3: string
+          addressLine4: string
+          country: string
+          industry: string
+      title: Business Detail Model
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+          minLength: 1
+        registrationNumber:
+          type: string
+          minLength: 1
+        taxNumber:
+          type: string
+          minLength: 1
+        addressLine1:
+          type: string
+          minLength: 1
+        addressLine2:
+          type: string
+          minLength: 1
+        addressLine3:
+          type: string
+          minLength: 1
+        addressLine4:
+          type: string
+          minLength: 1
+        country:
+          type: string
+          minLength: 1
+        industry:
+          type: string
+          minLength: 1
+      required:
+        - id
+        - name
+    DocumentModel:
+      description: '#### Contains basic information of a SigniFlow document.'
+      type: object
+      x-examples:
+        Example:
+          id: 0
+          name: string
+          ownerId: 0
+          status: string
+          currentStep: string
+          totalSteps: string
+          createdDate: '2022-01-12T10:38:43.224Z'
+          lastModifiedDate: '2022-01-12T10:38:43.225Z'
+          portfolioId: 0
+      title: Document Model
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+          minLength: 1
+        ownerId:
+          type: number
+        status:
+          type: string
+          minLength: 1
+        currentStep:
+          type: string
+          minLength: 1
+        totalSteps:
+          type: string
+          minLength: 1
+        createdDate:
+          type: string
+          minLength: 1
+        lastModifiedDate:
+          type: string
+          minLength: 1
+        portfolioId:
+          type: number
+      required:
+        - id
+        - name
+        - ownerId
+        - status
+        - currentStep
+        - totalSteps
+        - createdDate
+        - lastModifiedDate
+    DocumentDetailModel:
+      description: '#### An object that shows the detailed document information and the participants in the flow if any.'
+      type: object
+      x-examples:
+        Example:
+          id: 0
+          name: string
+          ownerId: 0
+          status: string
+          currentStep: string
+          totalSteps: string
+          createdDate: '2022-01-12T10:44:15.688Z'
+          lastModifiedDate: '2022-01-12T10:44:15.688Z'
+          portfolioId: 0
+          participants:
+            - id: 0
+              email: string
+              firstName: string
+              lastName: string
+              actionTaken: string
+              actionRequired: string
+              actionDate: '2022-01-12T10:44:15.688Z'
+              viewUrl: string
+      title: Document Detail Model
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+          minLength: 1
+        ownerId:
+          type: number
+        status:
+          type: string
+          minLength: 1
+        currentStep:
+          type: string
+          minLength: 1
+        totalSteps:
+          type: string
+          minLength: 1
+        createdDate:
+          type: string
+          minLength: 1
+        lastModifiedDate:
+          type: string
+          minLength: 1
+        portfolioId:
+          type: number
+        participants:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/DocumentDetailParticipantModel'
+      required:
+        - id
+        - name
+        - ownerId
+        - status
+        - currentStep
+        - totalSteps
+        - createdDate
+        - lastModifiedDate
+        - participants
+    DocumentDetailParticipantModel:
+      description: '#### An object containing the participant''s information.'
+      type: object
+      x-examples:
+        Example:
+          id: 0
+          email: string
+          firstName: string
+          lastName: string
+          actionTaken: string
+          actionRequired: string
+          actionDate: '2022-01-12T10:44:15.688Z'
+          viewUrl: string
+      title: Document Detail Participant Model
+      properties:
+        id:
+          type: number
+        email:
+          type: string
+          minLength: 1
+        firstName:
+          type: string
+          minLength: 1
+        lastName:
+          type: string
+          minLength: 1
+        actionTaken:
+          type: string
+          minLength: 1
+        actionRequired:
+          type: string
+          minLength: 1
+        actionDate:
+          type: string
+          minLength: 1
+        viewUrl:
+          type: string
+          minLength: 1
+      required:
+        - id
+        - email
+        - firstName
+        - lastName
+        - actionRequired
+    PortfolioModel:
+      description: '#### An object containing the basic information of a portfolio within SigniFlow.'
+      type: object
+      x-examples:
+        Example:
+          id: 0
+          name: string
+          ownerId: 0
+          status: string
+          totalDocuments: string
+          createdDate: '2022-01-12T11:11:28.590Z'
+          lastModifiedDate: '2022-01-12T11:11:28.590Z'
+          lockStatus: string
+          lockDescription: string
+      title: Portfolio Model
+      properties:
+        id:
+          type: number
+          description: '#### Unique identifier for the portfolio.'
+        name:
+          type: string
+          minLength: 1
+          description: '#### Name of the portfolio.'
+        ownerId:
+          type: number
+          description: '#### Unique ID for the owner of the portfolio.'
+        status:
+          type: string
+          minLength: 1
+          description: |-
+            #### The status of the portfolio. 
+            Options you can expect:
+            Cancelled,
+            Rejected,
+            Completed,
+            In Progress,
+            Delete,
+            Pending Release and Pending Upload.
+        totalDocuments:
+          type: string
+          minLength: 1
+          description: '#### The number of documents within the portfolio.'
+        createdDate:
+          type: string
+          minLength: 1
+          description: '#### The date the portfolio was created.'
+        lastModifiedDate:
+          type: string
+          minLength: 1
+          description: '#### The last date the portfolio was changed.'
+        lockStatus:
+          type: string
+          minLength: 1
+          description: '#### The status whether the portfolio is locked or unlocked.'
+        lockDescription:
+          type: string
+          minLength: 1
+          description: '#### The description shown to the user when the portfolio is locked.'
+      required:
+        - id
+        - name
+        - ownerId
+        - status
+        - totalDocuments
+        - createdDate
+        - lastModifiedDate
+        - lockStatus
+    PortfolioDetailedModel:
+      description: '#### An object that cotains the portfolio information with the information of all the associated documents.'
+      type: object
+      x-examples:
+        Example:
+          id: 0
+          name: string
+          ownerId: 0
+          status: string
+          totalDocuments: string
+          createdDate: '2022-01-12T11:24:21.417Z'
+          lastModifiedDate: '2022-01-12T11:24:21.417Z'
+          lockStatus: string
+          lockDescription: string
+          documents:
+            - id: 0
+              name: string
+              ownerId: 0
+              status: string
+              currentStep: string
+              totalSteps: string
+              createdDate: '2022-01-12T11:24:21.417Z'
+              lastModifiedDate: '2022-01-12T11:24:21.417Z'
+              portfolioId: 0
+      title: Portfolio Detailed Model
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+          minLength: 1
+        ownerId:
+          type: number
+        status:
+          type: string
+          minLength: 1
+        totalDocuments:
+          type: string
+          minLength: 1
+        createdDate:
+          type: string
+          minLength: 1
+        lastModifiedDate:
+          type: string
+          minLength: 1
+        lockStatus:
+          type: string
+          minLength: 1
+        lockDescription:
+          type: string
+          minLength: 1
+        documents:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/DocumentModel'
+      required:
+        - id
+        - name
+        - ownerId
+        - status
+        - totalDocuments
+        - createdDate
+        - lastModifiedDate
+        - lockStatus
+        - documents
   securitySchemes:
     x-api-key:
       name: X-API-Key
