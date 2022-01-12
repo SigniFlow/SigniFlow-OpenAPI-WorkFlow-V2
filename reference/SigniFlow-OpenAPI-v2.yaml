@@ -71,7 +71,7 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       operationId: ''
-      description: Returns List of all Business Objects that the API Key has been granted access to.
+      description: '#### Returns a list of all the business objects that the API Key has been granted access to.'
       security:
         - x-api-key: []
       summary: Business List
@@ -138,7 +138,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: Returns details for a specific Business ID.
+      description: '#### Returns the details for a specific Business ID.'
       security:
         - x-api-key: []
       summary: Business (ID)
@@ -202,7 +202,7 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
-        Returns List of all Document Objects that the API Key has been granted access to.
+        #### Returns a list of all the document objects that the API Key has been granted access to.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -264,7 +264,7 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
-        Returns List of all Document Objects owned by the specified User.
+        #### Returns a list of all the document objects owned by the specified User.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -328,7 +328,7 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
-        Returns List of all Document Objects owned by the specified Business.
+        #### Returns a list of all the document objects owned by the specified business.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -407,7 +407,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: Returns detailed information of a Document.
+      description: '#### Returns detailed information of a document.'
       security:
         - x-api-key: []
       summary: Document (ID)
@@ -466,7 +466,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: Download a document (returns the binary file for a PDF document).
+      description: '#### Download a document (returns the binary file for a PDF document).'
       security:
         - x-api-key: []
       summary: Document Download (ID)
@@ -536,7 +536,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: Create a new Document Workflow.
+      description: '#### Create a new document workflow.'
       security:
         - x-api-key: []
       summary: Document
@@ -547,7 +547,7 @@ paths:
       responses:
         '200':
           description: Alive
-      description: Health test endpoint.
+      description: '#### Health test endpoint.'
       security:
         - x-api-key: []
       summary: Healthz
@@ -608,7 +608,7 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
-        Returns a List of all Portfolio Objects that the API key has access to.
+        #### Returns a list of all the portfolio objects that the API Key has access to.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -689,7 +689,7 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
-        Returns a List of all Portfolio Objects owned by the specified user.
+        #### Returns a list of all the portfolio objects owned by the specified user.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -756,7 +756,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       description: |-
-        Returns a List of all Portfolio Objects owned by the specified Business.
+        #### Returns a list of all the portfolio objects owned by the specified business.
         Limited to 1000 per request
         Supports ODATA Filters
         $filter=column eq 'value'
@@ -813,7 +813,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Returns Portfolio details.
+      description: '#### Returns all portfolio details.'
       security:
         - x-api-key: []
       summary: Portfolio (ID)
@@ -862,7 +862,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: Download the Portfolio using the portfolio ID (returns the binary file for a PDF document).
+      description: '#### Download a portfolio using the Portfolio ID (returns the binary file for a PDF document).'
       security:
         - x-api-key: []
       summary: Portfolio Download (ID)
@@ -940,7 +940,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Create a Portfolio.
+      description: '#### Create a portfolio.'
       security:
         - x-api-key: []
       summary: Portfolio
@@ -1010,7 +1010,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: Add documents to an existing Portfolio.
+      description: '#### Add documents to an existing portfolio.'
       summary: Portfolio
   /User/List:
     get:
@@ -1061,7 +1061,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: Returns a List of all User Objects that the API Key has been granted access to.
+      description: '#### Returns a list of all the user objects that the API Key has been granted access to.'
       security:
         - x-api-key: []
       summary: User List
@@ -1131,7 +1131,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: Returns the Details of a specified User.
+      description: '#### Returns the details of a specified user.'
       security:
         - x-api-key: []
       summary: User (ID)
@@ -1200,7 +1200,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: Returns the Details of a specified User using the user's email.
+      description: '#### Returns the details of a specified user using the user''s email address.'
       security:
         - x-api-key: []
       summary: User GetByEmail (Email)
@@ -1272,7 +1272,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: Returns a List of all the User in a business with the specified Business ID.
+      description: '#### Returns a list of all the users in a business with the specified Business ID.'
       security:
         - x-api-key: []
       summary: User GetByBusiness (BusinessID)
