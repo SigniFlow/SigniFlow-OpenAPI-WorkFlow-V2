@@ -1884,6 +1884,7 @@ components:
           departmentId: 0
           teamId: 0
           status: 1
+      title: User Detail Model
       properties:
         id:
           type: number
@@ -1927,8 +1928,10 @@ components:
           description: '#### User''s role ID. 1 = Personal User, 2 =  Business User, 3 = Business Administrator.'
         departmentId:
           type: number
+          description: '#### The unique identifier of the department that the user is associated with.'
         teamId:
           type: number
+          description: '#### The unique identifier of the team that the user is associated with.'
         status:
           type: number
           description: '#### User''s status. 1 = Active, 2 = Registration.'
@@ -1946,7 +1949,6 @@ components:
         - departmentId
         - teamId
         - status
-      title: User Detail Model
     Business-Detail:
       description: '#### An object containing the detailed information of a business.'
       type: object
@@ -1966,6 +1968,7 @@ components:
       properties:
         id:
           type: number
+          description: '#### Unique identifier for the business.'
         name:
           type: string
           minLength: 1
@@ -2014,6 +2017,7 @@ components:
       properties:
         id:
           type: number
+          description: '#### Unique identifier for the document.'
         name:
           type: string
           minLength: 1
@@ -2022,6 +2026,15 @@ components:
         status:
           type: string
           minLength: 1
+          description: |-
+            #### The status of the document. 
+            Options you can expect:
+            Cancelled,
+            Rejected,
+            Completed,
+            In Progress,
+            Delete,
+            Pending Release and Pending Upload.
         currentStep:
           type: string
           minLength: 1
@@ -2072,14 +2085,26 @@ components:
       properties:
         id:
           type: number
+          description: '#### Unique identifier for the document.'
         name:
           type: string
           minLength: 1
+          description: '#### The name of the document owner.'
         ownerId:
           type: number
+          description: '#### Unique identifier for the document owner.'
         status:
           type: string
           minLength: 1
+          description: |-
+            #### The status of the document. 
+            Options you can expect:
+            Cancelled,
+            Rejected,
+            Completed,
+            In Progress,
+            Delete,
+            Pending Release and Pending Upload.
         currentStep:
           type: string
           minLength: 1
@@ -2094,10 +2119,12 @@ components:
           minLength: 1
         portfolioId:
           type: number
+          description: '#### Unique identifier for the portfolio.'
         participants:
           type: array
           uniqueItems: true
           minItems: 1
+          description: '#### A list of participants.'
           items:
             $ref: '#/components/schemas/DocumentDetailParticipantModel'
       required:
@@ -2127,27 +2154,35 @@ components:
       properties:
         id:
           type: number
+          description: '#### Unique identifier for the participant.'
         email:
           type: string
           minLength: 1
+          description: '#### Email address of the participant.'
         firstName:
           type: string
           minLength: 1
+          description: '#### First name of the participant.'
         lastName:
           type: string
           minLength: 1
+          description: '#### Last name of the participant.'
         actionTaken:
           type: string
           minLength: 1
+          description: '#### The action taken by the participant.'
         actionRequired:
           type: string
           minLength: 1
+          description: '#### The action that the participant is required to take.'
         actionDate:
           type: string
           minLength: 1
+          description: '#### The date that the participant took an action.'
         viewUrl:
           type: string
           minLength: 1
+          description: '#### The URL for the document.'
       required:
         - id
         - email
