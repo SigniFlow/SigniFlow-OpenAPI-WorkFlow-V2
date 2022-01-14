@@ -2249,33 +2249,51 @@ components:
       properties:
         id:
           type: number
+          description: '#### Unique identifier for the portfolio.'
         name:
           type: string
           minLength: 1
+          description: '#### Name of the portfolio.'
         ownerId:
           type: number
+          description: '#### Unique ID for the owner of the portfolio.'
         status:
           type: string
           minLength: 1
+          description: |-
+            #### The status of the portfolio. 
+            Options you can expect:
+            Cancelled,
+            Rejected,
+            Completed,
+            In Progress,
+            Delete,
+            Pending Release and Pending Upload.
         totalDocuments:
           type: string
           minLength: 1
+          description: '#### The number of documents within the portfolio.'
         createdDate:
           type: string
           minLength: 1
+          description: '#### The date the portfolio was created.'
         lastModifiedDate:
           type: string
           minLength: 1
+          description: '#### The last date the portfolio was changed.'
         lockStatus:
           type: string
           minLength: 1
+          description: '#### The status whether the portfolio is locked or unlocked.'
         lockDescription:
           type: string
           minLength: 1
+          description: '#### The description shown to the user when the portfolio is locked.'
         documents:
           type: array
           uniqueItems: true
           minItems: 1
+          description: '#### Contains basic information of a SigniFlow document.'
           items:
             $ref: '#/components/schemas/DocumentModel'
       required:
