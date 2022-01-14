@@ -533,7 +533,16 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Initiates a new document workflow with the document information and participant list passed in.'
+      description: |-
+        #### Initiates a new document workflow with the document information and participant list passed in.
+
+        Enumerations used in this API Call include:
+        | Enumeration    | Values          |
+        | -------------- |:---------------:|
+        | **Extension** |0 = pdf, 1 = xls, 2 = txt, 3 = xlsx, 4 = docx, 5 = doc, 6 = xml, 7 = png, 8 = jpg, 9 = gif |
+        | **AutoExpire**| 0 = No, 1 = Yes |
+        | **AutoRemindField**| 0 = No, 1 = Yes |
+        | **Priority**  | 0 = Low, 1 = Normal, 2 = High |
       security:
         - x-api-key: []
       summary: Document
