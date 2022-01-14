@@ -942,7 +942,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: '#### Create a portfolio.'
+      description: |-
+        #### Create a portfolio.
+
+        Enumerations used in this API Call include:
+        | Enumeration    | Values          |
+        | -------------- |:---------------:|
+        | **Extension** |0 = pdf, 1 = xls, 2 = txt, 3 = xlsx, 4 = docx, 5 = doc, 6 = xml, 7 = png, 8 = jpg, 9 = gif |
+        | **AutoExpire**| 0 = No, 1 = Yes |
+        | **AutoRemindField**| 0 = No, 1 = Yes |
+        | **Priority**  | 0 = Low, 1 = Normal, 2 = High |
+        | **Action**    | 0 = SignDocument, 1 = ViewDocument, 2 = ApproveDocument |
       security:
         - x-api-key: []
       summary: Portfolio
@@ -1012,7 +1022,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-      description: '#### Add documents to an existing portfolio.'
+      description: |-
+        #### Add documents to an existing portfolio.
+
+        Enumerations used in this API Call include:
+        | Enumeration    | Values          |
+        | -------------- |:---------------:|
+        | **Extension** |0 = pdf, 1 = xls, 2 = txt, 3 = xlsx, 4 = docx, 5 = doc, 6 = xml, 7 = png, 8 = jpg, 9 = gif |
+        | **AutoExpire**| 0 = No, 1 = Yes |
+        | **AutoRemindField**| 0 = No, 1 = Yes |
+        | **Priority**  | 0 = Low, 1 = Normal, 2 = High |
+        | **Action**    | 0 = SignDocument, 1 = ViewDocument, 2 = ApproveDocument |
       summary: Portfolio
   /User/List:
     get:
