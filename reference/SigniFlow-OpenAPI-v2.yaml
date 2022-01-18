@@ -1298,6 +1298,7 @@ paths:
       security:
         - x-api-key: []
       summary: User GetByBusiness (BusinessID)
+      operationId: ''
 components:
   schemas:
     ActionField:
@@ -1391,7 +1392,7 @@ components:
             documentOwnerEmail: email@domain.com
             documentName: Leave Application
             document: Base64 Encoded Document
-            message: This is a leave application (This message is displayed when a signed opens the document).
+            message: This is a leave application (This message is displayed when a signer opens the document).
             extension: 0
             dueDate: '2019-08-24T14:15:22Z'
             autoExpire: 0
@@ -1519,7 +1520,7 @@ components:
               - documentOwnerEmail: email@domain.com
                 documentName: Leave Application
                 document: Base64 Encoded Document
-                message: This is a leave application (This message is displayed when a signed opens the document).
+                message: This is a leave application (This message is displayed when a signer opens the document).
                 extension: 0
                 dueDate: '2019-08-24T14:15:22Z'
                 autoExpire: 0
@@ -1527,9 +1528,9 @@ components:
                 priority: 0
                 sendEmail: true
                 participantReference:
-                  - string
+                  - '1'
             participants:
-              - participantReference: string
+              - participantReference: '1'
                 action: 0
                 mobile: +27 78 000 0000
                 email: email@domain.com
@@ -1576,7 +1577,7 @@ components:
               - documentOwnerEmail: email@domain.com
                 documentName: Leave Application
                 document: Base64 Encoded Document
-                message: This is a leave application (This message is displayed when a signed opens the document).
+                message: This is a leave application (This message is displayed when a signer opens the document).
                 extension: 0
                 dueDate: '2019-08-24T14:15:22Z'
                 autoExpire: 0
@@ -1584,9 +1585,9 @@ components:
                 priority: 0
                 sendEmail: true
                 participantReference:
-                  - string
+                  - '1'
             participants:
-              - participantReference: string
+              - participantReference: '1'
                 action: 0
                 mobile: +27 78 000 0000
                 email: email@domain.com
@@ -1635,7 +1636,7 @@ components:
             documentOwnerEmail: email@domain.com
             documentName: Leave Application
             document: Base64 Encoded Document
-            message: This is a leave application (This message is displayed when a signed opens the document).
+            message: This is a leave application (This message is displayed when a signer opens the document).
             extension: 0
             dueDate: '2019-08-24T14:15:22Z'
             autoExpire: 0
@@ -1643,7 +1644,7 @@ components:
             priority: 0
             sendEmail: true
             participantReference:
-              - string
+              - '1'
       properties:
         documentOwnerEmail:
           maxLength: 250
@@ -1702,7 +1703,7 @@ components:
       x-examples:
         Portfolio Participant Model Example:
           value:
-            participantReference: string
+            participantReference: '1'
             action: 0
             mobile: +27 78 000 0000
             email: email@domain.com
@@ -2036,7 +2037,7 @@ components:
       x-examples:
         Example:
           id: 0
-          name: string
+          name: John
           ownerId: 0
           status: string
           currentStep: string
@@ -2095,21 +2096,21 @@ components:
       x-examples:
         Example:
           id: 0
-          name: string
+          name: John
           ownerId: 0
-          status: string
-          currentStep: string
-          totalSteps: string
+          status: In Progress
+          currentStep: '1'
+          totalSteps: '2'
           createdDate: '2022-01-12T10:44:15.688Z'
           lastModifiedDate: '2022-01-12T10:44:15.688Z'
           portfolioId: 0
           participants:
             - id: 0
-              email: string
-              firstName: string
-              lastName: string
+              email: email@domain.com
+              firstName: John
+              lastName: Smith
               actionTaken: string
-              actionRequired: string
+              actionRequired: Sign
               actionDate: '2022-01-12T10:44:15.688Z'
               viewUrl: string
       title: Document Detail Model
@@ -2174,11 +2175,11 @@ components:
       x-examples:
         Example:
           id: 0
-          email: string
-          firstName: string
-          lastName: string
+          email: email@domain.com
+          firstName: John
+          lastName: Smith
           actionTaken: string
-          actionRequired: string
+          actionRequired: Sign
           actionDate: '2022-01-12T10:44:15.688Z'
           viewUrl: string
       title: Document Detail Participant Model
@@ -2226,13 +2227,13 @@ components:
       x-examples:
         Example:
           id: 0
-          name: string
+          name: John
           ownerId: 0
-          status: string
-          totalDocuments: string
+          status: In Progress
+          totalDocuments: '2'
           createdDate: '2022-01-12T11:11:28.590Z'
           lastModifiedDate: '2022-01-12T11:11:28.590Z'
-          lockStatus: string
+          lockStatus: unlocked
           lockDescription: string
       title: Portfolio Model
       properties:
@@ -2293,21 +2294,21 @@ components:
       x-examples:
         Example:
           id: 0
-          name: string
+          name: John
           ownerId: 0
-          status: string
-          totalDocuments: string
+          status: In Progress
+          totalDocuments: '2'
           createdDate: '2022-01-12T11:24:21.417Z'
           lastModifiedDate: '2022-01-12T11:24:21.417Z'
-          lockStatus: string
+          lockStatus: Unlocked
           lockDescription: string
           documents:
             - id: 0
-              name: string
+              name: John
               ownerId: 0
-              status: string
-              currentStep: string
-              totalSteps: string
+              status: In Progress
+              currentStep: '1'
+              totalSteps: '2'
               createdDate: '2022-01-12T11:24:21.417Z'
               lastModifiedDate: '2022-01-12T11:24:21.417Z'
               portfolioId: 0
