@@ -2055,6 +2055,7 @@ components:
           minLength: 1
         ownerId:
           type: number
+          description: '#### The document owner ID.'
         status:
           type: string
           minLength: 1
@@ -2070,17 +2071,22 @@ components:
         currentStep:
           type: string
           minLength: 1
+          description: '#### The current step number of the document workflow.'
         totalSteps:
           type: string
           minLength: 1
+          description: '#### The total number of steps in the document workflow.'
         createdDate:
           type: string
           minLength: 1
+          description: '#### The date on which the document was created.'
         lastModifiedDate:
           type: string
           minLength: 1
+          description: '#### The date that the document was last modified on.'
         portfolioId:
           type: number
+          description: '#### Unique identifier for the portfolio.'
       required:
         - id
         - name
