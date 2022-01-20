@@ -1989,13 +1989,13 @@ components:
           id: 0
           name: John
           registrationNumber: '0000000'
-          taxNumber: string
-          addressLine1: string
-          addressLine2: string
-          addressLine3: string
-          addressLine4: string
-          country: string
-          industry: string
+          taxNumber: '00000000000'
+          addressLine1: 32 Nightinggale Blvd
+          addressLine2: Kyalami
+          addressLine3: Midrand
+          addressLine4: Johannesburg
+          country: South Africa
+          industry: Food Industry
       title: Business Detail Model
       properties:
         id:
@@ -2146,15 +2146,19 @@ components:
         currentStep:
           type: string
           minLength: 1
+          description: '#### The current step number of the document workflow.#### The current step number of the document workflow.'
         totalSteps:
           type: string
           minLength: 1
+          description: '#### The total number of steps in the document workflow.'
         createdDate:
           type: string
           minLength: 1
+          description: '#### The date on which the document was created.'
         lastModifiedDate:
           type: string
           minLength: 1
+          description: '#### The date that the document was last modified on.'
         portfolioId:
           type: number
           description: '#### Unique identifier for the portfolio.'
