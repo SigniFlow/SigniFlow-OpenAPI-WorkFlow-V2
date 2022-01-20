@@ -2039,9 +2039,9 @@ components:
           id: 0
           name: John
           ownerId: 0
-          status: string
-          currentStep: string
-          totalSteps: string
+          status: In Progress
+          currentStep: '1'
+          totalSteps: '2'
           createdDate: '2022-01-12T10:38:43.224Z'
           lastModifiedDate: '2022-01-12T10:38:43.225Z'
           portfolioId: 0
@@ -2115,7 +2115,7 @@ components:
               email: email@domain.com
               firstName: John
               lastName: Smith
-              actionTaken: string
+              actionTaken: Sign
               actionRequired: Sign
               actionDate: '2022-01-12T10:44:15.688Z'
               viewUrl: string
@@ -2146,7 +2146,7 @@ components:
         currentStep:
           type: string
           minLength: 1
-          description: '#### The current step number of the document workflow.#### The current step number of the document workflow.'
+          description: '#### The current step number of the document workflow.'
         totalSteps:
           type: string
           minLength: 1
@@ -2188,7 +2188,7 @@ components:
           email: email@domain.com
           firstName: John
           lastName: Smith
-          actionTaken: string
+          actionTaken: Sign
           actionRequired: Sign
           actionDate: '2022-01-12T10:44:15.688Z'
           viewUrl: string
