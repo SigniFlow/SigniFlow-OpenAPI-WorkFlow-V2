@@ -1995,7 +1995,7 @@ components:
           addressLine3: Midrand
           addressLine4: Johannesburg
           country: South Africa
-          industry: Food Industry
+          industry: Manufacturing
       title: Business Detail Model
       properties:
         id:
@@ -2004,30 +2004,39 @@ components:
         name:
           type: string
           minLength: 1
+          description: '#### Name of the business.'
         registrationNumber:
           type: string
           minLength: 1
+          description: '#### Registration number of the business.'
         taxNumber:
           type: string
           minLength: 1
+          description: '#### Tax number of the business.'
         addressLine1:
           type: string
           minLength: 1
+          description: '#### Address line 1 of the business.'
         addressLine2:
           type: string
           minLength: 1
+          description: '#### Address line 2 of the business.'
         addressLine3:
           type: string
           minLength: 1
+          description: '#### Address line 3 of the business.'
         addressLine4:
           type: string
           minLength: 1
+          description: '#### Address line 4 of the business.'
         country:
           type: string
           minLength: 1
+          description: '#### The country the business is located in.'
         industry:
           type: string
           minLength: 1
+          description: '#### The industry of the business.'
       required:
         - id
         - name
