@@ -1385,7 +1385,7 @@ components:
       type: object
       additionalProperties: false
       title: Document Create Model
-      description: '#### Create a document '
+      description: '#### Create a document. '
       x-examples:
         Document Create Model Example:
           value:
@@ -1429,7 +1429,7 @@ components:
         dueDate:
           type: string
           format: date-time
-          description: '#### Document completion date. This needs to be passed in the following format example: 2012-04-21T18:25:43'
+          description: '#### Document completion date. This needs to be passed in the following format example: 2012-04-21T18:25:43.'
           nullable: true
         autoExpire:
           $ref: '#/components/schemas/AutoExpire'
@@ -1439,7 +1439,7 @@ components:
           $ref: '#/components/schemas/Priority'
         sendEmail:
           type: boolean
-          description: '#### Determines whether or not an email will be sent out to all the participants on document release. True/false '
+          description: '#### Determines whether or not an email will be sent out to all the participants on document release. True/false.'
         participants:
           type: array
           description: '#### Information of the participants that will be partaking in this workflow.'
@@ -1460,7 +1460,7 @@ components:
       type: object
       additionalProperties: false
       title: Document Participant Model
-      description: '#### Add document participants '
+      description: '#### Add document participants.'
       x-examples:
         Document Participant Model Example:
           value:
@@ -1510,7 +1510,7 @@ components:
       type: object
       additionalProperties: false
       title: Portfolio Add Model
-      description: '#### Add a portfolio (CHECK DESC)'
+      description: '#### Add a portfolio.'
       x-examples:
         Portfolio Add Model Example:
           value:
@@ -1549,12 +1549,12 @@ components:
           default: true
         documents:
           type: array
-          description: '#### Documents that will be linked to this portfolio'
+          description: '#### Documents that will be linked to this portfolio.'
           items:
             $ref: '#/components/schemas/PortfolioDocumentCreateModel'
         participants:
           type: array
-          description: '#### All refrences to the participants that will be linked to this document'
+          description: '#### All refrences to the participants that will be linked to this document.'
           items:
             $ref: '#/components/schemas/PortfolioParticipantModel'
       required:
@@ -1566,7 +1566,7 @@ components:
       type: object
       additionalProperties: false
       title: Portfolio Create Model
-      description: '#### Create a portfolio'
+      description: '#### Create a portfolio.'
       x-examples:
         Portfolio Create Model Example:
           value:
