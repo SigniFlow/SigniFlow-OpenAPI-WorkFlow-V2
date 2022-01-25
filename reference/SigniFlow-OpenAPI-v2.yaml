@@ -1340,7 +1340,7 @@ components:
       type: integer
       format: int32
       description: |-
-        #### Sets an Auto Reminder email to go out daily to workflow participants that are currently required to action a document.
+        #### Sets an Auto Reminder email to go out daily to workflow participants that are required to action a workflow.
 
         `0 = No
         1 = Yes`
@@ -1364,7 +1364,7 @@ components:
       format: int32
       title: Document Extension
       description: |
-        #### Document Extension 
+        #### The extension of the document.
 
         `
         0 = pdf
@@ -1416,7 +1416,7 @@ components:
         documentName:
           maxLength: 250
           type: string
-          description: '#### Document name.'
+          description: '#### The name of the document.'
         document:
           type: string
           description: '#### Document in a base64 string format.'
@@ -1439,7 +1439,7 @@ components:
           $ref: '#/components/schemas/Priority'
         sendEmail:
           type: boolean
-          description: '#### Whether or not an email will be sent out to all the participants on document release. True/false '
+          description: '#### Determines whether or not an email will be sent out to all the participants on document release. True/false '
         participants:
           type: array
           description: '#### Information of the participants that will be partaking in this workflow.'
@@ -1495,7 +1495,7 @@ components:
         languageCode:
           maxLength: 2
           type: string
-          description: '#### The language that the user nust receive their emails in if they have not set a language yet.'
+          description: '#### The language that the user will receive their emails in if the language has not been set.'
         proxyAllowed:
           $ref: '#/components/schemas/ProxyAllowedField'
       required:
@@ -1545,7 +1545,7 @@ components:
           description: '#### Unique identifier of the portfolio.'
         sendPortfolioNotifications:
           type: boolean
-          description: '#### Whether or not to send a notification regarding the portfolio. True/false.'
+          description: '#### Determine whether or not to send a notification regarding the portfolio. True/false.'
           default: true
         documents:
           type: array
@@ -1629,7 +1629,7 @@ components:
       type: object
       additionalProperties: false
       title: Portfolio Document Create Model
-      description: '#### Create a document in a portfolio (CHECK)'
+      description: '#### Create a document in a portfolio'
       x-examples:
         Portfolio Document Create Model Example:
           value:
@@ -1650,11 +1650,11 @@ components:
           maxLength: 250
           type: string
           format: email
-          description: '#### Document owmer/creator email address'
+          description: '#### Document owner/creator email address.'
         documentName:
           maxLength: 250
           type: string
-          description: '#### The name of the document'
+          description: '#### The name of the document.'
         document:
           type: string
           description: '#### Document in a base64 string format.'
@@ -1667,7 +1667,7 @@ components:
         dueDate:
           type: string
           format: date-time
-          description: '#### Document due date'
+          description: '#### Document due date.'
           nullable: true
         autoExpire:
           $ref: '#/components/schemas/AutoExpire'
@@ -1677,7 +1677,7 @@ components:
           $ref: '#/components/schemas/Priority'
         sendEmail:
           type: boolean
-          description: '#### Whether or not an email will be sent on documentcreation. True/false.'
+          description: '#### Whether or not an email will be sent on document creation. True/false.'
         participantReference:
           type: array
           description: '#### A list of all the participants required for this workflow that has been specified in the participants list.'
@@ -1764,7 +1764,17 @@ components:
       type: object
       additionalProperties: {}
       title: Problem Details
-      description: '#### Details of a problem that was experienced '
+      description: '#### Details of a problem that was experienced. '
+      x-examples:
+        Problem Details Example:
+          value:
+            type: Login Issue
+            title: Unable to Login
+            status: 2147483648
+            detail: The user's detials were incorrect.
+            instance: Error
+            property1: null
+            property2: null
       properties:
         type:
           type: string
@@ -1777,7 +1787,7 @@ components:
         status:
           type: integer
           format: int32
-          description: '#### The status of the problem.'
+          description: '#### The status of the problem, in HTTP format.'
           nullable: true
         detail:
           type: string
@@ -1785,18 +1795,8 @@ components:
           nullable: true
         instance:
           type: string
-          description: '#### The instance of the problem (?).'
+          description: '#### The instance of the problem.'
           nullable: true
-      x-examples:
-        Problem Details Example:
-          value:
-            type: Login Issue
-            title: Unable to Login
-            status: 2147483648
-            detail: The user's detials were incorrect.
-            instance: Error
-            property1: null
-            property2: null
     ProxyAllowedField:
       enum:
         - 0
@@ -1849,13 +1849,14 @@ components:
           message: Portfolio Generated
           messageDetail: ''
           success: true
+      title: Portfolio Create Model Response
       properties:
         portfolioId:
           type: number
           description: '#### The unique identifier of the portfolio.'
         documents:
           type: array
-          description: '#### A list of the document IDs for the documents passed through in the request. The order of the ids are the same as how the documents were passed in.'
+          description: '#### A list of the document ID''s for the documents passed through in the request. The order of the ID''s are the same as to how the documents were passed in.'
           items:
             type: integer
         message:
@@ -1868,12 +1869,11 @@ components:
           description: '#### Additional information regarding the portfolio creation status.'
         success:
           type: boolean
-          description: '#### Whether or not the portfolio with its documents was successfully created.'
+          description: '#### Determine whether or not the portfolio with its documents was successfully created.'
       required:
         - portfolioId
         - message
         - success
-      title: Portfolio Create Model Response
     UserModelResponse:
       description: '### Basic user information with the business ID that the user is related to, if any.'
       type: object
