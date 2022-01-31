@@ -2475,3 +2475,5 @@ components:
 servers:
   - url: 'https://preprod.signiflow.com/OpenApi'
     description: Pre-Production
+  - url: 'https://uk.signiflow.com/OpenApi'
+    description: United Kingdom Cloud
