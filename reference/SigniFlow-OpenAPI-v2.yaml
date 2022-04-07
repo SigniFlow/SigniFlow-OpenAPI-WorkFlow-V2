@@ -2480,3 +2480,5 @@ servers:
     description: Pre-Production
   - url: 'https://uk.signiflow.com/OpenApi'
     description: United Kingdom Cloud
+security:
+  - x-api-key: []
