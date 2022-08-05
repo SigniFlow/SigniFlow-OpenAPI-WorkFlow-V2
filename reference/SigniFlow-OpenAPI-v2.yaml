@@ -501,6 +501,29 @@ paths:
       responses:
         '200':
           description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  example-1:
+                    documentId: 61
+                    message: Workflow Generated
+                    messageDetail: SUCCESS
+                    success: true
+                properties:
+                  documentId:
+                    type: integer
+                    description: Returns the Document ID
+                  message:
+                    type: string
+                    description: Returns a description of the workflow.
+                  messageDetail:
+                    type: string
+                    description: Returns a description of the success or failure of the workflow.
+                  success:
+                    type: boolean
+                    description: 'Returns a success or failure. '
         '400':
           description: Bad Request
           content:
