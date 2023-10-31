@@ -5,7 +5,7 @@ Making API calls to the EasiFlow API, requires a SigniFlow user account, or tria
 
 <!-- theme: info -->
 
-> SigniFlow maintains 8 cloud enviroments around the globe, you can sign up for a [30 Day Free Trial Account](https://accountsetup.signiflow.com/trial) on any of these servers.
+> SigniFlow maintains 8 cloud enviroments around the globe, you can sign up for a [30 Day Free Trial Account](https://accountsetup.signiflow.com/trial) on any of the regional data centres.
 
 ## 🌎 Data Centre List
 
