@@ -161,7 +161,7 @@ getBase64(file); // prints the base64 string
 
 ---
 
-## Sample JSON
+## 📮Sample JSON
 
 ```JSON
 {
