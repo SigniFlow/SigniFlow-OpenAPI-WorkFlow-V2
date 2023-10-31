@@ -23,6 +23,12 @@ To replicate our demo, you will need the following:
 * [Obtain credentials and X-API Key](docs/obtaining-credentials.md)
 * [Familiarise yourself with Auto-tagging](https://www.signiflow.com/academy/advanced-user-training/auto-tagging/)
 
+The collection (zip) file includes:
+* DemoAgreement.docx - Editable MS Word document with auto-tags
+* DemoAgreement.pdf - PDF of document with auto-tags
+* SigniFlow OPENAPI TAGGING SYSTEM - Auto-tagging configuration
+* EasiFlow Document Method - JSON file to import in Postman
+
 ---
 
 ## 🎥 Watch the video
