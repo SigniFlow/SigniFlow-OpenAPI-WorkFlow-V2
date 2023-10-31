@@ -1,4 +1,4 @@
-# 🔑 Obtaining Credentials.
+# 🔑 Obtaining Credentials
 ## 😎Overview
 
 Making API calls to the EasiFlow API, requires a SigniFlow user account, or trial account and an X-API key.
