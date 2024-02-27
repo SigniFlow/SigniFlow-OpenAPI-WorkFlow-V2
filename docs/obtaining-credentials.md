@@ -6,6 +6,10 @@ Making API calls to the SigniFlow system requires a user account.
 
 > SigniFlow maintains 8 cloud enviroments around the globe, you can sign up for a trial account on any of these servers.
 
+## Watch how the EasiFlow Document API is used with a real world example
+
+https://www.youtube.com/watch?v=UCgSX3D4Ch8
+
 ## 🌎 Cloud Server List
 
 * [Pre-Production](https://preprod.signiflow.com)
