@@ -28,7 +28,6 @@ focus: false
 ## 🔒 X-API Key
 
 The EasiFlow API methods require an X-API Key, passed as Header: `X-API-Key` Value: `xxxx-xxxx-xxxx-xxxxxxxx`
-
 To obtain your X-API Key, please email : [support@signiflow.com](mailto:support@signiflow.com?subject=API%20Key%20Assistance) with details of the email address used to create your SigniFlow account. 
 
 <!-- theme: warning -->
