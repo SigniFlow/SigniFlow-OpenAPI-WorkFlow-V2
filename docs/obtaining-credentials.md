@@ -1,11 +1,11 @@
 # 🔑 Obtaining Credentials
 ## 😎Overview
 
-Making API calls to the EasiFlow API, requires a SigniFlow user account, or trial account and an X-API key.
+Making API calls to the WorkFlow API V2 requires a SigniFlow user account, or trial account, and an X-API Key.
 
 <!-- theme: info -->
 
-> SigniFlow maintains 8 cloud enviroments around the globe, you can sign up for a [30 Day Free Trial Account](https://accountsetup.signiflow.com/trial) on any of the regional data centres.
+> SigniFlow maintains 8 cloud environments around the globe. You can sign up for a [30 Day Free Trial Account](https://accountsetup.signiflow.com/trial) on any of the regional data centres.
 
 ## 🌎 Data Centre List
 
@@ -27,7 +27,7 @@ focus: false
 
 ## 🔒 X-API Key
 
-The EasiFlow API methods require an X-API Key, passed as Header: `X-API-Key` Value: `xxxx-xxxx-xxxx-xxxxxxxx`
+All WorkFlow API V2 endpoints require an X-API Key, passed as a request header: `X-API-Key: xxxx-xxxx-xxxx-xxxxxxxx`
 To obtain your X-API Key, please email : [support@signiflow.com](mailto:support@signiflow.com?subject=API%20Key%20Assistance) with details of the email address used to create your SigniFlow account. 
 
 <!-- theme: warning -->

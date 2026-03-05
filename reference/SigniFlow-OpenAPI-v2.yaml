@@ -404,7 +404,10 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Returns detailed information of a SigniFlow document.'
+      description: |-
+        #### Returns the detailed status and metadata for a SigniFlow document. Use this endpoint to poll the current status of a document workflow, including participant progress.
+
+        Possible `status` values: `Cancelled`, `Rejected`, `Completed`, `In Progress`, `Delete`, `Pending Release`, `Pending Upload`.
       security:
         - x-api-key: []
       summary: Document (ID)
@@ -463,7 +466,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Returns the document data with the content type set as "application/pdf".'
+      description: '#### Downloads the completed or available document as a PDF file. See also `POST /Document/DownloadSecure/{id}` to download with a password applied.'
       security:
         - x-api-key: []
       summary: Document Download (ID)
@@ -557,20 +560,465 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
-        #### Initiates a new document workflow with the document information and participant list passed in.
+        #### Initiates a complete end-to-end document workflow in a single call, uploading the document and assigning all participants at once. This is the V2 equivalent of the legacy FullWorkflow API.
 
-        Enumerations used in this API Call include:
+        Enumerations used in this API call include:
         | Enumeration    | Values          |
         | -------------- |:---------------:|
-        | **Extension** |0 = pdf, 1 = xls, 2 = txt, 3 = xlsx, 4 = docx, 5 = doc, 6 = xml, 7 = png, 8 = jpg, 9 = gif |
-        | **AutoExpire**| 0 = No, 1 = Yes |
-        | **AutoRemindField**| 0 = No, 1 = Yes |
-        | **Priority**  | 0 = Low, 1 = Normal, 2 = High |
-        | **Action**| 0 = SignDocument, 1 = ViewDocument, 2 = ApproveDocument |
-        | **ProxyAllowed**  | 0 = No, 1 = Yes |
+        | **Extension** | 0 = pdf, 1 = xls, 2 = txt, 3 = xlsx, 4 = docx, 5 = doc, 6 = xml, 7 = png, 8 = jpg, 9 = gif |
+        | **AutoExpire** | 0 = No, 1 = Yes |
+        | **AutoRemind** | 0 = No, 1 = Yes |
+        | **Priority** | 0 = Low, 1 = Normal, 2 = High |
+        | **Action** | 0 = SignDocument, 1 = ViewDocument, 2 = ApproveDocument |
+        | **ProxyAllowed** | 0 = No, 1 = Yes |
       security:
         - x-api-key: []
-      summary: Document
+      summary: Document Create
+  '/Document/DownloadSecure/{id}':
+    post:
+      tags:
+        - Document
+      summary: Document Download Secure (ID)
+      description: '#### Downloads the document as a PDF file with a password applied to restrict access. Use `GET /Document/Download/{id}` to download without a password.'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: The unique identifier of the document.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentDownloadSecureRequest'
+            examples:
+              Example:
+                value:
+                  password: mySecurePassword123
+        description: Document download with password request.
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+          headers:
+            Content-Disposition:
+              schema:
+                type: string
+              description: Defaults to application/pdf
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      security:
+        - x-api-key: []
+  '/Document/Cancel/{id}':
+    post:
+      tags:
+        - Document
+      summary: Document Cancel (ID)
+      description: |-
+        #### Cancels an in-progress or pending document workflow.
+
+        The document state is validated before cancellation. An error is returned if the document cannot be cancelled (for example, if it has already been completed or was previously cancelled).
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: The unique identifier of the document workflow to cancel.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentCancelRequest'
+            examples:
+              Example:
+                value:
+                  reason: Document no longer required.
+        description: Document cancellation request.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  documentId:
+                    type: integer
+                    description: '#### The unique identifier of the cancelled document.'
+                  message:
+                    type: string
+                    description: '#### A message describing the result of the cancellation.'
+                  success:
+                    type: boolean
+                    description: '#### Indicates whether the cancellation was successful.'
+              examples:
+                Example:
+                  value:
+                    documentId: 12345
+                    message: Document workflow cancelled successfully.
+                    success: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      security:
+        - x-api-key: []
+  '/Document/Audit/{id}':
+    get:
+      tags:
+        - Document
+      summary: Document Audit (ID)
+      description: '#### Returns the full audit trail for the specified document, including all user actions, timestamps, and event details.'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: The unique identifier of the document.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentAuditModel'
+              examples:
+                Example:
+                  value:
+                    activities:
+                      - actionOrder: '1'
+                        documentId: '257221'
+                        email: john@domain.com
+                        eventDate: '2021-11-22T19:57:34.41'
+                        event: Pending Release
+                        eventStatus: Pending Release
+                        location: '-26.1715, 28.0607'
+                        orderDate: '2021-11-22T19:57:34.41'
+                        page: '1'
+                        userFullName: John Smith
+                        additionalInfo: '192.168.1.1 - Chrome 96'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      security:
+        - x-api-key: []
+  '/Document/AuditFile/{id}':
+    get:
+      tags:
+        - Document
+      summary: Document Audit File (ID)
+      description: '#### Returns the audit document for the specified document as a PDF file. See `GET /Document/Audit/{id}` to retrieve structured audit data instead.'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: The unique identifier of the document.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+          headers:
+            Content-Disposition:
+              schema:
+                type: string
+              description: Defaults to application/pdf
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      security:
+        - x-api-key: []
+  '/Document/Reminder/{id}':
+    post:
+      tags:
+        - Document
+      summary: Document Reminder (ID)
+      description: |-
+        #### Sends a reminder notification to pending participants in the specified document workflow.
+
+        If `recipientEmail` is provided, only that participant receives the reminder. If omitted, reminders are sent to all participants who have not yet taken action.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: The unique identifier of the document workflow.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentReminderRequest'
+            examples:
+              Remind all pending participants:
+                value: {}
+              Remind a specific participant:
+                value:
+                  recipientEmail: john@domain.com
+        description: Document reminder request.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  documentId:
+                    type: integer
+                    description: '#### The unique identifier of the document.'
+                  message:
+                    type: string
+                    description: '#### A message describing the result of the reminder request.'
+                  success:
+                    type: boolean
+                    description: '#### Indicates whether the reminder was sent successfully.'
+              examples:
+                Example:
+                  value:
+                    documentId: 12345
+                    message: Reminder sent successfully.
+                    success: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      security:
+        - x-api-key: []
+  '/Document/Fields/{id}':
+    get:
+      tags:
+        - Document
+      summary: Document Fields (ID)
+      description: '#### Returns all DocPrepper fields defined in the specified document, including their positions, dimensions, assigned users, and current values.'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: The unique identifier of the document.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentFieldsResponse'
+              examples:
+                Example:
+                  value:
+                    fields:
+                      - documentId: 257221
+                        fieldId: 1001
+                        fieldName: Signature_1
+                        fieldType: Signature
+                        fieldValue: ''
+                        height: '50'
+                        pageNumber: 1
+                        userId: 20025
+                        userFullName: John Smith
+                        width: '150'
+                        xCoordinate: '100'
+                        yCoordinate: '200'
+                        dateTime: '2021-11-22T19:57:34.41'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      security:
+        - x-api-key: []
   /Healthz:
     get:
       tags:
@@ -724,7 +1172,7 @@ paths:
         $filter=column eq 'value'
       security:
         - x-api-key: []
-      summary: Portfolio GetByUser (OwenrID)
+      summary: Portfolio GetByUser (OwnerID)
   '/Portfolio/GetByBusiness/{businessId}':
     get:
       tags:
@@ -1471,6 +1919,35 @@ components:
           description: '#### Information of the participants that will be partaking in this workflow.'
           items:
             $ref: '#/components/schemas/DocumentParticipantModel'
+        additionalData:
+          type: string
+          description: '#### Additional metadata to be embedded in the document PDF properties.'
+        customMessage:
+          type: string
+          description: '#### A custom message that is presented to each participant when they open the document.'
+        flattenDocument:
+          type: boolean
+          description: '#### If set to true, the document will be flattened (form fields merged into content) before being sent.'
+        keepContentSecurity:
+          type: boolean
+          description: '#### Preserves the content security settings of the original document.'
+        keepCustomProperties:
+          type: boolean
+          description: '#### Preserves the custom document properties of the original document.'
+        keepXMPMetadata:
+          type: boolean
+          description: '#### Preserves the XMP metadata of the original document.'
+        sharedKey:
+          type: string
+          description: '#### A shared key used to coordinate signing between multiple related workflows.'
+        useAutoTags:
+          type: boolean
+          description: '#### If set to true, the system will automatically detect and create signature fields from tags embedded in the document.'
+        adhocFaceToFaceUsers:
+          type: array
+          description: '#### A list of face-to-face signers with their identity verification details, used for in-person signing ceremonies.'
+          items:
+            $ref: '#/components/schemas/AdhocFaceToFaceUserModel'
       required:
         - documentOwnerEmail
         - documentName
@@ -1580,7 +2057,7 @@ components:
             $ref: '#/components/schemas/PortfolioDocumentCreateModel'
         participants:
           type: array
-          description: '#### All refrences to the participants that will be linked to this document.'
+          description: '#### All references to the participants that will be linked to this document.'
           items:
             $ref: '#/components/schemas/PortfolioParticipantModel'
       required:
@@ -1687,7 +2164,7 @@ components:
         message:
           maxLength: 3000
           type: string
-          description: '#### A custom message that will be attatched to the document. Can be an empty string.'
+          description: '#### A custom message that will be attached to the document. Can be an empty string.'
         extension:
           $ref: '#/components/schemas/DocExtension'
         dueDate:
@@ -1740,7 +2217,7 @@ components:
       properties:
         participantReference:
           type: string
-          description: '#### The refrence to each participant.'
+          description: '#### The reference to each participant.'
         action:
           $ref: '#/components/schemas/ActionField'
         mobile:
@@ -1797,7 +2274,7 @@ components:
             type: Login Issue
             title: Unable to Login
             status: 2147483648
-            detail: The user's detials were incorrect.
+            detail: The user's details were incorrect.
             instance: Error
             property1: null
             property2: null
@@ -2162,7 +2639,7 @@ components:
         name:
           type: string
           minLength: 1
-          description: '#### The name of the document owner.'
+          description: '#### The name of the document.'
         ownerId:
           type: number
           description: '#### Unique identifier for the document owner.'
@@ -2334,7 +2811,7 @@ components:
         - lastModifiedDate
         - lockStatus
     PortfolioDetailedModel:
-      description: '#### An object that cotains the portfolio information with the information of all the associated documents.'
+      description: '#### An object that contains the portfolio information with the information of all the associated documents.'
       type: object
       x-examples:
         Example:
@@ -2418,6 +2895,215 @@ components:
         - lastModifiedDate
         - lockStatus
         - documents
+    DocumentDownloadSecureRequest:
+      type: object
+      title: Document Download Secure Request
+      description: '#### Request body for downloading a document with a password applied.'
+      properties:
+        password:
+          type: string
+          description: '#### The password to apply to the downloaded PDF document.'
+      required:
+        - password
+    DocumentCancelRequest:
+      type: object
+      title: Document Cancel Request
+      description: '#### Request body for cancelling a document workflow.'
+      properties:
+        reason:
+          type: string
+          description: '#### An optional reason for the cancellation, for audit purposes.'
+    DocumentAuditModel:
+      type: object
+      title: Document Audit Model
+      description: '#### Contains the full audit trail for a document workflow.'
+      properties:
+        activities:
+          type: array
+          description: '#### A list of all audit activity records for the document.'
+          items:
+            $ref: '#/components/schemas/DocumentAuditActivityModel'
+      required:
+        - activities
+    DocumentAuditActivityModel:
+      type: object
+      title: Document Audit Activity Model
+      description: '#### A single audit event record for a document workflow.'
+      properties:
+        actionOrder:
+          type: string
+          minLength: 1
+          description: '#### The sequential order in which this action occurred.'
+        documentId:
+          type: string
+          minLength: 1
+          description: '#### The unique identifier of the document.'
+        email:
+          type: string
+          format: email
+          minLength: 1
+          description: '#### The email address of the user who performed the action.'
+        eventDate:
+          type: string
+          minLength: 1
+          description: '#### The date and time the event occurred.'
+        event:
+          type: string
+          minLength: 1
+          description: '#### The type of event that took place (e.g. Signed, Viewed, Rejected, Pending Release).'
+        eventStatus:
+          type: string
+          minLength: 1
+          description: '#### The status of the event.'
+        location:
+          type: string
+          minLength: 1
+          description: '#### The GPS coordinates from which the action was taken, if available.'
+        orderDate:
+          type: string
+          minLength: 1
+          description: '#### The date and time the action was ordered.'
+        page:
+          type: string
+          minLength: 1
+          description: '#### The page number of the document where the action was taken.'
+        userFullName:
+          type: string
+          minLength: 1
+          description: '#### The full name of the user who performed the action.'
+        additionalInfo:
+          type: string
+          description: '#### Additional context for the event, such as the IP address, browser details, or reason for rejection.'
+      required:
+        - actionOrder
+        - documentId
+        - email
+        - eventDate
+        - event
+        - eventStatus
+        - location
+        - orderDate
+        - page
+        - userFullName
+    DocumentReminderRequest:
+      type: object
+      title: Document Reminder Request
+      description: '#### Request body for sending a reminder to document workflow participants.'
+      properties:
+        recipientEmail:
+          type: string
+          format: email
+          description: '#### The email address of the specific participant to remind. If omitted, reminders are sent to all participants who have not yet taken action.'
+    DocumentFieldsResponse:
+      type: object
+      title: Document Fields Response
+      description: '#### Contains all DocPrepper fields defined in a document.'
+      properties:
+        fields:
+          type: array
+          description: '#### A list of all preparation fields in the document.'
+          items:
+            $ref: '#/components/schemas/DocumentFieldModel'
+      required:
+        - fields
+    DocumentFieldModel:
+      type: object
+      title: Document Field Model
+      description: '#### A single DocPrepper field with its position, dimensions, assigned user, and current value.'
+      properties:
+        documentId:
+          type: integer
+          description: '#### The unique identifier of the document this field belongs to.'
+        fieldId:
+          type: integer
+          description: '#### The unique identifier of the field.'
+        fieldName:
+          type: string
+          minLength: 1
+          description: '#### The name of the field.'
+        fieldType:
+          type: string
+          minLength: 1
+          description: '#### The type of the field (e.g. Signature, Initial, Date, Text).'
+        fieldValue:
+          type: string
+          description: '#### The current value of the field, if any.'
+        height:
+          type: string
+          minLength: 1
+          description: '#### The height of the field in points.'
+        pageNumber:
+          type: integer
+          description: '#### The page number of the document on which the field is placed.'
+        userId:
+          type: integer
+          description: '#### The unique identifier of the user assigned to this field.'
+        userFullName:
+          type: string
+          minLength: 1
+          description: '#### The full name of the user assigned to this field.'
+        width:
+          type: string
+          minLength: 1
+          description: '#### The width of the field in points.'
+        xCoordinate:
+          type: string
+          minLength: 1
+          description: '#### The horizontal position of the field on the page.'
+        yCoordinate:
+          type: string
+          minLength: 1
+          description: '#### The vertical position of the field on the page.'
+        dateTime:
+          type: string
+          format: date-time
+          description: '#### The date and time associated with the field entry.'
+      required:
+        - documentId
+        - fieldId
+        - fieldName
+        - fieldType
+        - height
+        - pageNumber
+        - userId
+        - userFullName
+        - width
+        - xCoordinate
+        - yCoordinate
+        - dateTime
+    AdhocFaceToFaceUserModel:
+      type: object
+      title: Adhoc Face To Face User Model
+      description: '#### Identity and contact details for a face-to-face signer in an in-person signing ceremony.'
+      properties:
+        countryId:
+          type: integer
+          description: '#### The country ID of the signer. Refer to the SigniFlow country ID reference table.'
+        idType:
+          type: integer
+          description: '#### The type of identification document provided by the signer.'
+        identificationNumber:
+          type: string
+          description: '#### The identification number of the signer.'
+        signerEmail:
+          type: string
+          format: email
+          description: '#### The email address of the signer.'
+        signerFirstName:
+          type: string
+          description: '#### The first name of the signer.'
+        signerLastName:
+          type: string
+          description: '#### The last name of the signer.'
+        signerMobile:
+          type: string
+          description: '#### The mobile number of the signer.'
+      required:
+        - countryId
+        - idType
+        - signerFirstName
+        - signerLastName
+        - signerMobile
   securitySchemes:
     x-api-key:
       name: X-API-Key
@@ -2470,7 +3156,7 @@ components:
               addressLine3:
                 type: string
                 minLength: 1
-                description: Business address 3de line.
+                description: Business address 3rd line.
               addressLine4:
                 type: string
                 minLength: 1

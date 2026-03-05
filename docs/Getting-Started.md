@@ -3,7 +3,7 @@
       <div class="welcom-column" style="width: 49%; margin-top: 24px; margin-right: 20px;">
         <h1 class="welcome-h1" style="font-family: Graphik, Arial, sans-serif;">Overview</h1>
         <div class="welcome-message" style="margin-top: 16px; font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 16px; line-height: 28px; font-weight: 400;">
-          Using a Postman collection, we will show you how easy it is to use the EasiFlow OpenAPI, Document method to workflow an auto-tagged document to two signers and an approver to action.</div>
+          Using a Postman collection, we will show you how easy it is to use the SigniFlow WorkFlow API V2, Document method to workflow an auto-tagged document to two signers and an approver to action.</div>
         <div class="button" style="margin-top: 50px; margin-bottom: 50px;">
           <a href="#%EF%B8%8F-getting-started"><span style="font-family: &quot;Open Sans&quot;, Arial, sans-serif; width: 206px; padding: 13px 42px; color: rgb(255, 255, 255); font-size: 16px; line-height: 28px; font-weight: 700; border-radius: 4px; background: rgb(0, 139, 248); text-decoration: none;">Get started</span></a>
         </div>
@@ -38,7 +38,7 @@ https://youtu.be/UCgSX3D4Ch8?si=wQe-tvxP4XKfnbyM
 
 ## 📄 Base64-Encoder
 
-Herewith some `sample code` to savely encode a document to Base64 string locally. 
+Herewith some `sample code` to safely encode a document to a Base64 string locally.
 
 <!--
 type: tab
