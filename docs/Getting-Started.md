@@ -9,7 +9,6 @@
         </div>
       </div>
       <div class="welcome-two" style="width: auto; margin-top: 20px; margin-right: 0px; position: relative; max-width: max-content; text-align: left;">
-        <img src="https://www.signiflow.com/wp-content/uploads/2021/10/SigniFlow-Developer-2-350-350.png" alt="" class="SigniFlow EasiFlow API" style="position: absolute; top: -20px; left: 0px; width: 270px; height: 250px; box-sizing: initial; background-color: rgb(255, 255, 255); border-style: none; max-width: 400px; border-radius: 0px;">
   </div>
 </div>
 
