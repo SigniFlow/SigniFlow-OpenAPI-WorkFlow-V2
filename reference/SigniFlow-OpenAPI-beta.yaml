@@ -1360,7 +1360,7 @@ paths:
                     title: Not Found
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
-      description: '#### Returns a list of all the users associated to the specified business.'
+      description: '#### Returns a list of all the users associated to the specified business. (BETA)'
       security:
         - x-api-key: []
       summary: User GetByBusiness (BusinessID)
