@@ -1,0 +1,2596 @@
+openapi: 3.0.1
+x-stoplight:
+  id: 78mgzvzanj6ku
+info:
+  title: WorkFlow API Beta
+  version: v1
+  description: SigniFlow eSignature Workflow creation API beta version for SigniFlow instances running version 2025.10.0.0 onwards.
+  contact:
+    name: SigniFlow Support
+    url: 'https://www.signiflow.com/contact'
+    email: support@signiflow.com
+  termsOfService: 'https://www.signiflow.com/legal'
+  license:
+    name: Proprietary
+    url: 'https://www.signiflow.com/legal'
+paths:
+  /Business/List:
+    get:
+      tags:
+        - Business
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Business'
+              examples:
+                Example:
+                  value:
+                    - id: 0
+                      name: John
+                      registrationNumber: '983747376298276387182'
+                      taxNumber: '1872617631'
+                      addressLine1: Johannesburg
+                      addressLine2: Kyalami
+                      addressLine3: Dove Drive
+                      addressLine4: 27 Hare street
+                      country: '137'
+                      industry: Manufacturing
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                example-1:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      operationId: ''
+      description: '#### Returns a list of all the business that the API Key has been granted access to.'
+      security:
+        - x-api-key: []
+      summary: Business List
+      x-stoplight:
+        id: ju3roe5d90qka
+  '/Business/{id}':
+    get:
+      tags:
+        - Business
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Business-Detail'
+              examples:
+                Example:
+                  value:
+                    id: 0
+                    name: John
+                    registrationNumber: '983747376298276387182'
+                    taxNumber: '1872617631'
+                    addressLine1: Johannesburg
+                    addressLine2: Kyalami
+                    addressLine3: Dove Drive
+                    addressLine4: 27 Hare street
+                    country: '137'
+                    industry: Manufacturing
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: '#### Returns the details for a specific business for the ID passed in.'
+      security:
+        - x-api-key: []
+      summary: Business (ID)
+      x-stoplight:
+        id: rtsn7wblo8a5n
+  /Document/List:
+    get:
+      tags:
+        - Document
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentModel'
+              examples:
+                Example 1:
+                  value: []
+                Example 2:
+                  value:
+                    - id: 20
+                      name: Test
+                      ownerId: 2
+                      status: Delete
+                      currentStep: ''
+                      totalSteps: ''
+                      createdDate: '2015-08-19T08:29:00'
+                      lastModifiedDate: '2016-06-19T09:55:48.77'
+                      portfolioId: 0
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples: {}
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: |-
+        #### Returns a list of all the documents that the API Key has been granted access to.
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+        Example: /Document/List?$filter=id eq 20
+      security:
+        - x-api-key: []
+      summary: Document List
+      x-stoplight:
+        id: bpkrx6ohz7lye
+  '/Document/GetByUser/{ownerId}':
+    get:
+      tags:
+        - Document
+      parameters:
+        - name: ownerId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentModel'
+              examples:
+                Example:
+                  value: []
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: |-
+        #### Returns a list of all the documents created by the specified user.
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+      security:
+        - x-api-key: []
+      summary: Document GetByUser (OwnerID)
+      x-stoplight:
+        id: 685hfkfu5n27t
+  '/Document/GetByBusiness/{businessId}':
+    get:
+      tags:
+        - Document
+      parameters:
+        - name: businessId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentModel'
+              examples:
+                Example:
+                  value:
+                    id: 2
+                    name: PBSA (Pty) Limited
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: |-
+        #### Returns a list of all the documents owned by the specified business.
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+      security:
+        - x-api-key: []
+      summary: Document GetbyBusiness (BusinessID)
+      x-stoplight:
+        id: yd4o237k6z3so
+  '/Document/{id}':
+    get:
+      tags:
+        - Document
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentDetailModel'
+              examples:
+                Example:
+                  value:
+                    participants:
+                      - id: 100011
+                        email: user@domain.co.za
+                        firstName: John
+                        lastName: Smith
+                        actionTaken: null
+                        actionRequired: Sign Document
+                        actionDate: null
+                        viewUrl: 'https://preprod.signiflow.com/EasiSign/Home/Index?enc=GGKfqjzJ04khCFnBTm1bCVTnbTnQLks6nQPTsXkiZEpaubUk9Dc8wQ30TWvAX7xQoNr667Se8XgMSPewp+zwu27HWHO6y/vH7WqD0KluejVgjI/G7Y2PvBNeqCtnUx2WXduo713UKuzSjTu9cPdpbtNbATRlW+CetWYiffO+j3tSGYq28EBzf'
+                    id: 257221
+                    name: Sample Agreement
+                    ownerId: 20025
+                    status: In Progress
+                    currentStep: '1'
+                    totalSteps: '1'
+                    createdDate: '2021-11-22T19:57:34.41'
+                    lastModifiedDate: '2021-11-22T19:58:46.713'
+                    portfolioId: 0
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: '#### Returns detailed information of a SigniFlow document.'
+      security:
+        - x-api-key: []
+      summary: Document (ID)
+      x-stoplight:
+        id: d8gaj4i3p0h6c
+  '/Document/Download/{id}':
+    get:
+      tags:
+        - Document
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+          headers:
+            Content Disposition:
+              schema:
+                type: string
+              description: Default to application/pdf
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: '#### Returns the document data with the content type set as "application/pdf".'
+      security:
+        - x-api-key: []
+      summary: Document Download (ID)
+      x-stoplight:
+        id: tfxnu9g98h2zy
+  /Document:
+    post:
+      tags:
+        - Document
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentCreateModel'
+            examples:
+              Example:
+                value:
+                  documentOwnerEmail: email@domain.com
+                  documentName: Leave Application
+                  document: Base64 Encoded Document
+                  message: This is a leave application (This message is displayed when a signed opens the document).
+                  extension: 0
+                  dueDate: '2019-08-24T14:15:22Z'
+                  autoExpire: 0
+                  autoRemind: 0
+                  priority: 0
+                  sendEmail: true
+                  participants:
+                    - action: 0
+                      mobile: +27 78 000 0000
+                      email: email@domain.com
+                      firstName: John
+                      lastName: Doe
+                      languageCode: en
+                      proxyAllowed: 0
+        description: Create a new Document Workflow request.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  example-1:
+                    documentId: 61
+                    message: Workflow Generated
+                    messageDetail: SUCCESS
+                    success: true
+                properties:
+                  documentId:
+                    type: integer
+                    description: Returns the Document ID
+                  message:
+                    type: string
+                    description: Returns a description of the workflow.
+                  messageDetail:
+                    type: string
+                    description: Returns a description of the success or failure of the workflow.
+                  success:
+                    type: boolean
+                    description: 'Returns a success or failure. '
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: |-
+        #### Initiates a new document workflow with the document information and participant list passed in.
+
+        Enumerations used in this API Call include:
+        | Enumeration    | Values          |
+        | -------------- |:---------------:|
+        | **Extension** |0 = pdf, 1 = xls, 2 = txt, 3 = xlsx, 4 = docx, 5 = doc, 6 = xml, 7 = png, 8 = jpg, 9 = gif |
+        | **AutoExpire**| 0 = No, 1 = Yes |
+        | **AutoRemindField**| 0 = No, 1 = Yes |
+        | **Priority**  | 0 = Low, 1 = Normal, 2 = High |
+        | **Action**| 0 = SignDocument, 1 = ViewDocument, 2 = ApproveDocument |
+        | **ProxyAllowed**  | 0 = No, 1 = Yes |
+      security:
+        - x-api-key: []
+      summary: Document
+      x-stoplight:
+        id: htf80kw0rekis
+  /Healthz:
+    get:
+      tags:
+        - Healthz
+      responses:
+        '200':
+          description: Alive
+      description: '#### Determines whether the API service is up and running.'
+      security:
+        - x-api-key: []
+      summary: Healthz
+      x-stoplight:
+        id: 33j2u72sf4414
+  /Portfolio/List:
+    get:
+      tags:
+        - Portfolio
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PortfolioModel'
+              examples:
+                Example:
+                  value:
+                    - id: 786000
+                      name: Demo Portfolio
+                      ownerId: 70234
+                      status: Pending Release
+                      totalDocuments: '3'
+                      createdDate: '2017-11-14T08:43:04.417'
+                      lastModifiedDate: '2017-11-14T08:43:04.417'
+                      lockStatus: null
+                      lockDescription: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: |-
+        #### Returns a list of all the portfolios that the API Key has access to.
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+      security:
+        - x-api-key: []
+      summary: Portfolio List
+      operationId: ''
+      x-stoplight:
+        id: mcycu06lwf1sh
+  '/Portfolio/GetByUser/{ownerId}':
+    get:
+      tags:
+        - Portfolio
+      parameters:
+        - name: ownerId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PortfolioModel'
+              examples:
+                Example:
+                  value:
+                    - id: 12257
+                      name: '!CurrentDocPlaceholder!'
+                      ownerId: 28233
+                      status: null
+                      totalDocuments: '0'
+                      createdDate: '2019-09-15T21:46:03.78'
+                      lastModifiedDate: '2019-09-15T21:46:03.78'
+                      lockStatus: Unlocked
+                      lockDescription: null
+                    - id: 13733
+                      name: Portfolio Test
+                      ownerId: 28211
+                      status: Delete
+                      totalDocuments: '0'
+                      createdDate: '2019-09-15T21:47:36.633'
+                      lastModifiedDate: '2019-09-15T21:47:36.633'
+                      lockStatus: Unlocked
+                      lockDescription: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: |-
+        #### Returns a list of all the portfolios owned by the specified user.
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+      security:
+        - x-api-key: []
+      summary: Portfolio GetByUser (OwenrID)
+      x-stoplight:
+        id: rd27d2q4i0ip0
+  '/Portfolio/GetByBusiness/{businessId}':
+    get:
+      tags:
+        - Portfolio
+      parameters:
+        - name: businessId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PortfolioModel'
+              examples:
+                Example:
+                  value:
+                    - id: 13000
+                      name: '!CurrentDocPlaceholder!'
+                      ownerId: 20005
+                      status: null
+                      totalDocuments: '0'
+                      createdDate: '2019-09-15T21:46:03.78'
+                      lastModifiedDate: '2019-09-15T21:46:03.78'
+                      lockStatus: Unlocked
+                      lockDescription: null
+                    - id: 12222
+                      name: Portfolio Test
+                      ownerId: 21111
+                      status: Delete
+                      totalDocuments: '0'
+                      createdDate: '2019-09-15T21:47:36.633'
+                      lastModifiedDate: '2019-09-15T21:47:36.633'
+                      lockStatus: Unlocked
+                      lockDescription: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      description: |-
+        #### Returns a list of all the portfolios owned by the specified business.
+        Limited to 1000 per request
+        Supports ODATA Filters
+        $filter=column eq 'value'
+      security:
+        - x-api-key: []
+      summary: Portfolio GetByBusiness (BusinessID)
+      x-stoplight:
+        id: d6vsst97051ko
+  '/Portfolio/{id}':
+    get:
+      tags:
+        - Portfolio
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PortfolioDetailedModel'
+              examples:
+                Example:
+                  value:
+                    id: 13000
+                    name: Portfolio Test
+                    ownerId: 20005
+                    status: Delete
+                    totalDocuments: '0'
+                    createdDate: '2019-09-15T21:47:36.633'
+                    lastModifiedDate: '2019-09-15T21:47:36.633'
+                    lockStatus: Unlocked
+                    lockDescription: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      description: '#### Returns the detailed information of a portfolio.'
+      security:
+        - x-api-key: []
+      summary: Portfolio (ID)
+      x-stoplight:
+        id: 46zijspboacsw
+  '/Portfolio/Download/{id}':
+    get:
+      tags:
+        - Portfolio
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                Example:
+                  value: []
+          headers:
+            Content Disposition:
+              schema:
+                type: string
+              description: Defaulted to application/pdf
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: '#### Returns the portfolio pdf file data with the content type set as "application/pdf".'
+      security:
+        - x-api-key: []
+      summary: Portfolio Download (ID)
+      x-stoplight:
+        id: zf7vnm1yj32sr
+  /Portfolio:
+    post:
+      tags:
+        - Portfolio
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PortfolioCreateModel'
+            examples:
+              Example:
+                value:
+                  portfolioOwnerEmail: email@domain.com
+                  portfolioName: Portfolio 1
+                  sendPortfolioNotifications: true
+                  documents:
+                    - documentOwnerEmail: email@domain.com
+                      documentName: Leave Application
+                      document: Base64 Encoded Document
+                      message: This is a leave application (This message is displayed when a signed opens the document).
+                      extension: 0
+                      dueDate: '2019-08-24T14:15:22Z'
+                      autoExpire: 0
+                      autoRemind: 0
+                      priority: 0
+                      sendEmail: true
+                      participantReference:
+                        - string
+                  participants:
+                    - participantReference: string
+                      action: 0
+                      mobile: +27 78 000 0000
+                      email: email@domain.com
+                      firstName: John
+                      lastName: Doe
+                      languageCode: en
+                      proxyAllowed: 0
+        description: Create Portfolio request.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PortfolioCreateModelResponse'
+              examples:
+                Example:
+                  value:
+                    portfolioId: 0
+                    documents:
+                      - 0
+                      - 1
+                    message: Portfolio Generated
+                    messageDetail: ''
+                    success: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      description: |-
+        #### Create a portfolio.
+
+        Enumerations used in this API Call include:
+        | Enumeration    | Values          |
+        | -------------- |:---------------:|
+        | **Extension** |0 = pdf, 1 = xls, 2 = txt, 3 = xlsx, 4 = docx, 5 = doc, 6 = xml, 7 = png, 8 = jpg, 9 = gif |
+        | **AutoExpire**| 0 = No, 1 = Yes |
+        | **AutoRemindField**| 0 = No, 1 = Yes |
+        | **Priority**  | 0 = Low, 1 = Normal, 2 = High |
+        | **Action**    | 0 = SignDocument, 1 = ViewDocument, 2 = ApproveDocument |
+        | **ProxyAllowed**  | 0 = No, 1 = Yes |
+      security:
+        - x-api-key: []
+      summary: Portfolio
+      x-stoplight:
+        id: qjqwahe44o8gi
+    put:
+      tags:
+        - Portfolio
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PortfolioAddModel'
+            examples:
+              Example:
+                value:
+                  value:
+                    portfolioId: 2147483648
+                    sendPortfolioNotifications: true
+                    documents:
+                      - documentOwnerEmail: email@domain.com
+                        documentName: Leave Application
+                        document: Base64 Encoded Document
+                        message: This is a leave application (This message is displayed when a signed opens the document).
+                        extension: 0
+                        dueDate: '2019-08-24T14:15:22Z'
+                        autoExpire: 0
+                        autoRemind: 0
+                        priority: 0
+                        sendEmail: true
+                        participantReference:
+                          - string
+                    participants:
+                      - participantReference: string
+                        action: 0
+                        mobile: +27 78 000 0000
+                        email: email@domain.com
+                        firstName: John
+                        lastName: Doe
+                        languageCode: en
+                        proxyAllowed: 0
+        description: Add documents to the Portfolio request.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PortfolioCreateModelResponse'
+              examples:
+                Example:
+                  value:
+                    portfolioId: 0
+                    documents:
+                      - 0
+                      - 1
+                    message: Portfolio Updated
+                    messageDetail: ''
+                    success: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      description: |-
+        #### Add documents to an existing portfolio.
+
+        Enumerations used in this API Call include:
+        | Enumeration    | Values          |
+        | -------------- |:---------------:|
+        | **Extension** |0 = pdf, 1 = xls, 2 = txt, 3 = xlsx, 4 = docx, 5 = doc, 6 = xml, 7 = png, 8 = jpg, 9 = gif |
+        | **AutoExpire**| 0 = No, 1 = Yes |
+        | **AutoRemindField**| 0 = No, 1 = Yes |
+        | **Priority**  | 0 = Low, 1 = Normal, 2 = High |
+        | **Action**    | 0 = SignDocument, 1 = ViewDocument, 2 = ApproveDocument |
+      summary: Portfolio
+      x-stoplight:
+        id: wy07y3kj9du6f
+  /User/List:
+    get:
+      tags:
+        - User
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserModelResponse'
+              examples:
+                Example:
+                  value:
+                    id: 0
+                    email: user@domain.co.za
+                    businessId: 0
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: '#### Returns a list of all the users that the API Key has been granted access to.'
+      security:
+        - x-api-key: []
+      summary: User List
+      x-stoplight:
+        id: w81oqf2o7gsfv
+  '/User/{id}':
+    get:
+      tags:
+        - User
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDetailModel'
+              examples:
+                Example:
+                  value:
+                    id: 2800
+                    userFullName: John Smith
+                    userFirstName: John
+                    userLastName: Smith
+                    email: user@domain.co.za
+                    accountType: Business
+                    businessId: 2
+                    license: '0000'
+                    mobileNumber: +27 74 990 0000
+                    roleId: 3
+                    departmentId: 0
+                    teamId: 0
+                    status: 1
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: '#### Returns the detailed information of the specified user.'
+      security:
+        - x-api-key: []
+      summary: User (ID)
+      x-stoplight:
+        id: l3s7iazegi1x2
+  '/User/GetByEmail/{email}':
+    get:
+      tags:
+        - User
+      parameters:
+        - name: email
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDetailModel'
+              examples:
+                Example:
+                  value:
+                    id: 2800
+                    userFullName: John Smith
+                    userFirstName: John
+                    userLastName: Smith
+                    email: user@domain.co.za
+                    accountType: Business
+                    businessId: 2
+                    license: '0000'
+                    mobileNumber: +27 74 990 0000
+                    roleId: 3
+                    departmentId: 0
+                    teamId: 0
+                    status: 1
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: '#### Returns the detailed information of the specified user by using the user''s email address.'
+      security:
+        - x-api-key: []
+      summary: User GetByEmail (Email)
+      x-stoplight:
+        id: 6lwezyykw9lpd
+  '/User/GetByBusiness/{businessId}':
+    get:
+      tags:
+        - User
+      parameters:
+        - name: businessId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDetailModel'
+              examples:
+                Example:
+                  value:
+                    - id: 2800
+                      userFullName: John Smith
+                      userFirstName: John
+                      userLastName: Smith
+                      email: user@domain.co.za
+                      accountType: Business
+                      businessId: 2
+                      license: '0000'
+                      mobileNumber: +27 74 990 0000
+                      roleId: 3
+                      departmentId: 0
+                      teamId: 0
+                      status: 1
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1'
+                    title: Bad Request
+                    status: 400
+                    traceId: 00-effa6b69aba4734db7927ac7cfd1b0a8-5370414619bb3a49-00
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              examples:
+                Example:
+                  value:
+                    type: 'https://tools.ietf.org/html/rfc7231#section-6.5.4'
+                    title: Not Found
+                    status: 404
+                    traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
+      description: '#### Returns a list of all the users associated to the specified business.'
+      security:
+        - x-api-key: []
+      summary: User GetByBusiness (BusinessID)
+      operationId: ''
+      x-stoplight:
+        id: voqod95up0scj
+components:
+  schemas:
+    ActionField:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+      description: |-
+        #### The action required by the user.
+
+        `0 = SignDocument
+        1 = ViewDocument
+        2 = ApproveDocument`
+      title: Action Field
+      x-examples:
+        Action Field Example:
+          value: 0
+      x-stoplight:
+        id: 2l37vmp2ncqiz
+    AutoExpire:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+      description: |-
+        #### Sets an Auto Expire that will expire the document if not completed by the Due Date.
+
+        `0 = No
+        1 = Yes`
+      title: Auto Expire
+      x-examples:
+        Auto Expire Example:
+          value: 0
+      x-stoplight:
+        id: 228y0t54r5j8z
+    AutoRemind:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+      description: |-
+        #### Sets an Auto Reminder email to go out daily to workflow participants that are required to action a workflow.
+
+        `0 = No
+        1 = Yes`
+      title: Auto Remind
+      x-examples:
+        Auto Remind Example:
+          value: 0
+      x-stoplight:
+        id: vo89u8h2f6qjw
+    DocExtension:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+      type: integer
+      format: int32
+      title: Document Extension
+      description: |
+        #### The extension of the document.
+
+        `
+        0 = pdf
+        1 = xls
+        2 = txt
+        3 = xlsx
+        4 = docx
+        5 = doc
+        6 = xml
+        7 = png
+        8 = jpg
+        9 = gif
+        `
+      x-examples:
+        Document Extension Example:
+          value: 0
+      x-stoplight:
+        id: mfalu6ne4ol9b
+    DocumentCreateModel:
+      type: object
+      additionalProperties: false
+      title: Document Create Model
+      description: '#### Create a document. '
+      x-examples:
+        Document Create Model Example:
+          value:
+            documentOwnerEmail: email@domain.com
+            documentName: Leave Application
+            document: Base64 Encoded Document
+            message: This is a leave application (This message is displayed when a signer opens the document).
+            extension: 0
+            dueDate: '2019-08-24T14:15:22Z'
+            autoExpire: 0
+            autoRemind: 0
+            priority: 0
+            sendEmail: true
+            participants:
+              - action: 0
+                mobile: +27 78 000 0000
+                email: email@domain.com
+                firstName: John
+                lastName: Doe
+                languageCode: en
+                proxyAllowed: 0
+      properties:
+        documentOwnerEmail:
+          maxLength: 250
+          type: string
+          format: email
+          description: '#### The email of the user who is releasing the document.'
+        documentName:
+          maxLength: 250
+          type: string
+          description: '#### The name of the document.'
+        document:
+          type: string
+          description: '#### Document in a base64 string format.'
+        message:
+          maxLength: 3000
+          type: string
+          description: '#### Custom message the user would like to display to the participants.'
+        extension:
+          $ref: '#/components/schemas/DocExtension'
+        dueDate:
+          type: string
+          format: date-time
+          description: '#### Document completion date. This needs to be passed in the following format example: 2012-04-21T18:25:43.'
+          nullable: true
+        autoExpire:
+          $ref: '#/components/schemas/AutoExpire'
+        autoRemind:
+          $ref: '#/components/schemas/AutoRemind'
+        priority:
+          $ref: '#/components/schemas/Priority'
+        sendEmail:
+          type: boolean
+          description: '#### Determines whether or not an email will be sent out to all the participants on document release. True/false.'
+        participants:
+          type: array
+          description: '#### Information of the participants that will be partaking in this workflow.'
+          items:
+            $ref: '#/components/schemas/DocumentParticipantModel'
+      required:
+        - documentOwnerEmail
+        - documentName
+        - document
+        - message
+        - extension
+        - autoExpire
+        - autoRemind
+        - priority
+        - sendEmail
+        - participants
+      x-stoplight:
+        id: 3n97kl6t70esq
+    DocumentParticipantModel:
+      type: object
+      additionalProperties: false
+      title: Document Participant Model
+      description: '#### Add document participants.'
+      x-examples:
+        Document Participant Model Example:
+          value:
+            action: 0
+            mobile: +27 78 000 0000
+            email: email@domain.com
+            firstName: John
+            lastName: Doe
+            languageCode: en
+            proxyAllowed: 0
+      properties:
+        action:
+          $ref: '#/components/schemas/ActionField'
+        mobile:
+          maxLength: 15
+          minLength: 0
+          type: string
+          description: '#### Participant mobile number. You can pass an empty string as a mobile number.'
+        email:
+          maxLength: 250
+          type: string
+          format: email
+          description: '#### Participant email address.'
+        firstName:
+          maxLength: 350
+          type: string
+          description: '#### Participant first name.'
+        lastName:
+          maxLength: 250
+          type: string
+          description: '#### Participant last name.'
+        languageCode:
+          maxLength: 2
+          type: string
+          description: '#### The language that the user will receive their emails in if the language has not been set.'
+        proxyAllowed:
+          $ref: '#/components/schemas/ProxyAllowedField'
+      required:
+        - action
+        - mobile
+        - email
+        - firstName
+        - lastName
+        - languageCode
+        - proxyAllowed
+      x-stoplight:
+        id: mvdaxswasoe4y
+    PortfolioAddModel:
+      type: object
+      additionalProperties: false
+      title: Portfolio Add Model
+      description: '#### Add a portfolio.'
+      x-examples:
+        Portfolio Add Model Example:
+          value:
+            portfolioId: 2147483648
+            sendPortfolioNotifications: true
+            documents:
+              - documentOwnerEmail: email@domain.com
+                documentName: Leave Application
+                document: Base64 Encoded Document
+                message: This is a leave application (This message is displayed when a signer opens the document).
+                extension: 0
+                dueDate: '2019-08-24T14:15:22Z'
+                autoExpire: 0
+                autoRemind: 0
+                priority: 0
+                sendEmail: true
+                participantReference:
+                  - '1'
+            participants:
+              - participantReference: '1'
+                action: 0
+                mobile: +27 78 000 0000
+                email: email@domain.com
+                firstName: John
+                lastName: Doe
+                languageCode: en
+                proxyAllowed: 0
+      properties:
+        portfolioId:
+          type: integer
+          format: int32
+          description: '#### Unique identifier of the portfolio.'
+        sendPortfolioNotifications:
+          type: boolean
+          description: '#### Determine whether or not to send a notification regarding the portfolio. True/false.'
+          default: true
+        documents:
+          type: array
+          description: '#### Documents that will be linked to this portfolio.'
+          items:
+            $ref: '#/components/schemas/PortfolioDocumentCreateModel'
+        participants:
+          type: array
+          description: '#### All refrences to the participants that will be linked to this document.'
+          items:
+            $ref: '#/components/schemas/PortfolioParticipantModel'
+      required:
+        - portfolioId
+        - sendPortfolioNotifications
+        - documents
+        - participants
+      x-stoplight:
+        id: 89d1hoxw6chjj
+    PortfolioCreateModel:
+      type: object
+      additionalProperties: false
+      title: Portfolio Create Model
+      description: '#### Create a portfolio.'
+      x-examples:
+        Portfolio Create Model Example:
+          value:
+            portfolioOwnerEmail: email@domain.com
+            portfolioName: Portfolio 1
+            sendPortfolioNotifications: true
+            documents:
+              - documentOwnerEmail: email@domain.com
+                documentName: Leave Application
+                document: Base64 Encoded Document
+                message: This is a leave application (This message is displayed when a signer opens the document).
+                extension: 0
+                dueDate: '2019-08-24T14:15:22Z'
+                autoExpire: 0
+                autoRemind: 0
+                priority: 0
+                sendEmail: true
+                participantReference:
+                  - '1'
+            participants:
+              - participantReference: '1'
+                action: 0
+                mobile: +27 78 000 0000
+                email: email@domain.com
+                firstName: John
+                lastName: Doe
+                languageCode: en
+                proxyAllowed: 0
+      properties:
+        portfolioOwnerEmail:
+          maxLength: 250
+          type: string
+          format: email
+          description: '#### Email address of the portfolio''s owner.'
+        portfolioName:
+          maxLength: 250
+          type: string
+          description: '#### Portfolio name.'
+        sendPortfolioNotifications:
+          type: boolean
+          default: true
+          description: '#### Whether or not to send a notification to the participants and owner regarding any portfolio actions. True/false.'
+        documents:
+          type: array
+          description: '#### These will be new documents initiated with the portfolio creation and linked to the portfolio. '
+          items:
+            $ref: '#/components/schemas/PortfolioDocumentCreateModel'
+        participants:
+          type: array
+          description: '#### A unique list of all the participants that will be partaking in this portfolio.'
+          items:
+            $ref: '#/components/schemas/PortfolioParticipantModel'
+      required:
+        - portfolioOwnerEmail
+        - portfolioName
+        - sendPortfolioNotifications
+        - documents
+        - participants
+      x-stoplight:
+        id: 6vql1atlozrbp
+    PortfolioDocumentCreateModel:
+      type: object
+      additionalProperties: false
+      title: Portfolio Document Create Model
+      description: '#### Create a document in a portfolio'
+      x-examples:
+        Portfolio Document Create Model Example:
+          value:
+            documentOwnerEmail: email@domain.com
+            documentName: Leave Application
+            document: Base64 Encoded Document
+            message: This is a leave application (This message is displayed when a signer opens the document).
+            extension: 0
+            dueDate: '2019-08-24T14:15:22Z'
+            autoExpire: 0
+            autoRemind: 0
+            priority: 0
+            sendEmail: true
+            participantReference:
+              - '1'
+      properties:
+        documentOwnerEmail:
+          maxLength: 250
+          type: string
+          format: email
+          description: '#### Document owner/creator email address.'
+        documentName:
+          maxLength: 250
+          type: string
+          description: '#### The name of the document.'
+        document:
+          type: string
+          description: '#### Document in a base64 string format.'
+        message:
+          maxLength: 3000
+          type: string
+          description: '#### A custom message that will be attatched to the document. Can be an empty string.'
+        extension:
+          $ref: '#/components/schemas/DocExtension'
+        dueDate:
+          type: string
+          format: date-time
+          description: '#### Document due date.'
+          nullable: true
+        autoExpire:
+          $ref: '#/components/schemas/AutoExpire'
+        autoRemind:
+          $ref: '#/components/schemas/AutoRemind'
+        priority:
+          $ref: '#/components/schemas/Priority'
+        sendEmail:
+          type: boolean
+          description: '#### Whether or not an email will be sent on document creation. True/false.'
+        participantReference:
+          type: array
+          description: '#### A list of all the participants required for this workflow that has been specified in the participants list.'
+          items:
+            type: string
+      required:
+        - documentOwnerEmail
+        - documentName
+        - document
+        - message
+        - extension
+        - dueDate
+        - autoExpire
+        - autoRemind
+        - priority
+        - sendEmail
+        - participantReference
+      x-stoplight:
+        id: rvwrrr9k064w5
+    PortfolioParticipantModel:
+      type: object
+      additionalProperties: false
+      title: Portfolio Participant Model
+      description: '#### Participants in a portfolio.'
+      x-examples:
+        Portfolio Participant Model Example:
+          value:
+            participantReference: '1'
+            action: 0
+            mobile: +27 78 000 0000
+            email: email@domain.com
+            firstName: John
+            lastName: Doe
+            languageCode: en
+            proxyAllowed: 0
+      properties:
+        participantReference:
+          type: string
+          description: '#### The refrence to each participant.'
+        action:
+          $ref: '#/components/schemas/ActionField'
+        mobile:
+          type: string
+          description: '#### Participant mobile number. You can pass in a empty string.'
+        email:
+          type: string
+          description: '#### Participant email address.'
+        firstName:
+          type: string
+          description: '#### Participant first name.'
+        lastName:
+          type: string
+          description: '#### Participant last name.'
+        languageCode:
+          type: string
+          description: '#### Participant language code.'
+        proxyAllowed:
+          $ref: '#/components/schemas/ProxyAllowedField'
+      required:
+        - participantReference
+        - action
+        - mobile
+        - email
+        - firstName
+        - lastName
+        - languageCode
+        - proxyAllowed
+      x-stoplight:
+        id: 2aa575wc901hq
+    Priority:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+      description: |-
+        #### Priority of the workflow. 
+
+        `0 = Low
+        1 = Normal
+        2 = High`
+      title: Priority
+      x-examples:
+        Priority Example:
+          value: 1
+      x-stoplight:
+        id: 08rdh0pp4t277
+    ProblemDetails:
+      type: object
+      additionalProperties: {}
+      title: Problem Details
+      description: '#### Details of a problem that was experienced. '
+      x-examples:
+        Problem Details Example:
+          value:
+            type: Login Issue
+            title: Unable to Login
+            status: 2147483648
+            detail: The user's detials were incorrect.
+            instance: Error
+            property1: null
+            property2: null
+      properties:
+        type:
+          type: string
+          description: '#### The type of problem that has been experienced.'
+          nullable: true
+        title:
+          type: string
+          description: '#### The title of the problem.'
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          description: '#### The status of the problem, in HTTP format.'
+          nullable: true
+        detail:
+          type: string
+          description: '#### The details of the problem that was/is being experienced.'
+          nullable: true
+        instance:
+          type: string
+          description: '#### The instance of the problem.'
+          nullable: true
+      x-stoplight:
+        id: da2uttupew6ri
+    ProxyAllowedField:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+      title: Proxy Allowed Field
+      description: |-
+        #### Determines whether a user can delegate their action to another user.
+
+        `0 = No
+        1 = Yes`
+      x-examples:
+        Proxy Allowed Field Example:
+          value: 1
+      x-stoplight:
+        id: pf6cfe4bhhx3c
+    Business:
+      description: '#### Returns an object with basic business information.'
+      type: object
+      x-examples:
+        Example:
+          value:
+            id: 0
+            name: John
+      title: Business
+      properties:
+        value:
+          type: object
+          required:
+            - id
+            - name
+          properties:
+            id:
+              type: number
+              description: Unique identifier of the business.
+            name:
+              type: string
+              minLength: 1
+              description: The name of the business.
+      required:
+        - value
+      x-stoplight:
+        id: v1kgq2s09ellm
+    PortfolioCreateModelResponse:
+      description: '### The response received when a portfolio is created.'
+      type: object
+      x-examples:
+        Example:
+          portfolioId: 0
+          documents:
+            - 0
+            - 1
+          message: Portfolio Generated
+          messageDetail: ''
+          success: true
+      title: Portfolio Create Model Response
+      properties:
+        portfolioId:
+          type: number
+          description: '#### The unique identifier of the portfolio.'
+        documents:
+          type: array
+          description: '#### A list of the document ID''s for the documents passed through in the request. The order of the ID''s are the same as to how the documents were passed in.'
+          items:
+            type: integer
+        message:
+          type: string
+          minLength: 1
+          description: '#### Status of portfolio creation.'
+        messageDetail:
+          type: string
+          minLength: 1
+          description: '#### Additional information regarding the portfolio creation status.'
+        success:
+          type: boolean
+          description: '#### Determine whether or not the portfolio with its documents was successfully created.'
+      required:
+        - portfolioId
+        - message
+        - success
+      x-stoplight:
+        id: qsupqbsxfawyt
+    UserModelResponse:
+      description: '### Basic user information with the business ID that the user is related to, if any.'
+      type: object
+      x-examples:
+        Example:
+          id: 123
+          email: user@domain.co.za
+          businessId: 2
+      title: User Model Response
+      properties:
+        id:
+          type: number
+          description: '#### Unique identifier for the user.'
+        email:
+          type: string
+          minLength: 1
+          description: '#### User email address.'
+        businessId:
+          type: number
+          description: '#### Unique identifier for the business that the user is associated with.'
+      required:
+        - id
+        - email
+        - businessId
+      x-stoplight:
+        id: a7vitnq7kgtw8
+    UserDetailModel:
+      description: '### Detailed user information. '
+      type: object
+      x-examples:
+        Example:
+          id: 2800
+          userFullName: John Smith
+          userFirstName: John
+          userLastName: Smith
+          email: user@domain.co.za
+          accountType: Business
+          businessId: 2
+          license: '0000'
+          mobileNumber: +27 74 990 0000
+          roleId: 3
+          departmentId: 0
+          teamId: 0
+          status: 1
+      title: User Detail Model
+      properties:
+        id:
+          type: number
+          description: '#### The unique identifier for the user.'
+        userFullName:
+          type: string
+          minLength: 1
+          description: '#### User full name.'
+        userFirstName:
+          type: string
+          minLength: 1
+          description: '#### User first name.'
+        userLastName:
+          type: string
+          minLength: 1
+          description: '#### User last name.'
+        email:
+          type: string
+          minLength: 1
+          description: '#### User email address.'
+        accountType:
+          type: string
+          minLength: 1
+          description: |-
+            #### The account type associated with the user.
+            Options:
+            Personal and Business.
+        businessId:
+          type: number
+          description: '#### The unique identifier of the business that the user is associated with.'
+        license:
+          type: string
+          minLength: 1
+          description: '#### Unique identifier of the license assigned to the user.'
+        mobileNumber:
+          type: string
+          minLength: 1
+          description: '#### User''s mobile number.'
+        roleId:
+          type: number
+          description: '#### User''s role ID. 1 = Personal User, 2 =  Business User, 3 = Business Administrator.'
+        departmentId:
+          type: number
+          description: '#### The unique identifier of the department that the user is associated with.'
+        teamId:
+          type: number
+          description: '#### The unique identifier of the team that the user is associated with.'
+        status:
+          type: number
+          description: '#### User''s status. 1 = Active, 2 = Registration.'
+      required:
+        - id
+        - userFullName
+        - userFirstName
+        - userLastName
+        - email
+        - accountType
+        - businessId
+        - license
+        - mobileNumber
+        - roleId
+        - departmentId
+        - teamId
+        - status
+      x-stoplight:
+        id: fyakt6tk6z7us
+    Business-Detail:
+      description: '#### An object containing the detailed information of a business.'
+      type: object
+      x-examples:
+        Example:
+          id: 0
+          name: John
+          registrationNumber: '0000000'
+          taxNumber: '00000000000'
+          addressLine1: 32 Nightinggale Blvd
+          addressLine2: Kyalami
+          addressLine3: Midrand
+          addressLine4: Johannesburg
+          country: South Africa
+          industry: Manufacturing
+      title: Business Detail Model
+      properties:
+        id:
+          type: number
+          description: '#### Unique identifier for the business.'
+        name:
+          type: string
+          minLength: 1
+          description: '#### Name of the business.'
+        registrationNumber:
+          type: string
+          minLength: 1
+          description: '#### Registration number of the business.'
+        taxNumber:
+          type: string
+          minLength: 1
+          description: '#### Tax number of the business.'
+        addressLine1:
+          type: string
+          minLength: 1
+          description: '#### Address line 1 of the business.'
+        addressLine2:
+          type: string
+          minLength: 1
+          description: '#### Address line 2 of the business.'
+        addressLine3:
+          type: string
+          minLength: 1
+          description: '#### Address line 3 of the business.'
+        addressLine4:
+          type: string
+          minLength: 1
+          description: '#### Address line 4 of the business.'
+        country:
+          type: string
+          minLength: 1
+          description: '#### The country the business is located in.'
+        industry:
+          type: string
+          minLength: 1
+          description: '#### The industry of the business.'
+      required:
+        - id
+        - name
+      x-stoplight:
+        id: ihz2lw7z4kmwc
+    DocumentModel:
+      description: '#### Contains basic information of a SigniFlow document.'
+      type: object
+      x-examples:
+        Example:
+          id: 0
+          name: John
+          ownerId: 0
+          status: In Progress
+          currentStep: '1'
+          totalSteps: '2'
+          createdDate: '2022-01-12T10:38:43.224Z'
+          lastModifiedDate: '2022-01-12T10:38:43.225Z'
+          portfolioId: 0
+      title: Document Model
+      properties:
+        id:
+          type: number
+          description: '#### Unique identifier for the document.'
+        name:
+          type: string
+          minLength: 1
+        ownerId:
+          type: number
+          description: '#### The document owner ID.'
+        status:
+          type: string
+          minLength: 1
+          description: |-
+            #### The status of the document. 
+            Options you can expect:
+            Cancelled,
+            Rejected,
+            Completed,
+            In Progress,
+            Delete,
+            Pending Release and Pending Upload.
+        currentStep:
+          type: string
+          minLength: 1
+          description: '#### The current step number of the document workflow.'
+        totalSteps:
+          type: string
+          minLength: 1
+          description: '#### The total number of steps in the document workflow.'
+        createdDate:
+          type: string
+          minLength: 1
+          description: '#### The date on which the document was created.'
+        lastModifiedDate:
+          type: string
+          minLength: 1
+          description: '#### The date that the document was last modified on.'
+        portfolioId:
+          type: number
+          description: '#### Unique identifier for the portfolio.'
+      required:
+        - id
+        - name
+        - ownerId
+        - status
+        - currentStep
+        - totalSteps
+        - createdDate
+        - lastModifiedDate
+      x-stoplight:
+        id: zd6q0g0pnhp4k
+    DocumentDetailModel:
+      description: '#### An object that shows the detailed document information and the participants in the flow if any.'
+      type: object
+      x-examples:
+        Example:
+          id: 0
+          name: John
+          ownerId: 0
+          status: In Progress
+          currentStep: '1'
+          totalSteps: '2'
+          createdDate: '2022-01-12T10:44:15.688Z'
+          lastModifiedDate: '2022-01-12T10:44:15.688Z'
+          portfolioId: 0
+          participants:
+            - id: 0
+              email: email@domain.com
+              firstName: John
+              lastName: Smith
+              actionTaken: Sign
+              actionRequired: Sign
+              actionDate: '2022-01-12T10:44:15.688Z'
+              viewUrl: string
+      title: Document Detail Model
+      properties:
+        id:
+          type: number
+          description: '#### Unique identifier for the document.'
+        name:
+          type: string
+          minLength: 1
+          description: '#### The name of the document owner.'
+        ownerId:
+          type: number
+          description: '#### Unique identifier for the document owner.'
+        status:
+          type: string
+          minLength: 1
+          description: |-
+            #### The status of the document. 
+            Options you can expect:
+            Cancelled,
+            Rejected,
+            Completed,
+            In Progress,
+            Delete,
+            Pending Release and Pending Upload.
+        currentStep:
+          type: string
+          minLength: 1
+          description: '#### The current step number of the document workflow.'
+        totalSteps:
+          type: string
+          minLength: 1
+          description: '#### The total number of steps in the document workflow.'
+        createdDate:
+          type: string
+          minLength: 1
+          description: '#### The date on which the document was created.'
+        lastModifiedDate:
+          type: string
+          minLength: 1
+          description: '#### The date that the document was last modified on.'
+        portfolioId:
+          type: number
+          description: '#### Unique identifier for the portfolio.'
+        participants:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          description: '#### A list of participants.'
+          items:
+            $ref: '#/components/schemas/DocumentDetailParticipantModel'
+      required:
+        - id
+        - name
+        - ownerId
+        - status
+        - currentStep
+        - totalSteps
+        - createdDate
+        - lastModifiedDate
+        - participants
+      x-stoplight:
+        id: 8xettsahgz5ji
+    DocumentDetailParticipantModel:
+      description: '#### An object containing the participant''s information.'
+      type: object
+      x-examples:
+        Example:
+          id: 0
+          email: email@domain.com
+          firstName: John
+          lastName: Smith
+          actionTaken: Sign
+          actionRequired: Sign
+          actionDate: '2022-01-12T10:44:15.688Z'
+          viewUrl: string
+      title: Document Detail Participant Model
+      properties:
+        id:
+          type: number
+          description: '#### Unique identifier for the participant.'
+        email:
+          type: string
+          minLength: 1
+          description: '#### Email address of the participant.'
+        firstName:
+          type: string
+          minLength: 1
+          description: '#### First name of the participant.'
+        lastName:
+          type: string
+          minLength: 1
+          description: '#### Last name of the participant.'
+        actionTaken:
+          type: string
+          minLength: 1
+          description: '#### The action taken by the participant.'
+        actionRequired:
+          type: string
+          minLength: 1
+          description: '#### The action that the participant is required to take.'
+        actionDate:
+          type: string
+          minLength: 1
+          description: '#### The date that the participant took an action.'
+        viewUrl:
+          type: string
+          minLength: 1
+          description: '#### The URL for the document.'
+      required:
+        - id
+        - email
+        - firstName
+        - lastName
+        - actionRequired
+      x-stoplight:
+        id: 84q119aryylem
+    PortfolioModel:
+      description: '#### An object containing the basic information of a portfolio within SigniFlow.'
+      type: object
+      x-examples:
+        Example:
+          id: 0
+          name: John
+          ownerId: 0
+          status: In Progress
+          totalDocuments: '2'
+          createdDate: '2022-01-12T11:11:28.590Z'
+          lastModifiedDate: '2022-01-12T11:11:28.590Z'
+          lockStatus: unlocked
+          lockDescription: string
+      title: Portfolio Model
+      properties:
+        id:
+          type: number
+          description: '#### Unique identifier for the portfolio.'
+        name:
+          type: string
+          minLength: 1
+          description: '#### Name of the portfolio.'
+        ownerId:
+          type: number
+          description: '#### Unique ID for the owner of the portfolio.'
+        status:
+          type: string
+          minLength: 1
+          description: |-
+            #### The status of the portfolio. 
+            Options you can expect:
+            Cancelled,
+            Rejected,
+            Completed,
+            In Progress,
+            Delete,
+            Pending Release and Pending Upload.
+        totalDocuments:
+          type: string
+          minLength: 1
+          description: '#### The number of documents within the portfolio.'
+        createdDate:
+          type: string
+          minLength: 1
+          description: '#### The date the portfolio was created.'
+        lastModifiedDate:
+          type: string
+          minLength: 1
+          description: '#### The last date the portfolio was changed.'
+        lockStatus:
+          type: string
+          minLength: 1
+          description: '#### The status whether the portfolio is locked or unlocked.'
+        lockDescription:
+          type: string
+          minLength: 1
+          description: '#### The description shown to the user when the portfolio is locked.'
+      required:
+        - id
+        - name
+        - ownerId
+        - status
+        - totalDocuments
+        - createdDate
+        - lastModifiedDate
+        - lockStatus
+      x-stoplight:
+        id: wjmf0ra29mqf6
+    PortfolioDetailedModel:
+      description: '#### An object that cotains the portfolio information with the information of all the associated documents.'
+      type: object
+      x-examples:
+        Example:
+          id: 0
+          name: John
+          ownerId: 0
+          status: In Progress
+          totalDocuments: '2'
+          createdDate: '2022-01-12T11:24:21.417Z'
+          lastModifiedDate: '2022-01-12T11:24:21.417Z'
+          lockStatus: Unlocked
+          lockDescription: string
+          documents:
+            - id: 0
+              name: John
+              ownerId: 0
+              status: In Progress
+              currentStep: '1'
+              totalSteps: '2'
+              createdDate: '2022-01-12T11:24:21.417Z'
+              lastModifiedDate: '2022-01-12T11:24:21.417Z'
+              portfolioId: 0
+      title: Portfolio Detailed Model
+      properties:
+        id:
+          type: number
+          description: '#### Unique identifier for the portfolio.'
+        name:
+          type: string
+          minLength: 1
+          description: '#### Name of the portfolio.'
+        ownerId:
+          type: number
+          description: '#### Unique ID for the owner of the portfolio.'
+        status:
+          type: string
+          minLength: 1
+          description: |-
+            #### The status of the portfolio. 
+            Options you can expect:
+            Cancelled,
+            Rejected,
+            Completed,
+            In Progress,
+            Delete,
+            Pending Release and Pending Upload.
+        totalDocuments:
+          type: string
+          minLength: 1
+          description: '#### The number of documents within the portfolio.'
+        createdDate:
+          type: string
+          minLength: 1
+          description: '#### The date the portfolio was created.'
+        lastModifiedDate:
+          type: string
+          minLength: 1
+          description: '#### The last date the portfolio was changed.'
+        lockStatus:
+          type: string
+          minLength: 1
+          description: '#### The status whether the portfolio is locked or unlocked.'
+        lockDescription:
+          type: string
+          minLength: 1
+          description: '#### The description shown to the user when the portfolio is locked.'
+        documents:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          description: '#### Contains basic information of a SigniFlow document.'
+          items:
+            $ref: '#/components/schemas/DocumentModel'
+      required:
+        - id
+        - name
+        - ownerId
+        - status
+        - totalDocuments
+        - createdDate
+        - lastModifiedDate
+        - lockStatus
+        - documents
+      x-stoplight:
+        id: dwbp8hku0imus
+  securitySchemes:
+    x-api-key:
+      name: X-API-Key
+      type: apiKey
+      in: header
+      description: SigniFlow API Key
+  responses:
+    Business:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            description: ''
+            type: object
+            x-examples:
+              example-1:
+                id: 2
+                name: PBSA (Pty) Limited
+                registrationNumber: 1998/008782/07
+                taxNumber: '4080190525'
+                addressLine1: 'Unit 9. Kayalami Crescent, Kayalami Boulevard'
+                addressLine2: Kayalami Business Park
+                addressLine3: Johannesburg
+                addressLine4: '1684'
+                country: South Africa
+                industry: Technology
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+                minLength: 1
+                description: Business name.
+              registrationNumber:
+                type: string
+                minLength: 1
+                description: Business registration number.
+              taxNumber:
+                type: string
+                minLength: 1
+                description: Business tax number.
+              addressLine1:
+                type: string
+                minLength: 1
+                description: Business address 1st line.
+              addressLine2:
+                type: string
+                minLength: 1
+                description: Business address 2nd line.
+              addressLine3:
+                type: string
+                minLength: 1
+                description: Business address 3de line.
+              addressLine4:
+                type: string
+                minLength: 1
+                description: Business address 4th line.
+              country:
+                type: string
+                minLength: 1
+                description: The country where the business is located.
+              industry:
+                type: string
+                minLength: 1
+                description: The industry that the business is in.
+            required:
+              - id
+          examples:
+            Business Example Response:
+              value:
+                id: 0
+                name: John
+                registrationNumber: '983747376298276387182'
+                taxNumber: '1872617631'
+                addressLine1: Johannesburg
+                addressLine2: Kyalami
+                addressLine3: Dove Drive
+                addressLine4: 27 Hare street
+                country: '137'
+                industry: Manufacturing
+servers:
+  - url: 'https://preprod.signiflow.com/OpenApi'
+    description: Pre-Production
+  - url: 'https://uk.signiflow.com/OpenApi'
+    description: United Kingdom Cloud
+security:
+  - x-api-key: []
+x-internal: true
