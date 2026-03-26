@@ -31,15 +31,7 @@ paths:
                 Example:
                   value:
                     - id: 0
-                      name: John
-                      registrationNumber: '983747376298276387182'
-                      taxNumber: '1872617631'
-                      addressLine1: Johannesburg
-                      addressLine2: Kyalami
-                      addressLine3: Dove Drive
-                      addressLine4: 27 Hare street
-                      country: '137'
-                      industry: Manufacturing
+                      name: BusinessName
         '400':
           description: Bad Request
           content:
@@ -73,7 +65,7 @@ paths:
                     status: 404
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       operationId: ''
-      description: '#### Returns a list of all the business that the API Key has been granted access to.'
+      description: '#### Returns a list of all businesses that the API Key has been granted access to'
       security:
         - x-api-key: []
       summary: Business List
@@ -148,6 +140,86 @@ paths:
       summary: Business (ID)
       x-stoplight:
         id: rtsn7wblo8a5n
+  '/Business/ListDepartments/{BusinessID}':
+    get:
+      summary: Business Departments List
+      tags: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                x-examples:
+                  Example 1:
+                    - id: 0
+                      name: Department_Name
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: Unique ID of the Department
+                    name:
+                      type: string
+        '400':
+          description: Bad Request
+        '401':
+          description: ''
+        '404':
+          description: Not Found
+      operationId: ''
+      x-stoplight:
+        id: ztkrujiink21o
+      description: '#### Returns a list of departments in a specific business'
+      parameters: []
+    parameters:
+      - schema:
+          type: string
+        name: BusinessID
+        in: path
+        required: true
+  '/Business/ListTeams/{BusinessID}':
+    parameters:
+      - schema:
+          type: string
+        name: BusinessID
+        in: path
+        required: true
+    get:
+      summary: Business Teams List
+      tags: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                x-examples:
+                  Example 1:
+                    - teamId: 0
+                      name: Team_Name
+                items:
+                  type: object
+                  properties:
+                    teamId:
+                      type: integer
+                      description: Unique ID of the Team
+                    name:
+                      type: string
+                      description: Name of the Team
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+      operationId: ''
+      x-stoplight:
+        id: 9uv5rs9bo4nl1
+      description: '#### Returns a list of Teams within a specific business'
   /Document/List:
     get:
       tags:
@@ -208,15 +280,16 @@ paths:
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
         #### Returns a list of all the documents that the API Key has been granted access to.
-        Limited to 1000 per request
-        Supports ODATA Filters
-        $filter=column eq 'value'
+        Limited to 1000 per request  
+          
+        Supports ODATA Filters:  
         Example: /Document/List?$filter=id eq 20
       security:
         - x-api-key: []
       summary: Document List
       x-stoplight:
         id: bpkrx6ohz7lye
+    parameters: []
   '/Document/GetByUser/{ownerId}':
     get:
       tags:
@@ -230,7 +303,7 @@ paths:
             format: int32
       responses:
         '200':
-          description: Success
+          description: ''
           content:
             application/json:
               schema:
@@ -293,7 +366,7 @@ paths:
             format: int32
       responses:
         '200':
-          description: Success
+          description: ''
           content:
             application/json:
               schema:
@@ -358,7 +431,7 @@ paths:
             format: int32
       responses:
         '200':
-          description: Success
+          description: ''
           content:
             application/json:
               schema:
@@ -437,9 +510,10 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/pdf:
               schema:
-                type: string
+                type: object
+                properties: {}
           headers:
             Content Disposition:
               schema:
@@ -483,6 +557,46 @@ paths:
       summary: Document Download (ID)
       x-stoplight:
         id: tfxnu9g98h2zy
+  /Document/DownloadSecure:
+    post:
+      summary: Document Download Secure
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/pdf:
+              schema:
+                type: object
+                properties: {}
+      operationId: post-Document-DownloadSecure
+      x-stoplight:
+        id: l4048mi6i0l0j
+      parameters:
+        - schema:
+            type: string
+          in: header
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  DocID: 197
+                  Key: E2B30209-75EA-451A-AEA3-5577896E196E
+                  IncludeStatusWatermark: false
+              properties:
+                DocID:
+                  type: integer
+                  description: Unique identifier of the document
+                Key:
+                  type: string
+                  description: Key that will be used to secure the PDF with
+                IncludeStatusWatermark:
+                  type: boolean
+                  description: Indicates whether to include the status watermark
+      description: '#### Downloads a document that is secured with the provided key.'
   /Document:
     post:
       tags:
