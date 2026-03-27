@@ -163,6 +163,7 @@ paths:
                       description: Unique ID of the Department
                     name:
                       type: string
+                      description: Name of the Department
         '400':
           description: Bad Request
         '401':
@@ -495,6 +496,20 @@ paths:
       summary: Document (ID)
       x-stoplight:
         id: d8gaj4i3p0h6c
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    delete:
+      summary: Document (ID)
+      tags: []
+      responses: {}
+      operationId: delete-Document-id
+      x-stoplight:
+        id: cn4yv6n7080aw
+      description: '#### Deletes specified document'
   '/Document/Download/{id}':
     get:
       tags:
@@ -513,7 +528,6 @@ paths:
             application/pdf:
               schema:
                 type: object
-                properties: {}
           headers:
             Content Disposition:
               schema:
