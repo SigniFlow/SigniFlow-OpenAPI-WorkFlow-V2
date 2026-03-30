@@ -191,7 +191,8 @@ paths:
         required: true
     get:
       summary: Business Teams List
-      tags: []
+      tags:
+        - Business
       responses:
         '200':
           description: ''
@@ -505,7 +506,8 @@ paths:
         required: true
     delete:
       summary: Document (ID)
-      tags: []
+      tags:
+        - Document
       responses: {}
       operationId: delete-Document-id
       x-stoplight:
@@ -514,7 +516,8 @@ paths:
   '/Document/{id}/PrepperFields':
     get:
       summary: PrepperFields
-      tags: []
+      tags:
+        - Document
       responses:
         '200':
           description: OK
@@ -728,7 +731,8 @@ paths:
         required: true
     get:
       summary: Reminder Send
-      tags: []
+      tags:
+        - Document
       responses:
         '200':
           description: ''
@@ -764,7 +768,8 @@ paths:
         required: true
     get:
       summary: Audit Document
-      tags: []
+      tags:
+        - Document
       responses:
         '200':
           description: ''
@@ -784,7 +789,8 @@ paths:
   '/Document/{id}/Workflow/Cancel':
     get:
       summary: Workflow Cancel
-      tags: []
+      tags:
+        - Document
       responses:
         '200':
           description: ''
@@ -904,7 +910,8 @@ paths:
   /Document/DownloadSecure:
     post:
       summary: Document Download Secure
-      tags: []
+      tags:
+        - Document
       responses:
         '200':
           description: OK
@@ -1832,7 +1839,8 @@ paths:
   /Version:
     get:
       summary: Version
-      tags: []
+      tags:
+        - Version
       responses:
         '200':
           description: 2023.22.2.5
