@@ -346,8 +346,8 @@ paths:
                     traceId: 00-770d16722d50b84f9179f8aca22c20e7-49ece50c54b15749-00
       description: |-
         #### Returns a list of all the documents created by the specified user.
-        Limited to 1000 per request
-        Supports ODATA Filters
+        Limited to 1000 per request  
+        Supports ODATA Filters  
         $filter=column eq 'value'
       security:
         - x-api-key: []
@@ -510,6 +510,335 @@ paths:
       x-stoplight:
         id: cn4yv6n7080aw
       description: '#### Deletes specified document'
+  '/Document/{id}/PrepperFields':
+    get:
+      summary: PrepperFields
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    resultField: Success
+                    prepperFieldValuesField:
+                      - docIDField: 199
+                        fieldNameField: null
+                        fieldTypeField: Signature
+                        fieldValueField: Signed
+                        heightField: '64'
+                        pageNumberField: 1
+                        prepperFieldIDField: 875
+                        userFullNameField: Divan Basson
+                        userIDField: 11832
+                        widthField: '204'
+                        xCoordinateField: '10'
+                        yCoordinateField: '10'
+                        dateTimeField: '2025-07-14T08:42:34.787+02:00'
+                      - docIDField: 199
+                        fieldNameField: null
+                        fieldTypeField: Signature
+                        fieldValueField: Signed
+                        heightField: '64'
+                        pageNumberField: 60
+                        prepperFieldIDField: 876
+                        userFullNameField: Divan Basson
+                        userIDField: 11832
+                        widthField: '204'
+                        xCoordinateField: '172'
+                        yCoordinateField: '15'
+                        dateTimeField: '2025-07-14T08:42:34.8+02:00'
+                      - docIDField: 199
+                        fieldNameField: null
+                        fieldTypeField: Signature
+                        fieldValueField: Signed
+                        heightField: '64'
+                        pageNumberField: 100
+                        prepperFieldIDField: 877
+                        userFullNameField: Divan Basson
+                        userIDField: 11832
+                        widthField: '204'
+                        xCoordinateField: '202'
+                        yCoordinateField: '20'
+                        dateTimeField: '2025-07-14T08:42:34.807+02:00'
+                      - docIDField: 199
+                        fieldNameField: null
+                        fieldTypeField: Signature
+                        fieldValueField: Signed
+                        heightField: '64'
+                        pageNumberField: 150
+                        prepperFieldIDField: 878
+                        userFullNameField: Divan Basson
+                        userIDField: 11832
+                        widthField: '204'
+                        xCoordinateField: '186'
+                        yCoordinateField: '17'
+                        dateTimeField: '2025-07-14T08:42:34.81+02:00'
+                      - docIDField: 199
+                        fieldNameField: null
+                        fieldTypeField: Signature
+                        fieldValueField: Signed
+                        heightField: '64'
+                        pageNumberField: 26
+                        prepperFieldIDField: 879
+                        userFullNameField: Divan Basson
+                        userIDField: 11832
+                        widthField: '204'
+                        xCoordinateField: '212'
+                        yCoordinateField: '17'
+                        dateTimeField: '2025-07-14T08:42:34.813+02:00'
+                      - docIDField: 199
+                        fieldNameField: null
+                        fieldTypeField: Signature
+                        fieldValueField: Signed
+                        heightField: '64'
+                        pageNumberField: 26
+                        prepperFieldIDField: 880
+                        userFullNameField: Azure App Admin
+                        userIDField: 11559
+                        widthField: '204'
+                        xCoordinateField: '192'
+                        yCoordinateField: '704'
+                        dateTimeField: '2025-07-14T08:42:34.82+02:00'
+                      - docIDField: 199
+                        fieldNameField: null
+                        fieldTypeField: Signature
+                        fieldValueField: Signed
+                        heightField: '64'
+                        pageNumberField: 69
+                        prepperFieldIDField: 881
+                        userFullNameField: Azure App Admin
+                        userIDField: 11559
+                        widthField: '204'
+                        xCoordinateField: '171'
+                        yCoordinateField: '705'
+                        dateTimeField: '2025-07-14T08:42:34.823+02:00'
+                      - docIDField: 199
+                        fieldNameField: null
+                        fieldTypeField: Signature
+                        fieldValueField: Signed
+                        heightField: '64'
+                        pageNumberField: 96
+                        prepperFieldIDField: 882
+                        userFullNameField: Azure App Admin
+                        userIDField: 11559
+                        widthField: '204'
+                        xCoordinateField: '314'
+                        yCoordinateField: '353'
+                        dateTimeField: '2025-07-14T08:42:34.827+02:00'
+                      - docIDField: 199
+                        fieldNameField: null
+                        fieldTypeField: Signature
+                        fieldValueField: Signed
+                        heightField: '64'
+                        pageNumberField: 182
+                        prepperFieldIDField: 883
+                        userFullNameField: Azure App Admin
+                        userIDField: 11559
+                        widthField: '204'
+                        xCoordinateField: '196'
+                        yCoordinateField: '15'
+                        dateTimeField: '2025-07-14T08:42:34.83+02:00'
+                      - docIDField: 199
+                        fieldNameField: null
+                        fieldTypeField: Signature
+                        fieldValueField: Signed
+                        heightField: '64'
+                        pageNumberField: 5
+                        prepperFieldIDField: 884
+                        userFullNameField: Azure App Admin
+                        userIDField: 11559
+                        widthField: '204'
+                        xCoordinateField: '222'
+                        yCoordinateField: '123'
+                        dateTimeField: '2025-07-14T08:42:34.837+02:00'
+                properties:
+                  resultField:
+                    type: string
+                    description: String indicating the result. i.e. "Success"
+                  prepperFieldValuesField:
+                    type: array
+                    description: List of PrepperField values
+                    items:
+                      type: object
+                      properties:
+                        docIDField:
+                          type: integer
+                          description: Unique identifier of the document the PrepperField belongs to.
+                        fieldNameField:
+                          description: Name of the field
+                          nullable: true
+                        fieldTypeField:
+                          type: string
+                          description: Indicates the type of field. i.e. "Signature"
+                        fieldValueField:
+                          type: string
+                          description: Indicates the value of the field. i.e. "Signed"
+                        heightField:
+                          type: string
+                          description: Indicates the height of this field
+                        pageNumberField:
+                          type: integer
+                          description: Indicates the page the field is on.
+                        prepperFieldIDField:
+                          type: integer
+                          description: The unique identifier of the field.
+                        userFullNameField:
+                          type: string
+                          description: Indicates the full name of the user whom has to action this field.
+                        userIDField:
+                          type: integer
+                          description: The unique identifier of the user whom has to action this field
+                        widthField:
+                          type: string
+                          description: Indicates the width of this field.
+                        xCoordinateField:
+                          type: string
+                          description: The x-axis coordinate of this field
+                        yCoordinateField:
+                          type: string
+                          description: The y-axis coordinate of this field.
+                        dateTimeField:
+                          type: string
+                          description: 'Indicates the date, time and offset this field was filled.'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      operationId: get-Document-id-PrepperFields
+      x-stoplight:
+        id: cpg61z0g7046m
+      description: '#### Gets a list of PrepperFields for a specific document.'
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/Document/{id}/Reminder/Send':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Reminder Send
+      tags: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    docIDField: 199
+                    resultField: Success - Reminder sent
+                properties:
+                  docIDField:
+                    type: integer
+                    description: Unique identifier of the document.
+                  resultField:
+                    type: string
+                    description: Indicates the result of the request. i.e. "Success - Reminder sent"
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+      operationId: get-Document-id-Reminder-Send
+      x-stoplight:
+        id: ruzixyygyf91p
+      description: '#### Sends a reminder to the user(s) who are required to action the current step.'
+  '/Document/{id}/Audit/Document':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Audit Document
+      tags: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/pdf:
+              schema:
+                type: object
+                properties: {}
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+      operationId: get-Document-id-Audit-Document
+      x-stoplight:
+        id: f0kprcs4kesw7
+      description: '#### Returns a Audit Document for a specific document in PDF format.'
+  '/Document/{id}/Workflow/Cancel':
+    get:
+      summary: Workflow Cancel
+      tags: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    docIDField: 199
+                    resultField: Success
+                properties:
+                  docIDField:
+                    type: integer
+                    description: Unique identifier of the document.
+                  resultField:
+                    type: string
+                    description: Result of the request. i.e. "Success"
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  docIDField:
+                    type: integer
+                  resultField:
+                    type: string
+                x-examples:
+                  Example 1:
+                    docIDField: 0
+                    resultField: 'Unauthorized: Invalid API Key or Document Access'
+      operationId: get-Document-id-Workflow-Cancel
+      x-stoplight:
+        id: yxbhmkfvy9wc5
+      description: '#### Cancels the workflow for a specific document with a cancelation reason.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  cancellationReason: Testing
+              properties:
+                cancellationReason:
+                  type: string
+                  description: Reason for cancelling the workflow
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
   '/Document/Download/{id}':
     get:
       tags:
@@ -583,6 +912,12 @@ paths:
               schema:
                 type: object
                 properties: {}
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
       operationId: post-Document-DownloadSecure
       x-stoplight:
         id: l4048mi6i0l0j
@@ -1015,12 +1350,10 @@ paths:
         '200':
           description: Success
           content:
-            application/json:
+            application/pdf:
               schema:
-                type: string
-              examples:
-                Example:
-                  value: []
+                type: object
+                properties: {}
           headers:
             Content Disposition:
               schema:
@@ -1495,6 +1828,16 @@ paths:
       operationId: ''
       x-stoplight:
         id: voqod95up0scj
+  /Version:
+    get:
+      summary: Version
+      tags: []
+      responses:
+        '200':
+          description: 2023.22.2.5
+      operationId: get-Version
+      x-stoplight:
+        id: y2q1r3y6tdb6a
 components:
   schemas:
     ActionField:
