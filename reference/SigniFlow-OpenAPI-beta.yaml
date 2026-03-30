@@ -962,7 +962,772 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DocumentCreateModel'
+              type: object
+              x-examples:
+                Example 1:
+                  autoExpire: 0
+                  autoRemind: 0
+                  document: string
+                  documentName: string
+                  documentOwnerEmail: znn75rC@XAPJeISIdcWpdIZytObhmp.ohzc
+                  extension: 9
+                  participants:
+                    - action: 2
+                      email: PExbi8hNuJx5@DXLduOkGANBE.ie
+                      firstName: string
+                      languageCode: st
+                      lastName: string
+                      proxyAllowed: 1
+                      sendCompletedEmail: false
+                      mobile: string
+                      autoSign: false
+                      allowProxy: false
+                      latitudeField: string
+                      longitudeField: string
+                      signReason: string
+                      signatureType: 1
+                      photoAtSigning: null
+                      signerPassword: string
+                      groupStep:
+                        groupMembers:
+                          - sendCompletedEmail: true
+                            userEmailField: string
+                            userFullNameField: string
+                            userMobileNumberField: string
+                            languageCode: en
+                          - sendCompletedEmail: true
+                            userEmailField: string
+                            userFullNameField: string
+                            userMobileNumberField: string
+                            languageCode: en
+                        groupName: string
+                        requiredNumberOfSignatures: 1
+                      nominatedSigners:
+                        - photoAtSigning: 3
+                          sendCompletedEmail: true
+                          signerNickname: string
+                          participantFields:
+                            - fieldType: 11
+                              combinedCharacterAmount: 7873
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                            - fieldType: 8
+                              combinedCharacterAmount: 9492
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                        - photoAtSigning: 2
+                          sendCompletedEmail: true
+                          signerNickname: string
+                          participantFields:
+                            - fieldType: 9
+                              combinedCharacterAmount: 8250
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                            - fieldType: 9
+                              combinedCharacterAmount: 2174
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                      preloadedFaceToFaceSigners:
+                        - idType: 0
+                          participantFields:
+                            - fieldType: 14
+                              combinedCharacterAmount: 3928
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                            - fieldType: 2
+                              combinedCharacterAmount: 3052
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                          signerFirstName: string
+                          signerLastName: string
+                          signerMobileNumber: string
+                          countryIsoCode: string
+                          identificationNumber: string
+                          photoAtSigning: 1
+                          sendCompletedEmail: true
+                          sendOTP: false
+                          signerEmail: string
+                        - idType: 0
+                          participantFields:
+                            - fieldType: 12
+                              combinedCharacterAmount: 9217
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                            - fieldType: 16
+                              combinedCharacterAmount: 8481
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                          signerFirstName: string
+                          signerLastName: string
+                          signerMobileNumber: string
+                          countryIsoCode: string
+                          identificationNumber: string
+                          photoAtSigning: 2
+                          sendCompletedEmail: true
+                          sendOTP: false
+                          signerEmail: string
+                      participantFieldModels:
+                        - fieldType: 15
+                          combinedCharacterAmount: 4377
+                          fontFamily: Risotto
+                          fontSize: '16'
+                          height: 60
+                          width: 200
+                          xPosition: 0
+                          xCoordinateOffset: 0
+                          yPosition: 0
+                          yCoordinateOffset: 0
+                          pageNumber: 1
+                          fieldName: string
+                          tagName: string
+                          defaultValue: string
+                          isInvisible: false
+                          name: string
+                        - fieldType: 11
+                          combinedCharacterAmount: 8291
+                          fontFamily: Risotto
+                          fontSize: '16'
+                          height: 60
+                          width: 200
+                          xPosition: 0
+                          xCoordinateOffset: 0
+                          yPosition: 0
+                          yCoordinateOffset: 0
+                          pageNumber: 1
+                          fieldName: string
+                          tagName: string
+                          defaultValue: string
+                          isInvisible: false
+                          name: string
+                    - action: 1
+                      email: MCtCcI5b6H@vxxVEpDEDBorDni.yd
+                      firstName: string
+                      languageCode: s
+                      lastName: string
+                      proxyAllowed: 0
+                      sendCompletedEmail: false
+                      mobile: string
+                      autoSign: false
+                      allowProxy: false
+                      latitudeField: string
+                      longitudeField: string
+                      signReason: string
+                      signatureType: 1
+                      photoAtSigning: null
+                      signerPassword: string
+                      groupStep:
+                        groupMembers:
+                          - sendCompletedEmail: true
+                            userEmailField: string
+                            userFullNameField: string
+                            userMobileNumberField: string
+                            languageCode: en
+                          - sendCompletedEmail: true
+                            userEmailField: string
+                            userFullNameField: string
+                            userMobileNumberField: string
+                            languageCode: en
+                        groupName: string
+                        requiredNumberOfSignatures: 1
+                      nominatedSigners:
+                        - photoAtSigning: 0
+                          sendCompletedEmail: true
+                          signerNickname: string
+                          participantFields:
+                            - fieldType: 17
+                              combinedCharacterAmount: 8213
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                            - fieldType: 8
+                              combinedCharacterAmount: 1133
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                        - photoAtSigning: 1
+                          sendCompletedEmail: true
+                          signerNickname: string
+                          participantFields:
+                            - fieldType: 12
+                              combinedCharacterAmount: 5381
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                            - fieldType: 6
+                              combinedCharacterAmount: 3164
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                      preloadedFaceToFaceSigners:
+                        - idType: 0
+                          participantFields:
+                            - fieldType: 8
+                              combinedCharacterAmount: 6699
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                            - fieldType: 8
+                              combinedCharacterAmount: 5830
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                          signerFirstName: string
+                          signerLastName: string
+                          signerMobileNumber: string
+                          countryIsoCode: string
+                          identificationNumber: string
+                          photoAtSigning: 2
+                          sendCompletedEmail: true
+                          sendOTP: false
+                          signerEmail: string
+                        - idType: 0
+                          participantFields:
+                            - fieldType: 8
+                              combinedCharacterAmount: 9111
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                            - fieldType: 18
+                              combinedCharacterAmount: 8889
+                              fontFamily: Risotto
+                              fontSize: '16'
+                              height: 60
+                              width: 200
+                              xPosition: 0
+                              xCoordinateOffset: 0
+                              yPosition: 0
+                              yCoordinateOffset: 0
+                              pageNumber: 1
+                              fieldName: string
+                              tagName: string
+                              defaultValue: string
+                              isInvisible: false
+                              name: string
+                          signerFirstName: string
+                          signerLastName: string
+                          signerMobileNumber: string
+                          countryIsoCode: string
+                          identificationNumber: string
+                          photoAtSigning: 1
+                          sendCompletedEmail: true
+                          sendOTP: false
+                          signerEmail: string
+                      participantFieldModels:
+                        - fieldType: 10
+                          combinedCharacterAmount: 4994
+                          fontFamily: Risotto
+                          fontSize: '16'
+                          height: 60
+                          width: 200
+                          xPosition: 0
+                          xCoordinateOffset: 0
+                          yPosition: 0
+                          yCoordinateOffset: 0
+                          pageNumber: 1
+                          fieldName: string
+                          tagName: string
+                          defaultValue: string
+                          isInvisible: false
+                          name: string
+                        - fieldType: 6
+                          combinedCharacterAmount: 3340
+                          fontFamily: Risotto
+                          fontSize: '16'
+                          height: 60
+                          width: 200
+                          xPosition: 0
+                          xCoordinateOffset: 0
+                          yPosition: 0
+                          yCoordinateOffset: 0
+                          pageNumber: 1
+                          fieldName: string
+                          tagName: string
+                          defaultValue: string
+                          isInvisible: false
+                          name: string
+                  priority: 1
+                  sendEmail: false
+                  message: string
+                  dueDate: '1965-11-09T20:09:05.823Z'
+                  adhocFaceToFaceParticipants:
+                    - countryCode: string
+                      identificationNumber: str
+                      idType: 0
+                      signerEmail: string
+                      signerFirstName: string
+                      signerLastName: string
+                      signerMobileNumber: string
+                    - countryCode: string
+                      identificationNumber: string
+                      idType: 0
+                      signerEmail: string
+                      signerFirstName: string
+                      signerLastName: string
+                      signerMobileNumber: string
+                  flattenDocument: false
+                  sharedKey: string
+                  additionalData: string
+              properties:
+                autoExpire:
+                  type: integer
+                  description: Indicates whether the document should auto expire.
+                autoRemind:
+                  type: integer
+                  description: Indicates whether the documents should auto remind.
+                document:
+                  type: string
+                documentName:
+                  type: string
+                  description: Name of the document.
+                documentOwnerEmail:
+                  type: string
+                  description: Email of the user whom created the document.
+                extension:
+                  type: integer
+                  description: File extention of the document.
+                participants:
+                  type: array
+                  description: List of document Participants
+                  items:
+                    type: object
+                    properties:
+                      action:
+                        type: integer
+                        description: Indicates the Action the recipient has to take.
+                      email:
+                        type: string
+                        description: Email of the recipient.
+                      firstName:
+                        type: string
+                        description: First name of the recipient.
+                      lastName:
+                        type: string
+                        description: Last name of the recipient.
+                      languageCode:
+                        type: string
+                      proxyAllowed:
+                        type: integer
+                        description: Indicates whether a recipient can make use of a proxy.
+                      sendCompletedEmail:
+                        type: boolean
+                        description: 'Indicates whether to send an email, to the recipient, on workflow completion.'
+                      mobile:
+                        type: string
+                        description: Recipient's mobile number.
+                      autoSign:
+                        type: boolean
+                        description: Indicates whether to automatically sign for this recipient.
+                      allowProxy:
+                        type: boolean
+                      latitudeField:
+                        type: string
+                        description: 'Latitude to be used for location of signing, if autosign is enabled'
+                      longitudeField:
+                        type: string
+                        description: 'Longitude to be used for the location of signing, if autosign is enabled'
+                      signReason:
+                        type: string
+                        description: Reason to be used for signing if autosign is enabled
+                      signatureType:
+                        type: integer
+                        description: Indicates the type of signature.
+                      photoAtSigning:
+                        type: number
+                        description: Indicates whether photo at signing is enabled.
+                        nullable: true
+                      signerPassword:
+                        type: string
+                      groupStep:
+                        type: object
+                        properties:
+                          groupName:
+                            type: string
+                            description: Name of the group.
+                          requiredNumberOfSignatures:
+                            type: integer
+                            description: Number of unique group members required to sign.
+                          groupMembers:
+                            type: array
+                            description: List of group members.
+                            items:
+                              type: object
+                              properties:
+                                sendCompletedEmail:
+                                  type: boolean
+                                  description: 'Indicates whether an email should be sent, to this group member, on completion.'
+                                userEmailField:
+                                  type: string
+                                  description: Email address of the group user.
+                                userFullNameField:
+                                  type: string
+                                  description: Full name of the group user.
+                                userMobileNumberField:
+                                  type: string
+                                  description: Mobile number of the group user
+                                languageCode:
+                                  type: string
+                      nominatedSigners:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            photoAtSigning:
+                              type: integer
+                              description: Indicates whether the nominated signer has to take a photo at signing.
+                            sendCompletedEmail:
+                              type: boolean
+                              description: 'Indicates whether an email should be sent, to the nominated signer, on completion of the workflow.'
+                            signerNickname:
+                              type: string
+                              description: Nickname of the Nominated signer.
+                            participantFields:
+                              type: array
+                              description: Information on the fields for the nominated signer.
+                              items:
+                                type: object
+                                properties:
+                                  fieldType:
+                                    type: integer
+                                    description: Indicates the type of field.
+                                  combinedCharacterAmount:
+                                    type: integer
+                                  fontFamily:
+                                    type: string
+                                  fontSize:
+                                    type: string
+                                  height:
+                                    type: integer
+                                  width:
+                                    type: integer
+                                  xPosition:
+                                    type: integer
+                                  xCoordinateOffset:
+                                    type: integer
+                                  yPosition:
+                                    type: integer
+                                  yCoordinateOffset:
+                                    type: integer
+                                  pageNumber:
+                                    type: integer
+                                  fieldName:
+                                    type: string
+                                  tagName:
+                                    type: string
+                                  defaultValue:
+                                    type: string
+                                  isInvisible:
+                                    type: boolean
+                                  name:
+                                    type: string
+                      preloadedFaceToFaceSigners:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            idType:
+                              type: integer
+                            participantFields:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  fieldType:
+                                    type: integer
+                                  combinedCharacterAmount:
+                                    type: integer
+                                  fontFamily:
+                                    type: string
+                                  fontSize:
+                                    type: string
+                                  height:
+                                    type: integer
+                                  width:
+                                    type: integer
+                                  xPosition:
+                                    type: integer
+                                  xCoordinateOffset:
+                                    type: integer
+                                  yPosition:
+                                    type: integer
+                                  yCoordinateOffset:
+                                    type: integer
+                                  pageNumber:
+                                    type: integer
+                                  fieldName:
+                                    type: string
+                                  tagName:
+                                    type: string
+                                  defaultValue:
+                                    type: string
+                                  isInvisible:
+                                    type: boolean
+                                  name:
+                                    type: string
+                            signerFirstName:
+                              type: string
+                            signerLastName:
+                              type: string
+                            signerMobileNumber:
+                              type: string
+                            countryIsoCode:
+                              type: string
+                            identificationNumber:
+                              type: string
+                            photoAtSigning:
+                              type: integer
+                            sendCompletedEmail:
+                              type: boolean
+                            sendOTP:
+                              type: boolean
+                            signerEmail:
+                              type: string
+                      participantFieldModels:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            fieldType:
+                              type: integer
+                            combinedCharacterAmount:
+                              type: integer
+                            fontFamily:
+                              type: string
+                            fontSize:
+                              type: string
+                            height:
+                              type: integer
+                            width:
+                              type: integer
+                            xPosition:
+                              type: integer
+                            xCoordinateOffset:
+                              type: integer
+                            yPosition:
+                              type: integer
+                            yCoordinateOffset:
+                              type: integer
+                            pageNumber:
+                              type: integer
+                            fieldName:
+                              type: string
+                            tagName:
+                              type: string
+                            defaultValue:
+                              type: string
+                            isInvisible:
+                              type: boolean
+                            name:
+                              type: string
+                priority:
+                  type: integer
+                  description: Indicates the priority of the document.
+                sendEmail:
+                  type: boolean
+                message:
+                  type: string
+                  description: Message that will be displayed to recipients when the document is opened in EasiSign
+                dueDate:
+                  type: string
+                  description: Date the document is due.
+                adhocFaceToFaceParticipants:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      countryCode:
+                        type: string
+                      identificationNumber:
+                        type: string
+                      idType:
+                        type: integer
+                      signerEmail:
+                        type: string
+                      signerFirstName:
+                        type: string
+                      signerLastName:
+                        type: string
+                      signerMobileNumber:
+                        type: string
+                flattenDocument:
+                  type: boolean
+                  description: Indicates whether to flatten the document.
+                sharedKey:
+                  type: string
+                additionalData:
+                  type: string
             examples:
               Example:
                 value:
