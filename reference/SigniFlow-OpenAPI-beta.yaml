@@ -786,6 +786,307 @@ paths:
       x-stoplight:
         id: f0kprcs4kesw7
       description: '#### Returns a Audit Document for a specific document in PDF format.'
+  '/Document/{id}/Audit/Trail':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    activityField:
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: divanb@signiflow.com
+                        eventDateField: '7/14/2025 8:39:07 AM'
+                        eventField: Document Uploaded
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '4/4/2026 11:52:04 AM'
+                        pageField: '0'
+                        userFullNameField: Divan Basson
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: divanb@signiflow.com
+                        eventDateField: '7/14/2025 8:43:37 AM'
+                        eventField: Document Initiated
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:43:37 AM'
+                        pageField: '0'
+                        userFullNameField: Divan Basson
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: divanb@signiflow.com
+                        eventDateField: '7/14/2025 8:43:39 AM'
+                        eventField: Viewed document
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:43:39 AM'
+                        pageField: '0'
+                        userFullNameField: Divan Basson
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: divanb@signiflow.com
+                        eventDateField: '7/14/2025 8:43:48 AM'
+                        eventField: Workflow email sent
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:43:48 AM'
+                        pageField: ''
+                        userFullNameField: Divan Basson
+                      - additionalField: ' IP : 102.33.151.242:56602. Browser : Chrome.'
+                        docIDField: '199'
+                        emailField: divanb@signiflow.com
+                        eventDateField: '7/14/2025 8:44:45 AM'
+                        eventField: Field Signed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:44:45 AM'
+                        pageField: '1'
+                        userFullNameField: Divan Basson
+                      - additionalField: ' IP : 102.33.151.242:56602. Browser : Chrome.'
+                        docIDField: '199'
+                        emailField: divanb@signiflow.com
+                        eventDateField: '7/14/2025 8:45:24 AM'
+                        eventField: Field Signed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:45:24 AM'
+                        pageField: '60'
+                        userFullNameField: Divan Basson
+                      - additionalField: ' IP : 102.33.151.242:56602. Browser : Chrome.'
+                        docIDField: '199'
+                        emailField: divanb@signiflow.com
+                        eventDateField: '7/14/2025 8:46:08 AM'
+                        eventField: Field Signed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:46:08 AM'
+                        pageField: '100'
+                        userFullNameField: Divan Basson
+                      - additionalField: ' IP : 102.33.151.242:56602. Browser : Chrome.'
+                        docIDField: '199'
+                        emailField: divanb@signiflow.com
+                        eventDateField: '7/14/2025 8:46:45 AM'
+                        eventField: Field Signed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:46:45 AM'
+                        pageField: '150'
+                        userFullNameField: Divan Basson
+                      - additionalField: ' IP : 102.33.151.242:56602. Browser : Chrome.'
+                        docIDField: '199'
+                        emailField: divanb@signiflow.com
+                        eventDateField: '7/14/2025 8:47:30 AM'
+                        eventField: Field Signed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:47:30 AM'
+                        pageField: '26'
+                        userFullNameField: Divan Basson
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: divanb@signiflow.com
+                        eventDateField: '7/14/2025 8:47:30 AM'
+                        eventField: Workflow User Signed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:47:30 AM'
+                        pageField: '0'
+                        userFullNameField: Divan Basson
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: azureapp@signiflow.net
+                        eventDateField: '7/14/2025 8:47:38 AM'
+                        eventField: Workflow email sent
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:47:38 AM'
+                        pageField: ''
+                        userFullNameField: Azure App Admin
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: azureapp@signiflow.net
+                        eventDateField: '7/14/2025 8:48:13 AM'
+                        eventField: Viewed document
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:48:13 AM'
+                        pageField: '0'
+                        userFullNameField: Azure App Admin
+                      - additionalField: ' IP : 102.33.151.242:57640. Browser : Chrome.'
+                        docIDField: '199'
+                        emailField: azureapp@signiflow.net
+                        eventDateField: '7/14/2025 8:49:08 AM'
+                        eventField: Field Signed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:49:08 AM'
+                        pageField: '26'
+                        userFullNameField: Azure App Admin
+                      - additionalField: ' IP : 102.33.151.242:57640. Browser : Chrome.'
+                        docIDField: '199'
+                        emailField: azureapp@signiflow.net
+                        eventDateField: '7/14/2025 8:49:48 AM'
+                        eventField: Field Signed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:49:48 AM'
+                        pageField: '69'
+                        userFullNameField: Azure App Admin
+                      - additionalField: ' IP : 102.33.151.242:57640. Browser : Chrome.'
+                        docIDField: '199'
+                        emailField: azureapp@signiflow.net
+                        eventDateField: '7/14/2025 8:50:28 AM'
+                        eventField: Field Signed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:50:28 AM'
+                        pageField: '96'
+                        userFullNameField: Azure App Admin
+                      - additionalField: ' IP : 102.33.151.242:57640. Browser : Chrome.'
+                        docIDField: '199'
+                        emailField: azureapp@signiflow.net
+                        eventDateField: '7/14/2025 8:51:08 AM'
+                        eventField: Field Signed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:51:08 AM'
+                        pageField: '182'
+                        userFullNameField: Azure App Admin
+                      - additionalField: ' IP : 102.33.151.242:57640. Browser : Chrome.'
+                        docIDField: '199'
+                        emailField: azureapp@signiflow.net
+                        eventDateField: '7/14/2025 8:51:48 AM'
+                        eventField: Field Signed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:51:48 AM'
+                        pageField: '5'
+                        userFullNameField: Azure App Admin
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: azureapp@signiflow.net
+                        eventDateField: '7/14/2025 8:51:48 AM'
+                        eventField: Workflow User Signed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:51:48 AM'
+                        pageField: '0'
+                        userFullNameField: Azure App Admin
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: azureapp@signiflow.net
+                        eventDateField: '7/14/2025 8:51:48 AM'
+                        eventField: Completed
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:51:48 AM'
+                        pageField: '0'
+                        userFullNameField: Azure App Admin
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: azureapp@signiflow.net
+                        eventDateField: '7/14/2025 8:52:04 AM'
+                        eventField: Email sent
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:52:04 AM'
+                        pageField: ''
+                        userFullNameField: Azure App Admin
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: divanb@signiflow.com
+                        eventDateField: '7/14/2025 8:52:13 AM'
+                        eventField: Email sent
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '7/14/2025 8:52:13 AM'
+                        pageField: ''
+                        userFullNameField: Divan Basson
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: ''
+                        eventDateField: '3/27/2026 7:28:10 AM'
+                        eventField: Reminder email failed to send
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '3/27/2026 7:28:10 AM'
+                        pageField: ''
+                        userFullNameField: ''
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: divanb@signiflow.com
+                        eventDateField: '3/27/2026 7:32:47 AM'
+                        eventField: Cancelled
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '3/27/2026 7:32:47 AM'
+                        pageField: '0'
+                        userFullNameField: Divan Basson
+                      - additionalField: ''
+                        docIDField: '199'
+                        emailField: ''
+                        eventDateField: '3/30/2026 5:39:48 AM'
+                        eventField: Reminder email failed to send
+                        eventStatusField: Completed
+                        locationField: ''
+                        orderDateField: '3/30/2026 5:39:48 AM'
+                        pageField: ''
+                        userFullNameField: ''
+                    resultField: Success - Document was updated.
+                properties:
+                  activityField:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        additionalField:
+                          type: string
+                        docIDField:
+                          type: string
+                          description: Unique identifier of the document.
+                        emailField:
+                          type: string
+                          description: Email of the associated user.
+                        eventDateField:
+                          type: string
+                          description: Date of the event.
+                        eventField:
+                          type: string
+                          description: Type of event that occured.
+                        eventStatusField:
+                          type: string
+                        locationField:
+                          type: string
+                        orderDateField:
+                          type: string
+                        pageField:
+                          type: string
+                          description: Page the event took place on. If 0 page is not relevant to the event.
+                        userFullNameField:
+                          type: string
+                          description: Full name of the associated user.
+                  resultField:
+                    type: string
+                    description: Result of the request. i.e. "Success"
+        '401':
+          description: Unauthorized
+      operationId: get-Document-id-Audit-Trail
+      x-stoplight:
+        id: 2t631xcxe1rz6
   '/Document/{id}/Workflow/Cancel':
     get:
       summary: Workflow Cancel
@@ -1449,6 +1750,7 @@ paths:
                   description: Indicates whether the documents should auto remind.
                 document:
                   type: string
+                  description: Base64 of the document.
                 documentName:
                   type: string
                   description: Name of the document.
