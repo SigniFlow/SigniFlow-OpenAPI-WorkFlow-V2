@@ -794,8 +794,9 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
-      tags: []
+      summary: Audit Trail
+      tags:
+        - Document
       responses:
         '200':
           description: OK
