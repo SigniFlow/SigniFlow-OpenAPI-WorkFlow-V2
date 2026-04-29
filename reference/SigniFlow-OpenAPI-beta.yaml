@@ -777,7 +777,6 @@ paths:
             application/pdf:
               schema:
                 type: object
-                properties: {}
         '401':
           description: Unauthorized
         '404':
@@ -1070,8 +1069,10 @@ paths:
                           description: Type of event that occured.
                         eventStatusField:
                           type: string
+                          description: Status of the event that occured
                         locationField:
                           type: string
+                          description: Location the event occured.
                         orderDateField:
                           type: string
                         pageField:
